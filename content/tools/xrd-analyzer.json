@@ -1,0 +1,24 @@
+{
+  "id": "xrd-analyzer",
+  "name": "XRD Analyzer",
+  "version": "0.0.0",
+  "category": "diffraction",
+  "type": "desktop",
+  "description": "A sample entry for diffraction data analysis.",
+  "platforms": [
+    "Windows"
+  ],
+  "icon": "",
+  "screenshots": [],
+  "download": "",
+  "online": "",
+  "github": "",
+  "documentation": "",
+  "citation": "",
+  "demo": true,
+  "featured": true,
+  "updated": "2026-10-03",
+  "developer": "NexoraLab",
+  "features": [],
+  "history": []
+}

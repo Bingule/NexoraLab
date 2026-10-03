@@ -1,0 +1,22 @@
+{
+  "id": "my-tool",
+  "name": "My Scientific Tool",
+  "version": "1.0.0",
+  "category": "utilities",
+  "type": "desktop",
+  "description": "Replace this with a short, accurate description of your software.",
+  "platforms": ["Windows"],
+  "icon": "",
+  "screenshots": [],
+  "download": "",
+  "online": "",
+  "github": "",
+  "documentation": "",
+  "citation": "",
+  "demo": false,
+  "featured": false,
+  "updated": "2026-10-03",
+  "developer": "",
+  "features": [],
+  "history": []
+}

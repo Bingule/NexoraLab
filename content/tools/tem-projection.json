@@ -1,0 +1,25 @@
+{
+  "id": "tem-projection",
+  "name": "TEM Projection",
+  "version": "0.0.0",
+  "category": "microscopy",
+  "type": "hybrid",
+  "description": "A sample entry for atomic and microscopy projections.",
+  "platforms": [
+    "Windows",
+    "Web"
+  ],
+  "icon": "",
+  "screenshots": [],
+  "download": "",
+  "online": "",
+  "github": "",
+  "documentation": "",
+  "citation": "",
+  "demo": true,
+  "featured": true,
+  "updated": "2026-10-03",
+  "developer": "NexoraLab",
+  "features": [],
+  "history": []
+}

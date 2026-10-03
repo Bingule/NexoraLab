@@ -1,0 +1,24 @@
+{
+  "id": "crystal-viewer",
+  "name": "Crystal Viewer",
+  "version": "0.0.0",
+  "category": "structure",
+  "type": "online",
+  "description": "A sample entry for crystal-structure visualization.",
+  "platforms": [
+    "Web"
+  ],
+  "icon": "",
+  "screenshots": [],
+  "download": "",
+  "online": "",
+  "github": "",
+  "documentation": "",
+  "citation": "",
+  "demo": true,
+  "featured": true,
+  "updated": "2026-10-03",
+  "developer": "NexoraLab",
+  "features": [],
+  "history": []
+}
