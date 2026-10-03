@@ -7,7 +7,7 @@
   "description": "Generate crystal structure descriptions from CIF files online or with the CrystalDesk Windows offline client. The online service uses a hosted Python backend; CrystalDesk processes files locally and requires activation.",
   "platforms": ["Web", "Windows"],
   "icon": "",
-  "screenshots": [],
+  "screenshots": ["screenshot.png"],
   "download": "https://github.com/Bingule/NexoraLab/releases/download/crystaldesk-windows-v1.0.0/CrystalDesk-Windows-x64.zip",
   "release": "https://github.com/Bingule/NexoraLab/releases/tag/crystaldesk-windows-v1.0.0",
   "online": "/lab/crystal-description/",
