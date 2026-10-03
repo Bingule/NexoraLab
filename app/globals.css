@@ -1954,3 +1954,10 @@ html[lang="zh-CN"] .hero h1 {
     margin-bottom: 16px;
   }
 }
+.activation-label {
+  margin: 14px 0 0;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+}

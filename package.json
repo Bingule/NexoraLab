@@ -10,6 +10,7 @@
     "test": "node --experimental-strip-types --test tests/*.test.ts",
     "preview": "node scripts/preview.mjs",
     "check:links": "node scripts/check-links.mjs",
+    "check:publication": "node --experimental-strip-types scripts/check-publication.ts",
     "register": "node --experimental-strip-types scripts/register-tool.ts",
     "test:tmcc": "vitest run"
   },

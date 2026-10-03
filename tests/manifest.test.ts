@@ -37,6 +37,31 @@ test("accepts the publishing template and optional fields", () => {
     "hybrid",
   );
 });
+test("Windows activation metadata is scoped to a Windows client and excludes private manifest fields", () => {
+  assert.equal(
+    validateTool({ ...demo, windowsActivationRequired: true })
+      .windowsActivationRequired,
+    true,
+  );
+  for (const patch of [
+    { windowsActivationRequired: "true" },
+    { windowsActivationRequired: true, type: "online" },
+    { windowsActivationRequired: true, platforms: ["Web"] },
+    { ["private" + "SigningKey"]: "synthetic-fixture" },
+    { zh: { issuer: { token: "synthetic-fixture" } } },
+    {
+      history: [
+        {
+          version: "1.0.0",
+          date: "2026-10-03",
+          notes: "Release",
+          issuer: "synthetic-fixture",
+        },
+      ],
+    },
+  ])
+    assert.throws(() => validateTool({ ...demo, ...patch }));
+});
 test("rejects invalid IDs, categories, types and links", () => {
   for (const patch of [
     { id: "../escape" },

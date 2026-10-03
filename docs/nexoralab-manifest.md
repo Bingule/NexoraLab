@@ -6,33 +6,46 @@
 
 从 `templates/nexoralab.json` 复制模板。UTF-8 编码，标准 JSON，不包含注释或尾随逗号。
 
-| 字段            | 含义                                                                                               |
-| --------------- | -------------------------------------------------------------------------------------------------- |
-| `id`            | 必填。唯一、小写、数字和连字符，例如 `xrd-analyzer`，发布后尽量不改动                              |
-| `name`          | 必填。软件显示名称                                                                                 |
-| `version`       | 必填。软件发布版本，建议语义版本，例如 `1.0.0`                                                     |
-| `category`      | 必填。`structure` / `diffraction` / `microscopy` / `electrochemistry` / `simulation` / `utilities` |
-| `type`          | 必填。`desktop` / `online` / `hybrid`                                                              |
-| `description`   | 必填。简短、准确描述，避免未经验证的功能声明                                                       |
-| `platforms`     | 必填。字符串数组，如 `["Windows", "Web"]` 或 `["Python"]`                                          |
-| `icon`          | 可选。空字符串、HTTPS 地址、站内绝对路径或资源文件名                                               |
-| `screenshots`   | 必填数组。可为空；支持 HTTPS 地址、站内绝对路径或文件名                                            |
-| `download`      | 可选。直接下载 URL，推荐独立软件 GitHub Release 中的 `.exe` / `.zip` 资源地址                      |
-| `online`        | 可选。可运行应用的 HTTPS URL 或真实的 `/lab/tool-name/` 路径                                       |
-| `github`        | 可选。独立软件仓库的 HTTPS URL                                                                     |
-| `documentation` | 可选。HTTPS 文档地址或已存在的站内资源路径                                                         |
-| `release`       | 可选。GitHub Release 页面 URL，用于发布说明按钮                                                    |
-| `web`           | 可选。独立项目内的网页构建入口，如 `dist/index.html`；导入后转换为站内资产路径                     |
-| `zh`            | 可选。`description`、`features`（与英文顺序一致）、`historyNotes`（版本号到中文发布说明的映射）    |
-| `citation`      | 可选。引用文本或 DOI 引用信息，以纯文本呈现                                                        |
-| `demo`          | 可选布尔值。展示用占位记录设为 `true`，真实软件设为 `false`                                        |
-| `featured`      | 可选布尔值。首页展示最多三个精选工具                                                               |
-| `updated`       | 可选。`YYYY-MM-DD`，用于最新动态排序                                                               |
-| `developer`     | 可选。开发者名称                                                                                   |
-| `features`      | 可选字符串数组。真实、已验证的功能                                                                 |
-| `history`       | 可选数组：`[{"version":"1.0.0","date":"2026-10-03","notes":"首次发布"}]`                           |
+| 字段                        | 含义                                                                                               |
+| --------------------------- | -------------------------------------------------------------------------------------------------- |
+| `id`                        | 必填。唯一、小写、数字和连字符，例如 `xrd-analyzer`，发布后尽量不改动                              |
+| `name`                      | 必填。软件显示名称                                                                                 |
+| `version`                   | 必填。软件发布版本，建议语义版本，例如 `1.0.0`                                                     |
+| `category`                  | 必填。`structure` / `diffraction` / `microscopy` / `electrochemistry` / `simulation` / `utilities` |
+| `type`                      | 必填。`desktop` / `online` / `hybrid`                                                              |
+| `description`               | 必填。简短、准确描述，避免未经验证的功能声明                                                       |
+| `platforms`                 | 必填。字符串数组，如 `["Windows", "Web"]` 或 `["Python"]`                                          |
+| `windowsActivationRequired` | 可选布尔值。现有机器码激活的 Windows 客户端填 `true`；仅用于桌面或混合工具，保留原授权机制         |
+| `icon`                      | 可选。空字符串、HTTPS 地址、站内绝对路径或资源文件名                                               |
+| `screenshots`               | 必填数组。可为空；支持 HTTPS 地址、站内绝对路径或文件名                                            |
+| `download`                  | 可选。直接下载 URL，推荐独立软件 GitHub Release 中的 `.exe` / `.zip` 资源地址                      |
+| `online`                    | 可选。可运行应用的 HTTPS URL 或真实的 `/lab/tool-name/` 路径                                       |
+| `github`                    | 可选。独立软件仓库的 HTTPS URL                                                                     |
+| `documentation`             | 可选。HTTPS 文档地址或已存在的站内资源路径                                                         |
+| `release`                   | 可选。GitHub Release 页面 URL，用于发布说明按钮                                                    |
+| `web`                       | 可选。独立项目内的网页构建入口，如 `dist/index.html`；导入后转换为站内资产路径                     |
+| `zh`                        | 可选。`description`、`features`（与英文顺序一致）、`historyNotes`（版本号到中文发布说明的映射）    |
+| `citation`                  | 可选。引用文本或 DOI 引用信息，以纯文本呈现                                                        |
+| `demo`                      | 可选布尔值。展示用占位记录设为 `true`，真实软件设为 `false`                                        |
+| `featured`                  | 可选布尔值。首页展示最多三个精选工具                                                               |
+| `updated`                   | 可选。`YYYY-MM-DD`，用于最新动态排序                                                               |
+| `developer`                 | 可选。开发者名称                                                                                   |
+| `features`                  | 可选字符串数组。真实、已验证的功能                                                                 |
+| `history`                   | 可选数组：`[{"version":"1.0.0","date":"2026-10-03","notes":"首次发布"}]`                           |
 
 链接仅接受 HTTPS 或以单个 `/` 开头的站内路径。空 URL 隐藏相应操作按钮；不要填写 `#`、虚构地址、`javascript:` 或不存在的下载。
+
+清单仅接受表中已定义的公开字段，禁止填入私钥、主密钥、激活码签发配置或客户授权记录。Windows 模板默认 `windowsActivationRequired: true`，该字段只展示授权说明，不参与或改变客户端验证。
+
+## Windows 授权与公开发布边界
+
+现有机器码激活必须保留：用户下载客户端 → 首次启动获得 Machine ID → 发给开发者 → 开发者手动签发激活码/授权文件 → 客户端输入或导入 → 在该机器激活。CrystalDesk 的现有流程导入 `.cdlicense` 文件；网站不签发授权、不接收机器码，不增加支付后端。
+
+填写 `windowsActivationRequired: true` 后，工具卡片和详情页显示 **Windows version — activation required**（中文：Windows 版 — 需要激活）。下载链接可以公开，但使用需要有效授权。Windows 发布包上线前保持 `download` 为空；不能把未提供的下载标为已发布。
+
+公开 GitHub 仓库只存展示资源、元数据和允许公开的代码。Windows 可分发客户端只作为 GitHub Release 附件；签发器、私有签发逻辑、私钥、主密钥、客户记录、已签发授权，以及包含这些内容的 owner ZIP 均留在独立私有目录。客户端可保留验签公钥和原验证逻辑，不得替换成免激活版本。不要将独立软件的私有源仓库或历史推送到 NexoraLab。
+
+发布前对准确的客户端安装包/ZIP 做文件审计并实际验证首次启动、拒绝无效/错误机器授权、有效激活与重启加载授权。包名相近的未授权版与 owner 包不能替代授权客户端。当前网站的 `.gitignore` 和 `npm run check:publication` 拦截已知签发文件名、私钥文本及授权记录；导入网页构建时也检查这类内容，并拒绝打包二进制/归档。检查属于已配置特征的预检，不能代替发布包内容和实际激活行为的验证。
 
 示例 `0.0.0` 是演示版本，不代表真实发布。网站不会仅凭 `type` 自动声称工具可用，也不会将演示工作区作为可运行科学软件。
 

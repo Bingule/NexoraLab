@@ -126,3 +126,29 @@ test("invalid links, missing assets and escaping paths do not alter the registry
     fs.rmSync(f.root, { recursive: true, force: true });
   }
 });
+test("private issuer files and embedded private keys cannot enter an imported web build", () => {
+  const f = fixture();
+  try {
+    fs.writeFileSync(
+      path.join(f.project, "dist/issuer.cjs"),
+      "// synthetic issuer fixture",
+    );
+    assert.throws(
+      () => registerTool(f.project, { site: f.site }),
+      /Private publication asset/,
+    );
+    assert.equal(fs.existsSync(f.site), false);
+    fs.rmSync(path.join(f.project, "dist/issuer.cjs"));
+    fs.writeFileSync(
+      path.join(f.project, "dist/app.js"),
+      "-----BEGIN " + "PRIVATE KEY-----\nsynthetic fixture",
+    );
+    assert.throws(
+      () => registerTool(f.project, { site: f.site }),
+      /Private key material/,
+    );
+    assert.equal(fs.existsSync(f.site), false);
+  } finally {
+    fs.rmSync(f.root, { recursive: true, force: true });
+  }
+});

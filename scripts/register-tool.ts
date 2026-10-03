@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { validateTool, validAsset } from "../lib/manifest.ts";
+import { assertPublicAsset } from "../lib/publication.ts";
 
 type Options = { site?: string; replace?: boolean; dryRun?: boolean };
 function localFile(root: string, name: string) {
@@ -24,7 +25,9 @@ export function registerTool(input: string, options: Options = {}) {
     ? path.join(source, "nexoralab.json")
     : source;
   const project = path.dirname(manifest);
-  const tool = validateTool(JSON.parse(fs.readFileSync(manifest, "utf8")));
+  const metadata = fs.readFileSync(manifest);
+  assertPublicAsset(path.basename(manifest), metadata);
+  const tool = validateTool(JSON.parse(metadata.toString("utf8")));
   const site = path.resolve(
     options.site || fileURLToPath(new URL("../", import.meta.url)),
   );
@@ -37,7 +40,8 @@ export function registerTool(input: string, options: Options = {}) {
   for (const image of images) {
     if (!/\.(png|jpe?g|webp|gif|svg)$/i.test(image) || image.startsWith("app/"))
       throw new Error(`Unsupported image path: ${image}`);
-    localFile(project, image);
+    const file = localFile(project, image);
+    assertPublicAsset(image, fs.readFileSync(file));
   }
   let build: string | undefined;
   if (tool.web) {
@@ -58,13 +62,15 @@ export function registerTool(input: string, options: Options = {}) {
     })) {
       if (item.isSymbolicLink())
         throw new Error("Web builds may not contain symbolic links");
-      if (item.isFile())
-        localFile(
+      if (item.isFile()) {
+        const file = localFile(
           project,
           path
             .relative(project, path.join(item.parentPath, item.name))
             .replaceAll(path.sep, "/"),
         );
+        assertPublicAsset(path.relative(build, file), fs.readFileSync(file));
+      }
     }
     tool.web = `/tools/${tool.id}/app/${path.basename(entry)}`;
     tool.online = `/lab/${tool.id}/`;

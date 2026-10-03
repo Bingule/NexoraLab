@@ -6,6 +6,7 @@
   "type": "desktop",
   "description": "Replace this with a short, accurate description of your software.",
   "platforms": ["Windows"],
+  "windowsActivationRequired": true,
   "icon": "",
   "screenshots": [],
   "download": "",

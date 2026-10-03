@@ -27,6 +27,7 @@ jobs:
           npm test
           npm run test:tmcc
           npm run typecheck
+          npm run check:publication
       - name: Set deployment path
         env:
           CUSTOM_DOMAIN: ${{ vars.PAGES_CUSTOM_DOMAIN }}

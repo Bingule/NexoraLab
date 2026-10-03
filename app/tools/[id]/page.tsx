@@ -8,6 +8,7 @@ import { validLink, isAvailable } from "@/lib/manifest";
 import { Icon, categoryIcon } from "@/components/Icon";
 import { ToolActions } from "@/components/ToolCard";
 import { categoryLabels } from "@/lib/labels";
+import { WindowsActivation } from "@/components/WindowsActivation";
 export function generateStaticParams() {
   return getTools().map((t) => ({ id: t.id }));
 }
@@ -78,6 +79,9 @@ export default async function Detail({
             </p>
           </div>
         </div>
+      )}
+      {t.windowsActivationRequired && (
+        <WindowsActivation downloadAvailable={validLink(t.download)} />
       )}
       <div className="detail-layout">
         <div>

@@ -5,6 +5,7 @@ import { asset } from "@/lib/paths";
 import { Icon, categoryIcon } from "./Icon";
 import { T } from "./Language";
 import { categoryLabels } from "@/lib/labels";
+import { WindowsActivation } from "./WindowsActivation";
 export function ToolActions({
   tool,
   compact = false,
@@ -155,6 +156,7 @@ export function ToolCard({ tool }: { tool: Tool }) {
           <span key={p}>{p}</span>
         ))}
       </div>
+      {tool.windowsActivationRequired && <WindowsActivation compact />}
       <div className="card-footer">
         <span className="version">
           {!available ? <T zh="待发布">Unreleased</T> : `v${tool.version}`}

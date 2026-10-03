@@ -23,6 +23,7 @@ export type Tool = {
   documentation: string;
   citation: string;
   release?: string;
+  windowsActivationRequired?: boolean;
   web?: string;
   zh?: {
     description?: string;
@@ -55,6 +56,36 @@ export function validateTool(input: unknown): Tool {
   if (!input || typeof input !== "object" || Array.isArray(input))
     throw new Error("Tool must be a JSON object");
   const t = input as Record<string, unknown>;
+  const publicFields = [
+    "id",
+    "name",
+    "version",
+    "category",
+    "type",
+    "description",
+    "platforms",
+    "icon",
+    "screenshots",
+    "download",
+    "online",
+    "github",
+    "documentation",
+    "citation",
+    "release",
+    "web",
+    "zh",
+    "demo",
+    "featured",
+    "updated",
+    "developer",
+    "features",
+    "history",
+    "windowsActivationRequired",
+  ];
+  if (Object.keys(t).some((key) => !publicFields.includes(key)))
+    throw new Error(
+      "Unknown manifest field: publish only documented tool metadata",
+    );
   for (const key of ["id", "name", "version", "description"])
     if (typeof t[key] !== "string" || !(t[key] as string).trim())
       throw new Error(`Missing ${key}`);
@@ -104,6 +135,9 @@ export function validateTool(input: unknown): Tool {
       !zh ||
       typeof zh !== "object" ||
       Array.isArray(zh) ||
+      Object.keys(zh).some(
+        (key) => !["description", "features", "historyNotes"].includes(key),
+      ) ||
       (zh.description !== undefined && typeof zh.description !== "string") ||
       (zh.features !== undefined &&
         (!Array.isArray(zh.features) ||
@@ -119,9 +153,19 @@ export function validateTool(input: unknown): Tool {
   for (const key of ["icon", "citation", "developer"])
     if (t[key] !== undefined && typeof t[key] !== "string")
       throw new Error(`Invalid ${key}`);
-  for (const key of ["demo", "featured"])
+  for (const key of ["demo", "featured", "windowsActivationRequired"])
     if (t[key] !== undefined && typeof t[key] !== "boolean")
       throw new Error(`Invalid ${key}`);
+  if (
+    t.windowsActivationRequired &&
+    (t.type === "online" ||
+      !(t.platforms as string[]).some((platform) =>
+        /^windows(?:\b|$)/i.test(platform),
+      ))
+  )
+    throw new Error(
+      "Windows activation requires a Windows desktop or hybrid client",
+    );
   if (
     t.updated !== undefined &&
     (typeof t.updated !== "string" ||
@@ -142,6 +186,9 @@ export function validateTool(input: unknown): Tool {
         (x) =>
           x &&
           typeof x === "object" &&
+          Object.keys(x).every((key) =>
+            ["version", "date", "notes"].includes(key),
+          ) &&
           ["version", "date", "notes"].every((k) => typeof x[k] === "string"),
       ))
   )

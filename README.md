@@ -22,6 +22,7 @@ Windows 当前工作区依赖已安装，可直接双击 `start.cmd`，或在本
 ```sh
 npm test
 npm run typecheck
+npm run check:publication
 npm run build
 npm run check:links
 npm run preview
@@ -37,6 +38,8 @@ npm run preview
 4. 执行测试、类型检查、构建和链接检查，然后提交推送；GitHub Pages 会更新目录、详情页与最新发布。
 
 软件源代码留在各自项目。导入命令仅复制清单、声明的图片和网页发布产物，不自动编译、创建仓库或发布 Release。完整流程与示例见 [docs/nexoralab-manifest.md](docs/nexoralab-manifest.md)。
+
+Windows 客户端保留现有机器码激活，在清单中设置 `windowsActivationRequired: true`。客户端通过 GitHub Releases 分发；签发器、私钥、主密钥和客户授权记录留在私有目录，激活由开发者手动签发。网站不提供激活签发或支付后端。
 
 ## TMCCDB 工具来源
 
