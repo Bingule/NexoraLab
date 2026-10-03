@@ -15,7 +15,11 @@ export function ToolActions({
 }) {
   const actions = [
     [tool.online, "Open Online", "globe"],
-    [tool.download, "Download", "download"],
+    [
+      tool.download,
+      tool.windowsActivationRequired ? "Download Windows" : "Download",
+      "download",
+    ],
     [tool.github, "GitHub", "code"],
     [tool.release || "", "Release notes", "book"],
   ].filter(([url]) => validLink(url));
@@ -34,6 +38,7 @@ export function ToolActions({
                 {
                   "Open Online": "在线使用",
                   Download: "下载",
+                  "Download Windows": "下载 Windows 离线版",
                   GitHub: "GitHub",
                   "Release notes": "发布说明",
                 }[label]
@@ -56,6 +61,7 @@ export function ToolActions({
                 {
                   "Open Online": "在线使用",
                   Download: "下载",
+                  "Download Windows": "下载 Windows 离线版",
                   GitHub: "GitHub",
                   "Release notes": "发布说明",
                 }[label]

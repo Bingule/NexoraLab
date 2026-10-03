@@ -4,11 +4,12 @@
   "version": "1.0.0",
   "category": "structure",
   "type": "hybrid",
-  "description": "Generate Robocrys descriptions from CIF structures through the existing hosted Streamlit Python service. Files are processed by that external backend.",
+  "description": "Generate crystal structure descriptions from CIF files online or with the CrystalDesk Windows offline client. The online service uses a hosted Python backend; CrystalDesk processes files locally and requires activation.",
   "platforms": ["Web", "Windows"],
   "icon": "",
   "screenshots": [],
-  "download": "",
+  "download": "https://github.com/Bingule/NexoraLab/releases/download/crystaldesk-windows-v1.0.0/CrystalDesk-Windows-x64.zip",
+  "release": "https://github.com/Bingule/NexoraLab/releases/tag/crystaldesk-windows-v1.0.0",
   "online": "/lab/crystal-description/",
   "github": "https://github.com/Bingule/crystal-description",
   "documentation": "https://github.com/Bingule/crystal-description",
@@ -21,26 +22,30 @@
     "Embedded Streamlit workspace with a direct service link",
     "SnO₂ example, copy and download within the original service",
     "Community-hosted service; confidential structures should not be uploaded",
-    "CrystalDesk Windows client requires developer-issued machine-bound activation via a .cdlicense file"
+    "CrystalDesk Windows offline client: local CIF processing, a bundled SnO₂ example and TXT/JSON export",
+    "Portable Windows x64 ZIP with bundled runtimes; extract the entire folder and run CrystalDesk.exe",
+    "Windows use requires developer-issued machine-bound activation via a .cdlicense file"
   ],
   "history": [
     {
       "version": "1.0.0",
       "date": "2026-10-03",
-      "notes": "Added the TMCCDB Crystal Description workspace to NexoraLab, retaining its existing hosted Python service."
+      "notes": "CrystalDesk Windows offline download is now available alongside the online Crystal Description workspace. Windows use requires manual machine-bound activation."
     }
   ],
   "zh": {
-    "description": "通过现有托管的 Streamlit Python 服务，使用 Robocrys 从 CIF 结构生成描述。文件由该外部后端处理。",
+    "description": "从 CIF 文件生成晶体结构描述，可使用在线服务或 CrystalDesk Windows 离线客户端。在线服务由托管 Python 后端处理文件；CrystalDesk 在本机处理文件，使用前需要激活。",
     "features": [
       "由托管的 Robocrys Python 后端生成 CIF 结构描述",
       "嵌入 Streamlit 工作区，并提供直接打开服务的入口",
       "保留原服务的 SnO₂ 示例、复制和下载功能",
       "使用社区托管服务，请勿上传保密结构",
-      "CrystalDesk Windows 客户端通过开发者签发的 .cdlicense 文件完成本机激活"
+      "CrystalDesk Windows 离线客户端：在本机处理 CIF，内置 SnO₂ 示例并支持 TXT/JSON 导出",
+      "Windows x64 便携压缩包包含所需运行环境；完整解压后运行 CrystalDesk.exe",
+      "Windows 版通过开发者签发的 .cdlicense 文件完成本机激活"
     ],
     "historyNotes": {
-      "1.0.0": "将 TMCCDB 的晶体描述工作区接入 NexoraLab，继续使用现有托管 Python 服务。"
+      "1.0.0": "CrystalDesk Windows 离线版现已开放下载，同时保留在线晶体描述工作区。Windows 版需要开发者手动签发本机授权。"
     }
   },
   "windowsActivationRequired": true
