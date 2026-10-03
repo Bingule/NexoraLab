@@ -113,7 +113,7 @@ export function ReviewerTwoGuide({ tool }: { tool: Tool }) {
         </div>
         <p>
           <T zh="固定源码提交：">Pinned source commit: </T>
-          <code>{commit}</code>
+          <code style={{ overflowWrap: "anywhere" }}>{commit}</code>
         </p>
         <Link className="text-link" href="/tools/reviewer-two/">
           <T zh="Skill 详情与版本历史">Skill details & version history</T>
