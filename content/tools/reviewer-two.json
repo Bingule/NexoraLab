@@ -3,15 +3,15 @@
   "name": "Reviewer Two",
   "version": "1.0.0",
   "category": "utilities",
-  "type": "online",
-  "description": "Launch the independent Reviewer Two skill workflow in an authorized private runtime. This workspace provides source and installation guidance; manuscript review runs in the authorized host.",
-  "platforms": ["Web launcher", "Authorized private runtime"],
+  "type": "skill",
+  "description": "An AI skill for evidence-grounded scientific manuscript review. Install or load it in a supported, authorized host, then choose first-round or revision-round review. Includes usage guidance and version updates.",
+  "platforms": ["Codex", "Claude Code", "LLM host"],
   "icon": "",
   "screenshots": [],
   "download": "",
-  "online": "/lab/reviewer-two/",
+  "online": "",
   "github": "https://github.com/Bingule/reviewer-two",
-  "documentation": "https://github.com/Bingule/reviewer-two/blob/9ff847d0b23a23c87b24e5340907df4c45f32ffc/README.md",
+  "documentation": "/lab/reviewer-two/",
   "citation": "",
   "featured": false,
   "updated": "2026-10-03",
@@ -26,11 +26,11 @@
     {
       "version": "1.0.0",
       "date": "2026-10-03",
-      "notes": "Added the TMCCDB Reviewer Two launcher to AimatraLab with its versioned source and private-runtime instructions."
+      "notes": "Reviewer Two skill installation and usage guidance is available on AimatraLab, with versioned source and update information."
     }
   ],
   "zh": {
-    "description": "在获授权的私有运行环境中启动独立的 Reviewer Two 技能工作流。本工作区提供源码与安装说明，稿件审阅在获授权的宿主中执行。",
+    "description": "用于循证科学论文审阅的 AI Skill。在受支持且获授权的宿主中安装或加载后，选择初审或修回审稿模式。提供使用指南和版本更新记录。",
     "features": [
       "提供独立技能的固定版本源码与安装说明",
       "需要获授权的私有运行环境及明确的稿件访问许可",
@@ -38,7 +38,7 @@
       "以证据支持人工审稿，科学判断仍由审稿人负责"
     ],
     "historyNotes": {
-      "1.0.0": "将 TMCCDB 的 Reviewer Two 启动入口接入 AimatraLab，保留固定版本源码和私有环境使用说明。"
+      "1.0.0": "AimatraLab 现已提供 Reviewer Two Skill 的安装与使用指南，并保留固定版本来源和更新信息。"
     }
   }
 }

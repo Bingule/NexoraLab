@@ -14,6 +14,7 @@ export function ToolActions({
   compact?: boolean;
 }) {
   const actions = [
+    [tool.type === "skill" ? tool.documentation : "", "Usage guide", "book"],
     [tool.online, "Open Online", "globe"],
     [
       tool.download,
@@ -37,6 +38,7 @@ export function ToolActions({
               zh={
                 {
                   "Open Online": "在线使用",
+                  "Usage guide": "使用指南",
                   Download: "下载",
                   "Download Windows": "下载 Windows 离线版",
                   GitHub: "GitHub",
@@ -60,6 +62,7 @@ export function ToolActions({
               zh={
                 {
                   "Open Online": "在线使用",
+                  "Usage guide": "使用指南",
                   Download: "下载",
                   "Download Windows": "下载 Windows 离线版",
                   GitHub: "GitHub",
@@ -118,10 +121,20 @@ export function ToolCard({ tool }: { tool: Tool }) {
           <>
             <Icon name={categoryIcon[tool.category]} size={34} />
             <span>
-              <T zh={!available ? "尚未发布" : "截图待补充"}>
-                {tool.demo
-                  ? "Release in preparation"
-                  : "Screenshot coming soon"}
+              <T
+                zh={
+                  tool.type === "skill"
+                    ? "安装 · 使用 · 更新"
+                    : !available
+                      ? "尚未发布"
+                      : "截图待补充"
+                }
+              >
+                {tool.type === "skill"
+                  ? "Install · Use · Update"
+                  : tool.demo
+                    ? "Release in preparation"
+                    : "Screenshot coming soon"}
               </T>
             </span>
           </>
@@ -139,23 +152,33 @@ export function ToolCard({ tool }: { tool: Tool }) {
       <div className="tool-badges">
         <span>
           <Icon
-            name={tool.type === "online" ? "globe" : "download"}
+            name={
+              tool.type === "skill"
+                ? "code"
+                : tool.type === "online"
+                  ? "globe"
+                  : "download"
+            }
             size={12}
           />
           <T
             zh={
-              tool.type === "hybrid"
-                ? "桌面 + 网页"
-                : tool.type === "online"
-                  ? "在线"
-                  : "桌面"
+              tool.type === "skill"
+                ? "Skill"
+                : tool.type === "hybrid"
+                  ? "桌面 + 网页"
+                  : tool.type === "online"
+                    ? "在线"
+                    : "桌面"
             }
           >
-            {tool.type === "hybrid"
-              ? "Desktop + Web"
-              : tool.type === "online"
-                ? "Online"
-                : "Desktop"}
+            {tool.type === "skill"
+              ? "Skill"
+              : tool.type === "hybrid"
+                ? "Desktop + Web"
+                : tool.type === "online"
+                  ? "Online"
+                  : "Desktop"}
           </T>
         </span>
         {tool.platforms.map((p) => (
@@ -173,6 +196,7 @@ export function ToolCard({ tool }: { tool: Tool }) {
       </div>
       {(validLink(tool.online) ||
         validLink(tool.download) ||
+        (tool.type === "skill" && validLink(tool.documentation)) ||
         validLink(tool.github)) && (
         <div className="card-actions">
           <ToolActions tool={tool} compact />

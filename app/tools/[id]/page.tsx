@@ -108,7 +108,7 @@ export default async function Detail({
                   />
                 ))}
               </div>
-            ) : (
+            ) : t.type !== "skill" ? (
               <div className="screenshot-placeholder">
                 <Icon name={categoryIcon[t.category]} size={60} />
                 <span>
@@ -120,7 +120,7 @@ export default async function Detail({
                   </T>
                 </small>
               </div>
-            )}
+            ) : null}
           </section>
           <section className="detail-section">
             <h2>
@@ -196,11 +196,13 @@ export default async function Detail({
               <dd className="capitalize">
                 <T
                   zh={
-                    t.type === "desktop"
-                      ? "桌面"
-                      : t.type === "online"
-                        ? "在线"
-                        : "桌面 + 网页"
+                    t.type === "skill"
+                      ? "Skill"
+                      : t.type === "desktop"
+                        ? "桌面"
+                        : t.type === "online"
+                          ? "在线"
+                          : "桌面 + 网页"
                   }
                 >
                   {t.type}
@@ -229,7 +231,8 @@ export default async function Detail({
             </dl>
             <div className="detail-actions">
               <ToolActions tool={t} />
-              {validLink(t.documentation) &&
+              {t.type !== "skill" &&
+                validLink(t.documentation) &&
                 (t.documentation.startsWith("/") ? (
                   <Link className="button secondary" href={t.documentation}>
                     <Icon name="book" size={17} />
@@ -247,13 +250,15 @@ export default async function Detail({
                   </a>
                 ))}
             </div>
-            {!validLink(t.download) && !validLink(t.online) && (
-              <p className="sidebar-note">
-                <T zh="下载与在线入口尚未开放。">
-                  Download and online access are not available yet.
-                </T>
-              </p>
-            )}
+            {t.type !== "skill" &&
+              !validLink(t.download) &&
+              !validLink(t.online) && (
+                <p className="sidebar-note">
+                  <T zh="下载与在线入口尚未开放。">
+                    Download and online access are not available yet.
+                  </T>
+                </p>
+              )}
           </div>
           <Link className="text-link back-link" href="/tools/">
             <T zh="← 返回全部工具">← Back to all tools</T>

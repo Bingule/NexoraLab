@@ -6,12 +6,15 @@ import { T } from "@/components/Language";
 import { pageMetadata } from "@/lib/site";
 export const metadata: Metadata = pageMetadata(
   "Online Lab",
-  "Use AimatraLab's browser workspaces for materials calculations, structure descriptions, rate analysis and scientific review workflows.",
+  "Use AimatraLab's browser workspaces for materials calculations, structure descriptions and rate analysis, and find research skill usage guides.",
   "/lab/",
 );
 export default function Lab() {
   const tools = getTools().filter((t) => t.type !== "desktop");
-  const available = tools.filter((t) => isAvailable(t) && t.online);
+  const available = tools.filter(
+    (t) => t.type !== "skill" && isAvailable(t) && t.online,
+  );
+  const skills = tools.filter((t) => t.type === "skill" && isAvailable(t));
   const planned = tools.filter((t) => !isAvailable(t));
   const groups = [
     {
@@ -24,7 +27,6 @@ export default function Lab() {
       zh: "电池与电化学",
       ids: ["theoretical-capacity", "rate-performance"],
     },
-    { title: "Research Assistant", zh: "研究助手", ids: ["reviewer-two"] },
     {
       title: "Scientific Utilities",
       zh: "科学实用工具",
@@ -52,9 +54,9 @@ export default function Lab() {
           <T zh="在浏览器中，开始科学探索。">Science, in your browser.</T>
         </h1>
         <p>
-          <T zh="计算器、结构分析和科学审稿工作流。选择工具，查看它的运行方式。">
-            Calculators, structure analysis and scientific review workflows.
-            Choose a tool to see how it runs.
+          <T zh="使用计算器、结构分析与倍率分析工具，也可查看研究 Skill 的安装与使用指南。">
+            Use calculators, structure analysis and rate analysis tools, or find
+            installation and usage guides for research skills.
           </T>
         </p>
       </div>
@@ -83,6 +85,24 @@ export default function Lab() {
             </div>
           </section>
         ))}
+      {skills.length > 0 && (
+        <section className="lab-tool-group">
+          <h2>
+            <T zh="研究 Skills">Research skills</T>
+          </h2>
+          <p className="section-intro">
+            <T zh="在受支持的宿主中安装或加载。这里提供使用指南与版本更新。">
+              Install or load these skills in a supported host. Find usage
+              guidance and version updates here.
+            </T>
+          </p>
+          <div className="tool-grid lab-grid">
+            {skills.map((t) => (
+              <ToolCard key={t.id} tool={t} />
+            ))}
+          </div>
+        </section>
+      )}
       <div className="section-heading compact roadmap-heading">
         <div>
           <p className="eyebrow">

@@ -14,7 +14,7 @@
 | `name`                      | 必填。软件显示名称                                                                                 |
 | `version`                   | 必填。软件发布版本，建议语义版本，例如 `1.0.0`                                                     |
 | `category`                  | 必填。`structure` / `diffraction` / `microscopy` / `electrochemistry` / `simulation` / `utilities` |
-| `type`                      | 必填。`desktop` / `online` / `hybrid`                                                              |
+| `type`                      | 必填。`desktop` / `online` / `hybrid` / `skill`（宿主中的 AI 技能）                                |
 | `description`               | 必填。简短、准确描述，避免未经验证的功能声明                                                       |
 | `platforms`                 | 必填。字符串数组，如 `["Windows", "Web"]` 或 `["Python"]`                                          |
 | `windowsActivationRequired` | 可选布尔值。现有机器码激活的 Windows 客户端填 `true`；仅用于桌面或混合工具，保留原授权机制         |
@@ -36,6 +36,8 @@
 | `history`                   | 可选数组：`[{"version":"1.0.0","date":"2026-10-03","notes":"首次发布"}]`                           |
 
 链接仅接受 HTTPS 或以单个 `/` 开头的站内路径。空 URL 隐藏相应操作按钮；不要填写 `#`、虚构地址、`javascript:` 或不存在的下载。
+
+Skill 使用 `type: "skill"`，`documentation` 填安装与使用指南，`online` 保持为空。具备有效指南的非演示 Skill 可显示为已发布，不计入在线工具数量；卡片提供“使用指南”。版本更新仍通过 `version`、`updated`、`history`、`zh.historyNotes` 和可选 `release` 登记，发布路径与其他工具相同。`web` 仅适用于在线或混合应用。
 
 清单仅接受表中已定义的公开字段，禁止填入私钥、主密钥、激活码签发配置或客户授权记录。Windows 模板默认 `windowsActivationRequired: true`，该字段只展示授权说明，不参与或改变客户端验证。
 

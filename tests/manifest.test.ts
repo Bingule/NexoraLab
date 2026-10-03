@@ -37,6 +37,36 @@ test("accepts the publishing template and optional fields", () => {
     "hybrid",
   );
 });
+test("skills are available through guidance, retain version metadata and cannot be browser builds or Windows licensed clients", () => {
+  const skill = validateTool({
+    ...demo,
+    type: "skill",
+    demo: false,
+    platforms: ["Codex"],
+    documentation: "/lab/reviewer-two/",
+    version: "1.1.0",
+    history: [
+      {
+        version: "1.1.0",
+        date: "2026-10-03",
+        notes: "Updated review guidance",
+      },
+    ],
+  });
+  assert.equal(isAvailable(skill), true);
+  assert.equal(isAvailable({ ...skill, documentation: "" }), false);
+  assert.equal(isAvailable({ ...skill, demo: true }), false);
+  assert.equal(skill.history?.[0].version, "1.1.0");
+  assert.throws(() => validateTool({ ...skill, web: "dist/index.html" }));
+  assert.throws(() =>
+    validateTool({
+      ...skill,
+      platforms: ["Windows"],
+      windowsActivationRequired: true,
+    }),
+  );
+});
+
 test("Windows activation metadata is scoped to a Windows client and excludes private manifest fields", () => {
   assert.equal(
     validateTool({ ...demo, windowsActivationRequired: true })

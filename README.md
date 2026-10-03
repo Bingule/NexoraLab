@@ -49,7 +49,7 @@ Windows 客户端保留现有机器码激活，在清单中设置 `windowsActiva
 
 ## TMCCDB 工具来源
 
-五个既有工具接入 `/lab/`，上游科学代码固定在 `vendor/tmccdb/`，来源提交及哈希见 `vendor/tmccdb/UPSTREAM.json`。更新来源时需保留原项目，明确记录集成差异，运行 `npm run test:tmcc` 和 `npm test` 后再发布。Crystal Description 使用原 Streamlit 服务；Reviewer Two 在获授权的私有宿主执行。无需在 AimatraLab 配置 API 密钥。详见 [迁移说明](docs/tmccdb-migration-report.md)。
+五个既有工具接入 `/lab/`，上游科学代码固定在 `vendor/tmccdb/`，来源提交及哈希见 `vendor/tmccdb/UPSTREAM.json`。更新来源时需保留原项目，明确记录集成差异，运行 `npm run test:tmcc` 和 `npm test` 后再发布。Crystal Description 使用原 Streamlit 服务；Reviewer Two 标记为 `skill`，原 `/lab/reviewer-two/` 提供双语安装与使用指南，审阅在获授权的私有宿主执行。Skill 的版本与更新仍在注册表登记，不计入在线工具数量。无需在 AimatraLab 配置 API 密钥。详见 [迁移说明](docs/tmccdb-migration-report.md)。
 
 ## GitHub Pages
 

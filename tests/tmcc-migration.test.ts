@@ -11,7 +11,7 @@ const ids = [
   "reviewer-two",
   "rate-performance",
 ];
-test("all five TMCCDB tools are real registry entries with stable local workspaces", () => {
+test("TMCCDB tools retain their workspaces and Reviewer Two has a versioned skill guide", () => {
   for (const id of ids) {
     const tool = validateTool(
       JSON.parse(fs.readFileSync(`content/tools/${id}.json`, "utf8")),
@@ -19,7 +19,14 @@ test("all five TMCCDB tools are real registry entries with stable local workspac
     assert.equal(tool.id, id);
     assert.equal(tool.demo, undefined);
     assert.equal(isAvailable(tool), true);
-    assert.equal(tool.online, `/lab/${id}/`);
+    if (id === "reviewer-two") {
+      assert.equal(tool.type, "skill");
+      assert.equal(tool.online, "");
+      assert.equal(tool.documentation, "/lab/reviewer-two/");
+      assert.ok(tool.history?.length);
+    } else {
+      assert.equal(tool.online, `/lab/${id}/`);
+    }
     assert.ok(tool.github.startsWith("https://github.com/Bingule/"));
   }
 });

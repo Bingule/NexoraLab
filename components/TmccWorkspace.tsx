@@ -22,11 +22,6 @@ const pages: Record<string, ReturnType<typeof dynamic>> = {
       import("@/vendor/tmccdb/src/tools/crystal-description/CrystalDescriptionPage"),
     { ssr: false, loading },
   ),
-  "reviewer-two": dynamic(
-    () =>
-      import("@/vendor/tmccdb/src/tools/reviewer-two/pages/ReviewerTwoPage"),
-    { ssr: false, loading },
-  ),
   "rate-performance": dynamic(
     () =>
       import("@/vendor/tmccdb/src/tools/rate-performance/pages/RatePerformanceAnalysisPage"),

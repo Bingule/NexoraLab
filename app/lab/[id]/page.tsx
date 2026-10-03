@@ -8,6 +8,7 @@ import { LabFrame } from "@/components/LabFrame";
 import { TmccWorkspace } from "@/components/TmccWorkspace";
 import { isMigratedTool } from "@/lib/migrated-tools";
 import { pageMetadata } from "@/lib/site";
+import { ReviewerTwoGuide } from "@/components/ReviewerTwoGuide";
 export function generateStaticParams() {
   return getTools()
     .filter((t) => t.type !== "desktop")
@@ -22,7 +23,7 @@ export async function generateMetadata({
   const { id } = await params;
   const tool = getTools().find((t) => t.id === id);
   return pageMetadata(
-    `${tool?.name || "Tool"} workspace`,
+    `${tool?.name || "Tool"} ${tool?.type === "skill" ? "usage guide" : "workspace"}`,
     tool?.description || "An AimatraLab scientific workspace.",
     `/lab/${id}/`,
   );
@@ -57,7 +58,9 @@ export default async function Workspace({
           </p>
         </div>
       )}
-      {isMigratedTool(t.id) ? (
+      {t.id === "reviewer-two" ? (
+        <ReviewerTwoGuide tool={t} />
+      ) : isMigratedTool(t.id) ? (
         <TmccWorkspace id={t.id} />
       ) : t.web ? (
         <>

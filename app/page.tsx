@@ -137,9 +137,9 @@ export default function Home() {
               </T>
             </h2>
             <p>
-              <T zh="从结构描述、分子量与容量计算，到倍率分析和审稿工作流。">
+              <T zh="使用结构描述、分子量与容量计算和倍率分析工具，或查看研究 Skill 的使用指南。">
                 Explore structure descriptions, formula and capacity
-                calculators, rate analysis and review workflows.
+                calculators, rate analysis and research skill guides.
               </T>
             </p>
           </div>

@@ -12,7 +12,7 @@ export type Tool = {
   name: string;
   version: string;
   category: Category;
-  type: "desktop" | "online" | "hybrid";
+  type: "desktop" | "online" | "hybrid" | "skill";
   description: string;
   platforms: string[];
   icon: string;
@@ -50,7 +50,12 @@ export function validLink(value: unknown): value is string {
   }
 }
 export function isAvailable(tool: Tool): boolean {
-  return !tool.demo && (validLink(tool.online) || validLink(tool.download));
+  return (
+    !tool.demo &&
+    (validLink(tool.online) ||
+      validLink(tool.download) ||
+      (tool.type === "skill" && validLink(tool.documentation)))
+  );
 }
 export function validateTool(input: unknown): Tool {
   if (!input || typeof input !== "object" || Array.isArray(input))
@@ -93,7 +98,7 @@ export function validateTool(input: unknown): Tool {
     throw new Error("Invalid tool id");
   if (!categories.includes(t.category as Category))
     throw new Error("Invalid category");
-  if (!["desktop", "online", "hybrid"].includes(t.type as string))
+  if (!["desktop", "online", "hybrid", "skill"].includes(t.type as string))
     throw new Error("Invalid type");
   for (const key of ["platforms", "screenshots"])
     if (
@@ -123,7 +128,7 @@ export function validateTool(input: unknown): Tool {
       !t.web.endsWith(".html") ||
       (t.web.startsWith("/") && !t.web.startsWith(`/tools/${t.id}/app/`)) ||
       t.web.startsWith("https://") ||
-      t.type === "desktop" ||
+      (t.type !== "online" && t.type !== "hybrid") ||
       t.demo)
   )
     throw new Error(
@@ -158,7 +163,7 @@ export function validateTool(input: unknown): Tool {
       throw new Error(`Invalid ${key}`);
   if (
     t.windowsActivationRequired &&
-    (t.type === "online" ||
+    ((t.type !== "desktop" && t.type !== "hybrid") ||
       !(t.platforms as string[]).some((platform) =>
         /^windows(?:\b|$)/i.test(platform),
       ))
