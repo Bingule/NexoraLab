@@ -12,7 +12,7 @@ export default function Lab() {
     <div className="container page-content">
       <div className="page-heading">
         <p className="eyebrow">
-          <T zh="NEXORALAB / 在线实验室">NEXORALAB / ONLINE LAB</T>
+          <T zh="NEXORALAB / 在线实验室">NexoraLab / Online Lab</T>
         </p>
         <h1>
           <T zh="在浏览器中，开始科学探索。">Science, in your browser.</T>
@@ -40,7 +40,7 @@ export default function Lab() {
       <div className="section-heading compact roadmap-heading">
         <div>
           <p className="eyebrow">
-            <T zh="持续开发">ON THE HORIZON</T>
+            <T zh="持续开发">On the horizon</T>
           </p>
           <h2>
             <T zh="规划中的工具">Tools in preparation</T>

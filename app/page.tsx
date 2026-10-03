@@ -22,7 +22,7 @@ export default function Home() {
             <p className="eyebrow">
               <span className="tiny-rule" />{" "}
               <T zh="你的在线材料科学实验室">
-                YOUR ONLINE MATERIALS LABORATORY
+                Your online materials laboratory
               </T>
             </p>
             <h1>
@@ -88,7 +88,7 @@ export default function Home() {
         <div className="section-heading">
           <div>
             <p className="eyebrow">
-              <T zh="精选工具">FEATURED TOOLS</T>
+              <T zh="精选工具">Featured tools</T>
             </p>
             <h2>
               <T zh="从合适的工具开始。">Start with the right tool.</T>
@@ -128,7 +128,7 @@ export default function Home() {
           </div>
           <div>
             <p className="eyebrow">
-              <T zh="在线实验室">ONLINE LAB</T>
+              <T zh="在线实验室">Online Lab</T>
             </p>
             <h2>
               <T zh="浏览器，就是你的下一个工作区。">
@@ -151,7 +151,7 @@ export default function Home() {
         <div className="section-heading">
           <div>
             <p className="eyebrow">
-              <T zh="科学连接一切">CONNECTED BY SCIENCE</T>
+              <T zh="科学连接一切">Connected by science</T>
             </p>
             <h2>
               <T zh="研究，塑造工具。">Research that shapes the tools.</T>
@@ -188,7 +188,7 @@ export default function Home() {
         <div className="section-heading">
           <div>
             <p className="eyebrow">
-              <T zh="实验室动态">FROM THE LAB</T>
+              <T zh="实验室动态">From the lab</T>
             </p>
             <h2>
               <T zh="最新发布与更新。">Latest releases & updates.</T>

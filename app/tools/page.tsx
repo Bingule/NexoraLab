@@ -9,7 +9,7 @@ export default function Tools() {
     <div className="container page-content">
       <div className="page-heading">
         <p className="eyebrow">
-          <T zh="NEXORALAB / 工具">NEXORALAB / TOOLS</T>
+          <T zh="NEXORALAB / 工具">NexoraLab / Tools</T>
         </p>
         <h1>
           <T zh="为下一次发现，准备好工具。">

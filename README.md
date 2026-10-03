@@ -56,4 +56,4 @@ npm run preview
 - `public/tools/`：可选软件展示资源
 - `templates/nexoralab.json`：独立软件项目使用的模板
 
-网站支持中文/英文切换并记住选择，首次访问跟随浏览器语言；文档为中文。工具原名保留，中文描述通过清单中的可选 `zh` 提供。Google Scholar、GitHub、ORCID、Email、CV 当前是无链接的“待添加”文本；提供真实 URL 后可在 `components/Founder.tsx` 替换。
+网站支持中文/英文切换并记住选择，首次访问默认英文；文档为中文。工具原名保留，中文描述通过清单中的可选 `zh` 提供。Google Scholar、GitHub、ORCID、Email、CV 当前是无链接的“待添加”文本；提供真实 URL 后可在 `components/Founder.tsx` 替换。

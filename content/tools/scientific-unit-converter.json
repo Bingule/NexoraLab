@@ -1,13 +1,13 @@
 {
   "icon": "",
-  "download": "https://github.com/Bingule/NexoraLab/releases/download/scientific-unit-converter-v1.0.0/scientific-unit-converter-1.0.0.zip",
+  "download": "https://github.com/Bingule/NexoraLab/releases/download/scientific-unit-converter-v1.0.1/scientific-unit-converter-1.0.1.zip",
   "online": "/lab/scientific-unit-converter/",
   "github": "https://github.com/Bingule/NexoraLab",
-  "documentation": "https://github.com/Bingule/NexoraLab/releases/tag/scientific-unit-converter-v1.0.0",
+  "documentation": "https://github.com/Bingule/NexoraLab/releases/tag/scientific-unit-converter-v1.0.1",
   "citation": "",
   "id": "scientific-unit-converter",
   "name": "Scientific Unit Converter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "category": "utilities",
   "type": "online",
   "description": "Convert length, energy, pressure and absolute temperature. Runs locally in your browser, with scientific notation support.",
@@ -19,7 +19,7 @@
     "screenshot.png"
   ],
   "web": "/tools/scientific-unit-converter/app/index.html",
-  "release": "https://github.com/Bingule/NexoraLab/releases/tag/scientific-unit-converter-v1.0.0",
+  "release": "https://github.com/Bingule/NexoraLab/releases/tag/scientific-unit-converter-v1.0.1",
   "demo": false,
   "featured": true,
   "updated": "2026-10-03",
@@ -31,6 +31,11 @@
     "English and Chinese interface"
   ],
   "history": [
+    {
+      "version": "1.0.1",
+      "date": "2026-10-03",
+      "notes": "Improved readability with larger text and clearer labels. The initial interface now defaults to English."
+    },
     {
       "version": "1.0.0",
       "date": "2026-10-03",
@@ -46,7 +51,8 @@
       "中英文界面"
     ],
     "historyNotes": {
-      "1.0.0": "科学单位换算器已上线，可在线使用或下载离线版。"
+      "1.0.0": "科学单位换算器已上线，可在线使用或下载离线版。",
+      "1.0.1": "提高文字与标签可读性，初始界面默认英文。"
     }
   }
 }

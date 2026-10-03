@@ -20,13 +20,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     try {
       saved = localStorage.getItem("nexoralab-language");
     } catch {}
-    setLanguage(
-      saved === "en" || saved === "zh"
-        ? saved
-        : navigator.language.toLowerCase().startsWith("zh")
-          ? "zh"
-          : "en",
-    );
+    setLanguage(saved === "zh" ? "zh" : "en");
     setReady(true);
   }, []);
   useEffect(() => {

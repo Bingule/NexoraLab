@@ -8,7 +8,7 @@ export default function About() {
     <div className="container page-content">
       <div className="page-heading">
         <p className="eyebrow">
-          <T zh="NEXORALAB / 关于">NEXORALAB / ABOUT</T>
+          <T zh="NEXORALAB / 关于">NexoraLab / About</T>
         </p>
         <h1>
           <T zh="实用工具，共享探索。">Practical tools. Shared discovery.</T>
@@ -22,7 +22,7 @@ export default function About() {
       </div>
       <div className="about-mission">
         <p className="eyebrow">
-          <T zh="我们的使命">OUR MISSION</T>
+          <T zh="我们的使命">Our mission</T>
         </p>
         <h2>
           <T zh="让材料研究中的实用科学工具，更易获取、使用与共享。">

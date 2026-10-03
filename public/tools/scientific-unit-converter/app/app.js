@@ -6,7 +6,7 @@
     zh: { title: "科学单位换算器", intro: "换算材料研究中的常用单位。所有计算都在你的浏览器中完成。", quantity: "物理量", length: "长度", energy: "能量", pressure: "压力", temperature: "绝对温度", value: "数值", from: "原单位", to: "目标单位", swap: "交换单位", notation: "支持科学计数法，例如 1.25e-3。", result: "换算结果", precision: "结果最多显示 12 位有效数字。温度换算针对绝对温度，不适用于温差。", definitions: "定义：1 Å = 10⁻¹⁰ m · 1 eV = 1.602176634 × 10⁻¹⁹ J · 1 bar = 10⁵ Pa · K = °C + 273.15。", reference: "SI 定义 — BIPM", number: "请输入有限数值，可使用小数或科学计数法。", absoluteZero: "绝对温度不能低于 0 K（−273.15 °C）。", range: "该数值超出了支持的计算范围。", unit: "请选择同一物理量的单位。" }
   };
   const requested = new URLSearchParams(location.search).get("lang");
-  let language = requested === "zh" || requested === "en" ? requested : navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en";
+  let language = requested === "zh" ? "zh" : "en";
   const defaults = { length: ["nm", "angstrom"], energy: ["eV", "J"], pressure: ["MPa", "Pa"], temperature: ["C", "K"] };
   const format = n => String(Number(n.toPrecision(12)));
   function calculate() {

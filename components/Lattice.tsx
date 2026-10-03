@@ -85,7 +85,7 @@ export function Lattice() {
           <path d="M51 295v-43m0 43h44m-44 0 22-24" />
           <path d="m47 256 4-5 4 5m36 35 5 4-5 4m-21-24 4-5 1 6" />
         </g>
-        <g fill="#687583" fontSize="11" fontFamily="monospace">
+        <g fill="#59636d" fontSize="22" fontFamily="monospace">
           <text x="99" y="300">
             a
           </text>
@@ -105,9 +105,9 @@ export function Lattice() {
         <text
           x="366"
           y="32"
-          fill="#687583"
+          fill="#59636d"
           fontFamily="monospace"
-          fontSize="10"
+          fontSize="22"
         >
           <T zh="晶胞">UNIT CELL</T>
         </text>

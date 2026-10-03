@@ -1,6 +1,6 @@
 :root {
   --ink: #20252b;
-  --muted: #6b727a;
+  --muted: #59636d;
   --accent: #344d68;
   --line: #e1e4e8;
   --paper: #fff;
@@ -19,7 +19,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: Arial, Helvetica, "Microsoft YaHei", "PingFang SC", sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
@@ -64,7 +64,7 @@ h1 {
   font-weight: 600;
 }
 h2 {
-  font-size: 29px;
+  font-size: 32px;
   font-weight: 600;
 }
 h3 {
@@ -72,6 +72,7 @@ h3 {
   font-weight: 600;
 }
 p {
+  line-height: 1.65;
   color: var(--muted);
 }
 button:focus-visible,
@@ -121,7 +122,7 @@ select:focus-visible {
   margin-left: auto;
 }
 .nav a {
-  font-size: 13px;
+  font-size: 15px;
   color: #676767;
   position: relative;
   height: 86px;
@@ -143,10 +144,10 @@ select:focus-visible {
   right: 0;
 }
 .header-caption {
-  font-size: 11px;
+  font-size: 14px;
   border-left: 1px solid var(--line);
   padding-left: 26px;
-  color: #8e8e8e;
+  color: var(--muted);
   white-space: nowrap;
 }
 .menu-toggle {
@@ -158,8 +159,8 @@ select:focus-visible {
   color: var(--ink);
 }
 .eyebrow {
-  font-size: 10px;
-  letter-spacing: 1.7px;
+  font-size: 13px;
+  letter-spacing: 0.8px;
   font-weight: 600;
   color: var(--accent);
   line-height: 1.5;
@@ -198,8 +199,8 @@ select:focus-visible {
   color: inherit;
 }
 .hero-description {
-  font-size: 15px;
-  line-height: 1.85;
+  font-size: 18px;
+  line-height: 1.65;
   max-width: 440px;
 }
 .hero-actions {
@@ -220,7 +221,7 @@ select:focus-visible {
   justify-content: center;
   gap: 11px;
   border-radius: 3px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 1.5;
   transition: background 0.15s;
@@ -241,8 +242,8 @@ select:focus-visible {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 10px;
-  color: #8d8d8d;
+  font-size: 14px;
+  color: var(--muted);
   margin-top: 25px;
 }
 .live-dot,
@@ -267,9 +268,9 @@ select:focus-visible {
   display: flex;
   justify-content: space-between;
   font-family: monospace;
-  font-size: 9px;
+  font-size: 13px;
   letter-spacing: 1px;
-  color: #808080;
+  color: var(--muted);
   align-items: center;
 }
 .figure-top > span:first-child {
@@ -283,27 +284,29 @@ select:focus-visible {
   height: auto;
 }
 .figure-bottom {
+  flex-wrap: wrap;
   padding: 15px 19px;
   border-top: 1px solid #e6e6e6;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 10px;
+  font-size: 14px;
   gap: 10px;
 }
 .figure-bottom > span {
+  flex-wrap: wrap;
   display: flex;
   align-items: center;
   gap: 7px;
 }
 .figure-bottom small {
-  color: #8f8f8f;
-  font-size: 9px;
+  color: var(--muted);
+  font-size: 13px;
   margin-left: 8px;
 }
 .figure-axis {
   font-family: monospace;
-  color: #8e8e8e;
+  color: var(--muted);
   letter-spacing: 2px;
 }
 .discipline-strip {
@@ -320,8 +323,8 @@ select:focus-visible {
   display: flex;
   align-items: center;
   gap: 9px;
-  font-size: 11px;
-  color: #858585;
+  font-size: 14px;
+  color: var(--muted);
 }
 .discipline-strip svg {
   color: #777777;
@@ -341,7 +344,7 @@ select:focus-visible {
   margin-top: 9px;
 }
 .section-heading p:not(.eyebrow) {
-  font-size: 13px;
+  font-size: 16px;
   margin-top: 11px;
 }
 .text-link {
@@ -349,7 +352,7 @@ select:focus-visible {
   gap: 9px;
   align-items: center;
   color: var(--accent);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 1.5;
 }
@@ -418,20 +421,20 @@ select:focus-visible {
 }
 .demo-label {
   font-family: monospace;
-  font-size: 8px;
+  font-size: 13px;
   letter-spacing: 0.7px;
-  color: #939393;
+  color: var(--muted);
   border: 1px solid #e9e9e9;
   border-radius: 3px;
   padding: 3px 7px;
   line-height: 1.5;
 }
 .card-category {
-  font-size: 9px;
-  letter-spacing: 1.1px;
+  font-size: 13px;
+  letter-spacing: 0.3px;
   margin-bottom: 7px;
-  color: #959595;
-  text-transform: uppercase;
+  color: var(--muted);
+  text-transform: none;
 }
 .tool-card h3 {
   font-size: 20px;
@@ -441,8 +444,8 @@ select:focus-visible {
   color: var(--accent);
 }
 .card-description {
-  font-size: 12px;
-  line-height: 1.85;
+  font-size: 16px;
+  line-height: 1.65;
   min-height: 47px;
 }
 .tool-badges {
@@ -458,8 +461,8 @@ select:focus-visible {
   border: 1px solid #eaeaea;
   border-radius: 3px;
   padding: 2px 7px;
-  color: #7b7b7b;
-  font-size: 9px;
+  color: var(--muted);
+  font-size: 13px;
   line-height: 1.65;
 }
 .card-footer {
@@ -472,12 +475,12 @@ select:focus-visible {
   gap: 10px;
 }
 .version {
-  font-size: 10px;
-  color: #9e9e9e;
+  font-size: 14px;
+  color: var(--muted);
   font-family: monospace;
 }
 .card-footer .text-link {
-  font-size: 11px;
+  font-size: 14px;
 }
 .card-actions {
   border-top: 1px solid var(--line);
@@ -488,8 +491,8 @@ select:focus-visible {
   padding-top: 14px;
 }
 .catalog-note {
-  font-size: 10px;
-  color: #959595;
+  font-size: 14px;
+  color: var(--muted);
   margin-top: 19px;
   display: flex;
   gap: 8px;
@@ -514,7 +517,7 @@ select:focus-visible {
 }
 .lab-band-icon {
   border: 1px solid #e3e3e3;
-  color: #808080;
+  color: var(--muted);
   width: 67px;
   height: 67px;
   display: flex;
@@ -528,7 +531,7 @@ select:focus-visible {
   margin-top: 7px;
 }
 .lab-band p:not(.eyebrow) {
-  font-size: 12px;
+  font-size: 16px;
   margin-top: 8px;
 }
 .lab-band .button {
@@ -556,7 +559,7 @@ select:focus-visible {
   background: var(--soft);
 }
 .research-mini-grid h3 {
-  font-size: 14px;
+  font-size: 18px;
   letter-spacing: -0.2px;
 }
 .research-mini-grid svg {
@@ -565,8 +568,8 @@ select:focus-visible {
 }
 .research-number {
   font-family: monospace;
-  font-size: 9px;
-  color: #aeaeae;
+  font-size: 13px;
+  color: var(--muted);
 }
 .founder-section {
   background: #f9f9f9;
@@ -593,22 +596,22 @@ select:focus-visible {
   object-position: 32% 30%;
 }
 .founder-copy h2 {
-  font-size: 28px;
+  font-size: 32px;
   margin-top: 12px;
 }
 .founder-role {
-  font-size: 12px;
+  font-size: 17px;
   color: var(--accent);
   margin-top: 7px;
 }
 .founder-copy > p:not(.eyebrow):not(.founder-role) {
-  font-size: 12px;
+  font-size: 16px;
   max-width: 660px;
   margin-top: 13px;
-  line-height: 1.85;
+  line-height: 1.65;
 }
 .founder-copy .affiliation {
-  font-size: 11px !important;
+  font-size: 14px !important;
   color: #666666;
 }
 .interest-tags {
@@ -619,15 +622,15 @@ select:focus-visible {
   margin-bottom: 16px;
 }
 .interest-tags span {
-  font-size: 9px;
+  font-size: 13px;
   border: 1px solid #e5e5e5;
   border-radius: 3px;
   padding: 2px 8px;
-  color: #818181;
+  color: var(--muted);
 }
 .quiet-label {
-  font-size: 11px;
-  color: #969696;
+  font-size: 14px;
+  color: var(--muted);
 }
 .updates-section {
   padding-top: 46px;
@@ -656,25 +659,25 @@ select:focus-visible {
   justify-content: center;
 }
 .updates-list h3 {
-  font-size: 13px;
+  font-size: 18px;
   letter-spacing: -0.2px;
 }
 .updates-list p {
-  font-size: 10px;
+  font-size: 16px;
   margin-top: 5px;
 }
 .update-version {
   margin-left: auto;
   font-family: monospace;
-  font-size: 9px;
+  font-size: 14px;
   border: 1px solid var(--line);
   padding: 2px 8px;
   border-radius: 3px;
-  color: #868686;
+  color: var(--muted);
 }
 .updates-list time {
-  font-size: 10px;
-  color: #8f8f8f;
+  font-size: 14px;
+  color: var(--muted);
   min-width: 86px;
 }
 .updates-list > a > svg {
@@ -695,15 +698,15 @@ select:focus-visible {
   font-size: 19px;
 }
 .footer-top p {
-  font-size: 11px;
+  font-size: 14px;
   margin-top: 11px;
 }
 .footer nav {
   display: flex;
   gap: 26px;
   align-items: center;
-  font-size: 11px;
-  color: #797979;
+  font-size: 14px;
+  color: var(--muted);
 }
 .footer nav a:hover {
   color: var(--accent);
@@ -711,8 +714,8 @@ select:focus-visible {
 .footer-bottom {
   display: flex;
   justify-content: space-between;
-  font-size: 9px;
-  color: #959595;
+  font-size: 14px;
+  color: var(--muted);
   border-top: 1px solid var(--line);
   padding-top: 17px;
   padding-bottom: 19px;
@@ -731,7 +734,7 @@ select:focus-visible {
   margin: 15px 0;
 }
 .page-heading > p:not(.eyebrow) {
-  font-size: 14px;
+  font-size: 18px;
   max-width: 650px;
 }
 .catalog-controls {
@@ -747,7 +750,7 @@ select:focus-visible {
   border-radius: 3px;
   padding: 12px 16px;
   flex: 1;
-  color: #8d8d8d;
+  color: var(--muted);
   background: #fcfcfc;
 }
 .search input {
@@ -756,14 +759,14 @@ select:focus-visible {
   background: transparent;
   width: 100%;
   min-width: 0;
-  font-size: 13px;
+  font-size: 16px;
   color: var(--ink);
 }
 .search:focus-within {
   border-color: var(--accent);
 }
 .search input::placeholder {
-  color: #959595;
+  color: var(--muted);
 }
 .platform-filter {
   display: flex;
@@ -774,13 +777,13 @@ select:focus-visible {
   border-radius: 3px;
 }
 .platform-filter > span {
-  font-size: 11px;
+  font-size: 14px;
   color: var(--muted);
 }
 .platform-filter select {
   background: white;
   border: none;
-  font-size: 12px;
+  font-size: 16px;
   color: var(--ink);
   padding-right: 7px;
 }
@@ -796,8 +799,8 @@ select:focus-visible {
   background: transparent;
   border-radius: 4px;
   padding: 8px 14px;
-  font-size: 12px;
-  color: #828282;
+  font-size: 14px;
+  color: var(--muted);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -811,7 +814,7 @@ select:focus-visible {
   border-color: #e3e3e3;
 }
 .filter-tabs button span {
-  font-size: 9px;
+  font-size: 13px;
   background: #e3e3e3;
   padding: 0 5px;
   border-radius: 3px;
@@ -821,8 +824,8 @@ select:focus-visible {
   justify-content: space-between;
   gap: 16px;
   margin: 20px 0;
-  font-size: 10px;
-  color: #959595;
+  font-size: 14px;
+  color: var(--muted);
 }
 .integration-note {
   border-top: 1px solid var(--line);
@@ -831,10 +834,10 @@ select:focus-visible {
   max-width: 720px;
 }
 .integration-note h3 {
-  font-size: 16px;
+  font-size: 20px;
 }
 .integration-note p {
-  font-size: 12px;
+  font-size: 16px;
   margin-top: 10px;
 }
 .empty-state {
@@ -852,7 +855,7 @@ select:focus-visible {
   color: #ababab;
 }
 .empty-state p {
-  font-size: 13px;
+  font-size: 16px;
 }
 .notice {
   display: flex;
@@ -866,11 +869,11 @@ select:focus-visible {
   color: #707070;
 }
 .notice strong {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
 }
 .notice p {
-  font-size: 12px;
+  font-size: 16px;
   margin-top: 4px;
 }
 .section-heading.compact {
@@ -878,7 +881,7 @@ select:focus-visible {
   margin-bottom: 20px;
 }
 .compact h2 {
-  font-size: 23px;
+  font-size: 28px;
   margin: 0;
 }
 .lab-grid {
@@ -910,15 +913,15 @@ select:focus-visible {
   color: #a1a1a1;
 }
 .planned-grid h3 {
-  font-size: 14px;
+  font-size: 18px;
 }
 .planned-grid p {
-  font-size: 11px;
+  font-size: 16px;
   margin-top: 7px;
 }
 .planned-label {
-  font-size: 8px;
-  color: #969696;
+  font-size: 13px;
+  color: var(--muted);
   font-family: monospace;
   margin-left: auto;
 }
@@ -937,24 +940,24 @@ select:focus-visible {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 32px;
-  color: #8a8a8a;
+  color: var(--muted);
 }
 .research-card-top span {
   font-family: monospace;
-  color: #bdbdbd;
-  font-size: 11px;
+  color: var(--muted);
+  font-size: 13px;
 }
 .research-grid .eyebrow {
-  font-size: 8px;
-  color: #9a9a9a;
+  font-size: 13px;
+  color: var(--muted);
 }
 .research-grid h2 {
-  font-size: 23px;
+  font-size: 24px;
   margin-top: 10px;
 }
 .research-grid article > p:not(.eyebrow) {
-  font-size: 12px;
-  line-height: 1.9;
+  font-size: 16px;
+  line-height: 1.65;
   min-height: 93px;
   margin: 14px 0 21px;
 }
@@ -969,7 +972,7 @@ select:focus-visible {
   margin: 10px 0 16px;
 }
 .mission-note p:not(.eyebrow) {
-  font-size: 13px;
+  font-size: 16px;
   max-width: 790px;
   margin-bottom: 19px;
 }
@@ -986,7 +989,7 @@ select:focus-visible {
   margin: 14px 0 18px;
 }
 .about-mission > p:not(.eyebrow) {
-  font-size: 13px;
+  font-size: 16px;
   max-width: 850px;
 }
 .founder-full {
@@ -1005,13 +1008,13 @@ select:focus-visible {
   margin-top: 24px;
 }
 .profile-placeholders > span {
-  font-size: 11px;
-  color: #797979;
+  font-size: 14px;
+  color: var(--muted);
 }
 .profile-placeholders small {
   display: block;
-  font-size: 8px;
-  color: #999999;
+  font-size: 13px;
+  color: var(--muted);
 }
 .values-grid {
   display: grid;
@@ -1025,21 +1028,22 @@ select:focus-visible {
   color: #848484;
 }
 .values-grid h3 {
-  font-size: 16px;
+  font-size: 20px;
   margin: 15px 0 12px;
 }
 .values-grid p {
-  font-size: 12px;
+  font-size: 16px;
 }
 .breadcrumbs {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
-  font-size: 11px;
-  color: #989898;
+  font-size: 14px;
+  color: var(--muted);
   margin-bottom: 29px;
 }
 .breadcrumbs a {
-  color: #7e7e7e;
+  color: var(--muted);
 }
 .detail-heading {
   display: flex;
@@ -1058,13 +1062,13 @@ select:focus-visible {
   margin: 8px 0 10px;
 }
 .detail-heading p:not(.eyebrow) {
-  font-size: 13px;
+  font-size: 16px;
 }
 .detail-version {
   margin-left: auto;
   font-family: monospace;
-  font-size: 12px;
-  color: #989898;
+  font-size: 14px;
+  color: var(--muted);
 }
 .detail-layout {
   display: grid;
@@ -1077,11 +1081,11 @@ select:focus-visible {
   border-bottom: 1px solid var(--line);
 }
 .detail-section h2 {
-  font-size: 23px;
+  font-size: 26px;
   margin-bottom: 18px;
 }
 .detail-section > p {
-  font-size: 13px;
+  font-size: 16px;
 }
 .screenshot-placeholder {
   margin-top: 25px;
@@ -1101,15 +1105,15 @@ select:focus-visible {
   justify-content: center;
   align-items: center;
   gap: 15px;
-  color: #b0b0b0;
+  color: var(--muted);
 }
 .screenshot-placeholder span {
   font-size: 14px;
-  color: #818181;
+  color: var(--muted);
 }
 .screenshot-placeholder small {
-  font-size: 11px;
-  color: #9e9e9e;
+  font-size: 13px;
+  color: var(--muted);
 }
 .screenshots {
   display: grid;
@@ -1129,7 +1133,7 @@ select:focus-visible {
 .features-list li {
   display: flex;
   gap: 10px;
-  font-size: 13px;
+  font-size: 16px;
   margin-bottom: 9px;
 }
 .features-list svg {
@@ -1142,20 +1146,22 @@ select:focus-visible {
   background: #fafafa;
 }
 .detail-sidebar h3 {
-  font-size: 17px;
+  font-size: 20px;
 }
 .detail-sidebar dl {
   display: grid;
   grid-template-columns: 90px 1fr;
   gap: 12px 5px;
-  font-size: 11px;
+  font-size: 14px;
   margin: 23px 0;
 }
 .detail-sidebar dt {
-  color: #939393;
+  color: var(--muted);
 }
 .detail-sidebar dd {
   margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .capitalize {
   text-transform: capitalize;
@@ -1166,7 +1172,7 @@ select:focus-visible {
   gap: 10px;
 }
 .sidebar-note {
-  font-size: 11px;
+  font-size: 14px;
   border-top: 1px solid var(--line);
   padding-top: 18px;
 }
@@ -1176,12 +1182,12 @@ select:focus-visible {
 .history-list article {
   padding: 15px 0;
   border-bottom: 1px solid var(--line);
-  font-size: 13px;
+  font-size: 16px;
 }
 .history-list time {
   float: right;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 14px;
 }
 .history-list p {
   margin-top: 10px;
@@ -1205,7 +1211,7 @@ select:focus-visible {
 }
 .workspace-placeholder p {
   max-width: 520px;
-  font-size: 13px;
+  font-size: 16px;
 }
 .workspace-placeholder h2 {
   font-size: 28px;
@@ -1253,7 +1259,7 @@ select:focus-visible {
     font-size: 49px;
   }
   .hero-description {
-    font-size: 13px;
+    font-size: 18px;
   }
   .hero-grid {
     padding-top: 40px;
@@ -1263,7 +1269,7 @@ select:focus-visible {
     padding: 20px;
   }
   .research-mini-grid h3 {
-    font-size: 12px;
+    font-size: 18px;
   }
   .research-mini-grid a {
     gap: 10px;
@@ -1279,7 +1285,7 @@ select:focus-visible {
     padding: 23px;
   }
   .research-grid h2 {
-    font-size: 20px;
+    font-size: 24px;
   }
   .founder-full {
     grid-template-columns: 290px 1fr;
@@ -1348,7 +1354,7 @@ select:focus-visible {
     margin: 20px 0;
   }
   .hero-description {
-    font-size: 14px;
+    font-size: 18px;
     max-width: 500px;
   }
   .hero-actions {
@@ -1375,7 +1381,7 @@ select:focus-visible {
     padding-bottom: 17px;
   }
   .discipline-strip span {
-    font-size: 10px;
+    font-size: 14px;
   }
   .section {
     padding-top: 35px;
@@ -1386,10 +1392,10 @@ select:focus-visible {
     margin-bottom: 22px;
   }
   .section-heading h2 {
-    font-size: 25px;
+    font-size: 28px;
   }
   .section-heading > .text-link {
-    font-size: 10px;
+    font-size: 14px;
     white-space: normal;
     max-width: 112px;
     text-align: right;
@@ -1417,8 +1423,8 @@ select:focus-visible {
   }
   .catalog-note {
     align-items: flex-start;
-    font-size: 9px;
-    line-height: 1.8;
+    font-size: 14px;
+    line-height: 1.65;
   }
   .catalog-note .small-dot {
     margin-top: 7px;
@@ -1441,7 +1447,7 @@ select:focus-visible {
     line-height: 1.4;
   }
   .lab-band p:not(.eyebrow) {
-    font-size: 11px;
+    font-size: 16px;
   }
   .lab-band .button {
     margin-left: 65px;
@@ -1458,10 +1464,10 @@ select:focus-visible {
     height: 18px;
   }
   .research-mini-grid h3 {
-    font-size: 11px;
+    font-size: 18px;
   }
   .research-number {
-    font-size: 8px;
+    font-size: 13px;
   }
   .founder {
     grid-template-columns: 160px 1fr;
@@ -1472,14 +1478,14 @@ select:focus-visible {
     height: 215px;
   }
   .founder-copy .eyebrow {
-    font-size: 8px;
+    font-size: 13px;
     letter-spacing: 1px;
   }
   .founder-copy h2 {
-    font-size: 23px;
+    font-size: 32px;
   }
   .founder-copy > p:not(.eyebrow):not(.founder-role) {
-    font-size: 11px;
+    font-size: 16px;
   }
   .founder-section {
     padding: 30px 0;
@@ -1488,7 +1494,7 @@ select:focus-visible {
     gap: 5px;
   }
   .interest-tags span {
-    font-size: 8px;
+    font-size: 13px;
     padding: 2px 6px;
   }
   .updates-list > a {
@@ -1496,7 +1502,7 @@ select:focus-visible {
   }
   .updates-list time {
     min-width: 70px;
-    font-size: 9px;
+    font-size: 14px;
   }
   .update-version {
     display: none;
@@ -1505,7 +1511,7 @@ select:focus-visible {
     flex: 1;
   }
   .updates-list h3 {
-    font-size: 12px;
+    font-size: 18px;
   }
   .footer-top {
     flex-direction: column;
@@ -1516,7 +1522,7 @@ select:focus-visible {
   }
   .footer-bottom {
     gap: 16px;
-    font-size: 8px;
+    font-size: 14px;
   }
   .footer-bottom > span:last-child {
     text-align: right;
@@ -1533,7 +1539,7 @@ select:focus-visible {
     line-height: 1.2;
   }
   .page-heading > p:not(.eyebrow) {
-    font-size: 13px;
+    font-size: 18px;
   }
   .catalog-controls {
     flex-direction: column;
@@ -1547,10 +1553,10 @@ select:focus-visible {
   }
   .filter-tabs button {
     padding: 7px 9px;
-    font-size: 11px;
+    font-size: 14px;
   }
   .results-summary {
-    font-size: 9px;
+    font-size: 14px;
   }
   .results-summary > span:last-child {
     text-align: right;
@@ -1562,7 +1568,7 @@ select:focus-visible {
     padding: 20px 17px;
   }
   .card-footer .text-link {
-    font-size: 10px;
+    font-size: 14px;
   }
   .notice {
     padding: 16px;
@@ -1573,7 +1579,7 @@ select:focus-visible {
     margin-top: 3px;
   }
   .notice p {
-    font-size: 11px;
+    font-size: 16px;
   }
   .lab-grid {
     grid-template-columns: 1fr;
@@ -1592,7 +1598,7 @@ select:focus-visible {
     min-height: 116px;
   }
   .research-grid h2 {
-    font-size: 19px;
+    font-size: 24px;
   }
   .mission-note {
     padding: 23px;
@@ -1640,7 +1646,7 @@ select:focus-visible {
     flex: 1;
   }
   .detail-heading .eyebrow {
-    font-size: 8px;
+    font-size: 13px;
   }
   .detail-icon {
     width: 62px;
@@ -1662,6 +1668,9 @@ select:focus-visible {
   }
 }
 @media (max-width: 480px) {
+  .lattice-panel > svg text {
+    font-size: 26px;
+  }
   .hero h1 {
     font-size: 46px;
   }
@@ -1669,15 +1678,15 @@ select:focus-visible {
     display: none;
   }
   .hero .eyebrow {
-    font-size: 9px;
+    font-size: 13px;
     letter-spacing: 1.2px;
   }
   .hero-actions .button {
-    font-size: 11px;
+    font-size: 14px;
     padding: 10px 14px;
   }
   .figure-bottom small {
-    font-size: 8px;
+    font-size: 13px;
     margin-left: 0;
   }
   .tool-grid {
@@ -1691,7 +1700,7 @@ select:focus-visible {
     padding: 18px 10px;
   }
   .research-mini-grid h3 {
-    font-size: 10px;
+    font-size: 18px;
   }
   .research-mini-grid svg {
     width: 16px;
@@ -1708,10 +1717,10 @@ select:focus-visible {
     object-position: 30% 32%;
   }
   .founder-copy .eyebrow {
-    font-size: 9px;
+    font-size: 13px;
   }
   .founder-copy > p:not(.eyebrow):not(.founder-role) {
-    font-size: 12px;
+    font-size: 16px;
   }
   .founder-full .founder-photo {
     height: 340px;
@@ -1732,7 +1741,7 @@ select:focus-visible {
     gap: 13px;
   }
   .planned-label {
-    font-size: 7px;
+    font-size: 13px;
   }
   .page-heading h1 {
     font-size: 32px;
@@ -1767,7 +1776,7 @@ select:focus-visible {
     font-size: 27px;
   }
   .detail-heading p:not(.eyebrow) {
-    font-size: 12px;
+    font-size: 16px;
   }
   .detail-heading .detail-icon {
     width: 50px;
@@ -1778,7 +1787,28 @@ select:focus-visible {
   }
   .breadcrumbs {
     gap: 8px;
-    font-size: 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .header-inner {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .header .brand {
+    font-size: 19px;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .header .brand span {
+    margin-left: -6px;
+  }
+  .header .menu-toggle {
+    padding: 7px;
+  }
+  .header .language-switch button {
+    padding: 5px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1808,7 +1838,7 @@ select:focus-visible {
   background: transparent;
   border: 0;
   padding: 5px 8px;
-  font-size: 11px;
+  font-size: 14px;
   color: var(--muted);
   min-height: 32px;
 }
@@ -1838,13 +1868,14 @@ select:focus-visible {
   background: #fff;
 }
 .tool-preview span {
-  font-size: 10px;
+  font-size: 13px;
 }
 .research-mini-grid a > div {
   min-width: 0;
+  overflow-wrap: anywhere;
 }
 .research-mini-grid p {
-  font-size: 11px;
+  font-size: 16px;
   line-height: 1.65;
   margin-top: 7px;
 }
@@ -1868,15 +1899,15 @@ select:focus-visible {
   gap: 16px;
   flex-wrap: wrap;
   margin-top: 18px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
 }
 .section-intro {
-  font-size: 13px;
+  font-size: 16px;
   margin-bottom: 24px;
 }
 .card-actions .text-link {
-  font-size: 11px;
+  font-size: 14px;
 }
 html[lang="zh-CN"] .eyebrow {
   letter-spacing: 1px;
@@ -1886,7 +1917,7 @@ html[lang="zh-CN"] .hero h1 {
 }
 @media (max-width: 760px) {
   .header-inner {
-    gap: 12px;
+    gap: 8px;
   }
   .language-switch {
     margin-left: auto;
@@ -1901,7 +1932,7 @@ html[lang="zh-CN"] .hero h1 {
     height: 980px;
   }
   .research-mini-grid p {
-    font-size: 11px;
+    font-size: 16px;
   }
   .research-mini-grid a {
     gap: 10px;

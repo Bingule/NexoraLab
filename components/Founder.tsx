@@ -14,7 +14,7 @@ export function Founder({ full = false }: { full?: boolean }) {
       </div>
       <div className="founder-copy">
         <p className="eyebrow">
-          <T zh="工具背后的科学">THE SCIENCE BEHIND THE TOOLS</T>
+          <T zh="工具背后的科学">The science behind the tools</T>
         </p>
         <h2>Bing Wu, Ph.D.</h2>
         <p className="founder-role">

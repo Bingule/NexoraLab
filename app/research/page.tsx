@@ -9,7 +9,7 @@ export default function Research() {
     <div className="container page-content">
       <div className="page-heading">
         <p className="eyebrow">
-          <T zh="NEXORALAB / 研究方向">NEXORALAB / RESEARCH</T>
+          <T zh="NEXORALAB / 研究方向">NexoraLab / Research</T>
         </p>
         <h1>
           <T zh="建立在科学基础之上。">Built on a scientific foundation.</T>
@@ -46,7 +46,7 @@ export default function Research() {
       </div>
       <div className="mission-note">
         <p className="eyebrow">
-          <T zh="让研究走向实践">RESEARCH INTO PRACTICE</T>
+          <T zh="让研究走向实践">Research into practice</T>
         </p>
         <h2>
           <T zh="更好的工具，始于真实的研究问题。">
