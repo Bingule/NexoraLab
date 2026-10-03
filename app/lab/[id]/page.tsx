@@ -5,6 +5,8 @@ import { getTools } from "@/lib/registry";
 import { Icon, categoryIcon } from "@/components/Icon";
 import { T } from "@/components/Language";
 import { LabFrame } from "@/components/LabFrame";
+import { TmccWorkspace } from "@/components/TmccWorkspace";
+import { isMigratedTool } from "@/lib/migrated-tools";
 export function generateStaticParams() {
   return getTools()
     .filter((t) => t.type !== "desktop")
@@ -38,18 +40,22 @@ export default async function Workspace({
         <span>/</span>
         <span>{t.name}</span>
       </nav>
-      <div className="page-heading">
-        <p className="eyebrow">
-          <T zh={t.demo ? "规划中的工作区" : "在线工作区"}>
-            {t.demo ? "WORKSPACE IN PREPARATION" : "ONLINE WORKSPACE"}
-          </T>
-        </p>
-        <h1>{t.name}</h1>
-        <p>
-          <T zh={t.zh?.description}>{t.description}</T>
-        </p>
-      </div>
-      {t.web ? (
+      {!isMigratedTool(t.id) && (
+        <div className="page-heading">
+          <p className="eyebrow">
+            <T zh={t.demo ? "规划中的工作区" : "在线工作区"}>
+              {t.demo ? "WORKSPACE IN PREPARATION" : "ONLINE WORKSPACE"}
+            </T>
+          </p>
+          <h1>{t.name}</h1>
+          <p>
+            <T zh={t.zh?.description}>{t.description}</T>
+          </p>
+        </div>
+      )}
+      {isMigratedTool(t.id) ? (
+        <TmccWorkspace id={t.id} />
+      ) : t.web ? (
         <>
           <LabFrame src={t.web} name={t.name} />
           <div className="workspace-links">

@@ -38,6 +38,10 @@ npm run preview
 
 软件源代码留在各自项目。导入命令仅复制清单、声明的图片和网页发布产物，不自动编译、创建仓库或发布 Release。完整流程与示例见 [docs/nexoralab-manifest.md](docs/nexoralab-manifest.md)。
 
+## TMCCDB 工具来源
+
+五个既有工具接入 `/lab/`，上游科学代码固定在 `vendor/tmccdb/`，来源提交及哈希见 `vendor/tmccdb/UPSTREAM.json`。更新来源时需保留原项目，明确记录集成差异，运行 `npm run test:tmcc` 和 `npm test` 后再发布。Crystal Description 使用原 Streamlit 服务；Reviewer Two 在获授权的私有宿主执行。无需在 NexoraLab 配置 API 密钥。详见 [迁移说明](docs/tmccdb-migration-report.md)。
+
 ## GitHub Pages
 
 已包含 `.github/workflows/deploy.yml`，发布源使用 **GitHub Actions**。推送到 `main` 会自动触发测试、检查、构建和部署，网站发布到 https://bingule.github.io/NexoraLab/ 。首次部署或迁移仓库时，在 GitHub **Settings → Pages → Source** 选择 **GitHub Actions**。

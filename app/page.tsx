@@ -106,7 +106,7 @@ export default function Home() {
         </div>
         <div className="tool-grid featured-grid">
           {tools
-            .filter((t) => t.featured)
+            .filter((t) => t.featured && isAvailable(t))
             .sort((a, b) => Number(!!a.demo) - Number(!!b.demo))
             .slice(0, 3)
             .map((t) => (
@@ -136,8 +136,9 @@ export default function Home() {
               </T>
             </h2>
             <p>
-              <T zh="打开科学单位换算器，无需安装即可开始使用。">
-                Start with Scientific Unit Converter. No installation needed.
+              <T zh="从结构描述、分子量与容量计算，到倍率分析和审稿工作流。">
+                Explore structure descriptions, formula and capacity
+                calculators, rate analysis and review workflows.
               </T>
             </p>
           </div>

@@ -25,6 +25,7 @@ jobs:
       - name: Verify
         run: |
           npm test
+          npm run test:tmcc
           npm run typecheck
       - name: Set deployment path
         env:

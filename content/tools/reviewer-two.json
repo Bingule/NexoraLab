@@ -1,0 +1,44 @@
+{
+  "id": "reviewer-two",
+  "name": "Reviewer Two",
+  "version": "1.0.0",
+  "category": "utilities",
+  "type": "online",
+  "description": "Launch the independent Reviewer Two skill workflow in an authorized private runtime. This workspace provides source and installation guidance; manuscript review runs in the authorized host.",
+  "platforms": ["Web launcher", "Authorized private runtime"],
+  "icon": "",
+  "screenshots": [],
+  "download": "",
+  "online": "/lab/reviewer-two/",
+  "github": "https://github.com/Bingule/reviewer-two",
+  "documentation": "https://github.com/Bingule/reviewer-two/blob/9ff847d0b23a23c87b24e5340907df4c45f32ffc/README.md",
+  "citation": "",
+  "featured": false,
+  "updated": "2026-10-03",
+  "developer": "Bing Wu / TMCCDB",
+  "features": [
+    "Versioned source and installation guidance for the independent skill",
+    "Requires an authorized private runtime and explicit manuscript access permission",
+    "First-round and revision-round review workflows in the supported host",
+    "Evidence-grounded support for human reviewers; scientific judgment remains with the reviewer"
+  ],
+  "history": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-03",
+      "notes": "Added the TMCCDB Reviewer Two launcher to NexoraLab with its versioned source and private-runtime instructions."
+    }
+  ],
+  "zh": {
+    "description": "在获授权的私有运行环境中启动独立的 Reviewer Two 技能工作流。本工作区提供源码与安装说明，稿件审阅在获授权的宿主中执行。",
+    "features": [
+      "提供独立技能的固定版本源码与安装说明",
+      "需要获授权的私有运行环境及明确的稿件访问许可",
+      "在受支持的宿主中开展首轮或修订轮审阅",
+      "以证据支持人工审稿，科学判断仍由审稿人负责"
+    ],
+    "historyNotes": {
+      "1.0.0": "将 TMCCDB 的 Reviewer Two 启动入口接入 NexoraLab，保留固定版本源码和私有环境使用说明。"
+    }
+  }
+}

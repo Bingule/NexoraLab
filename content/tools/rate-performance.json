@@ -1,0 +1,44 @@
+{
+  "id": "rate-performance",
+  "name": "Rate Performance",
+  "version": "1.0.0",
+  "category": "electrochemistry",
+  "type": "online",
+  "description": "Analyze electrochemical rate performance with the original TMCCDB browser workflows for model fitting, comparison, thickness scaling, characteristic time, transport and energy/power calculations.",
+  "platforms": ["Web"],
+  "icon": "",
+  "screenshots": ["screenshot.png"],
+  "download": "",
+  "online": "/lab/rate-performance/",
+  "github": "https://github.com/Bingule/tmcc-database",
+  "documentation": "https://github.com/Bingule/tmcc-database/tree/27e9767486d5dc8b81453a409d6023b458de40d7/src/tools/rate-performance",
+  "citation": "",
+  "featured": true,
+  "updated": "2026-10-03",
+  "developer": "Bing Wu / TMCCDB",
+  "features": [
+    "Browser-local rate model fitting and model comparison",
+    "Thickness kinetics, characteristic time and transport limitation workspaces",
+    "Chronoamperometry rate reconstruction and energy/power analysis",
+    "Original model equations, validation, examples, references and exports retained"
+  ],
+  "history": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-03",
+      "notes": "Added the TMCCDB Rate Performance workspaces to NexoraLab with their original analysis models and scientific workflows."
+    }
+  ],
+  "zh": {
+    "description": "沿用 TMCCDB 原有的浏览器工作流，开展电化学倍率性能拟合、模型比较、厚度标度、特征时间、传输及能量/功率计算。",
+    "features": [
+      "在浏览器本地进行倍率模型拟合与模型比较",
+      "提供厚度动力学、特征时间和传输限制工作区",
+      "支持计时电流倍率重建及能量/功率分析",
+      "保留原有模型公式、输入校验、示例、参考文献和导出"
+    ],
+    "historyNotes": {
+      "1.0.0": "将 TMCCDB 倍率性能工作区接入 NexoraLab，保留原有分析模型与科学工作流。"
+    }
+  }
+}

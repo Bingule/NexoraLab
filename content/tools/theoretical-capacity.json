@@ -1,0 +1,44 @@
+{
+  "id": "theoretical-capacity",
+  "name": "Theoretical Capacity Calculator",
+  "version": "1.0.0",
+  "category": "electrochemistry",
+  "type": "online",
+  "description": "Calculate theoretical specific capacity from a chemical formula and a manually supplied electron-transfer number, using the original TMCCDB browser calculation.",
+  "platforms": ["Web"],
+  "icon": "",
+  "screenshots": ["screenshot.png"],
+  "download": "",
+  "online": "/lab/theoretical-capacity/",
+  "github": "https://github.com/Bingule/tmcc-database",
+  "documentation": "https://github.com/Bingule/tmcc-database/blob/27e9767486d5dc8b81453a409d6023b458de40d7/README.md",
+  "citation": "",
+  "featured": true,
+  "updated": "2026-10-03",
+  "developer": "Bing Wu / TMCCDB",
+  "features": [
+    "Browser-local calculation of Q = nF / (3.6M) in mAh/g",
+    "Shared formula parser and atomic weights from TMCCDB",
+    "Displays molar mass, electron count and substituted equation",
+    "Electron count is supplied by the user; no automatic oxidation-state inference"
+  ],
+  "history": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-03",
+      "notes": "Added the TMCCDB theoretical capacity calculator to NexoraLab with its original scientific calculation."
+    }
+  ],
+  "zh": {
+    "description": "根据化学式和手动输入的电子转移数计算理论比容量，保留 TMCCDB 原有的浏览器计算方法。",
+    "features": [
+      "在浏览器本地按 Q = nF / (3.6M) 计算比容量，单位为 mAh/g",
+      "沿用 TMCCDB 的化学式解析与原子量数据",
+      "显示摩尔质量、电子转移数及代入后的公式",
+      "电子转移数由用户提供，不自动推断氧化态"
+    ],
+    "historyNotes": {
+      "1.0.0": "将 TMCCDB 理论容量计算器接入 NexoraLab，保留原有科学计算方法。"
+    }
+  }
+}

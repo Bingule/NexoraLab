@@ -1909,6 +1909,13 @@ select:focus-visible {
   font-size: 16px;
   margin-bottom: 24px;
 }
+.lab-tool-group {
+  margin: 30px 0;
+}
+.lab-tool-group > h3 {
+  font-size: 22px;
+  margin-bottom: 18px;
+}
 .card-actions .text-link {
   font-size: 14px;
 }

@@ -21,7 +21,7 @@
   "web": "/tools/scientific-unit-converter/app/index.html",
   "release": "https://github.com/Bingule/NexoraLab/releases/tag/scientific-unit-converter-v1.0.1",
   "demo": false,
-  "featured": true,
+  "featured": false,
   "updated": "2026-10-03",
   "developer": "Bing Wu / NexoraLab",
   "features": [
