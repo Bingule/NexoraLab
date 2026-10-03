@@ -1699,6 +1699,9 @@ select:focus-visible {
   .research-mini-grid a {
     padding: 18px 10px;
   }
+  .research-mini-grid {
+    grid-template-columns: 1fr;
+  }
   .research-mini-grid h3 {
     font-size: 18px;
   }
@@ -1872,7 +1875,7 @@ select:focus-visible {
 }
 .research-mini-grid a > div {
   min-width: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 .research-mini-grid p {
   font-size: 16px;
