@@ -4,7 +4,7 @@
 
 Bing Wu 创立的在线材料科学实验室与科研软件平台。首版包括首页、可搜索和筛选的软件目录、Online Lab、研究方向、创始人介绍和由 JSON 自动生成的软件详情页。
 
-采用 Next.js、TypeScript 和普通 CSS，构建为静态网站；没有数据库、登录或计算后端。五个初始条目均明确标注为 Demo，Online Lab 工作区尚未集成科学计算。创始人照片来自用户提供的原始图片。
+采用 Next.js、TypeScript 和普通 CSS，构建为静态网站；没有数据库、登录或计算后端。科学单位换算器已可在线使用与离线下载；五个尚未发布的工具明确标注为规划中。创始人照片来自用户提供的原始图片。
 
 ## 本地运行
 
@@ -31,12 +31,12 @@ npm run preview
 
 ## 注册下一个工具
 
-1. 从 `templates/nexoralab.json` 复制到 `content/tools/<id>.json`，填写真实名称、类别、版本和发布 URL。
-2. 如有图标或截图，放入 `public/tools/<id>/`，在 JSON 中填写文件名。
-3. 将真实软件的 `demo` 设为 `false`。没有真实 URL 的字段保留空字符串，网站会自动隐藏按钮。
-4. 构建后自动生成目录卡片、`/tools/<id>/` 详情页和最新动态。
+1. 在独立软件目录内维护 `nexoralab.json`，填写版本、截图、GitHub Release 与直接下载地址。
+2. 在 NexoraLab 目录执行 `npm run register -- "D:/projects/MyTool" --dry-run` 预检，然后去掉 `--dry-run` 导入。更新已有工具加 `--replace`。
+3. 在线工具可声明 `web: "dist/index.html"`；导入网页构建后自动生成 `/lab/<id>/`。桌面工具只需清单与下载链接，不需要网页文件。
+4. 执行测试、类型检查、构建和链接检查，然后提交推送；GitHub Pages 会更新目录、详情页与最新发布。
 
-软件源代码留在各自独立的项目目录与仓库。完整格式与发布规则见 [docs/nexoralab-manifest.md](docs/nexoralab-manifest.md)。
+软件源代码留在各自项目。导入命令仅复制清单、声明的图片和网页发布产物，不自动编译、创建仓库或发布 Release。完整流程与示例见 [docs/nexoralab-manifest.md](docs/nexoralab-manifest.md)。
 
 ## GitHub Pages
 
@@ -56,4 +56,4 @@ npm run preview
 - `public/tools/`：可选软件展示资源
 - `templates/nexoralab.json`：独立软件项目使用的模板
 
-网站为英文，说明文档为中文。Google Scholar、GitHub、ORCID、Email、CV 当前是无链接的“待添加”文本；提供真实 URL 后可在 `components/Founder.tsx` 替换。
+网站支持中文/英文切换并记住选择，首次访问跟随浏览器语言；文档为中文。工具原名保留，中文描述通过清单中的可选 `zh` 提供。Google Scholar、GitHub、ORCID、Email、CV 当前是无链接的“待添加”文本；提供真实 URL 后可在 `components/Founder.tsx` 替换。

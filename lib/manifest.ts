@@ -22,6 +22,13 @@ export type Tool = {
   github: string;
   documentation: string;
   citation: string;
+  release?: string;
+  web?: string;
+  zh?: {
+    description?: string;
+    features?: string[];
+    historyNotes?: Record<string, string>;
+  };
   demo?: boolean;
   featured?: boolean;
   updated?: string;
@@ -40,6 +47,9 @@ export function validLink(value: unknown): value is string {
   } catch {
     return false;
   }
+}
+export function isAvailable(tool: Tool): boolean {
+  return !tool.demo && (validLink(tool.online) || validLink(tool.download));
 }
 export function validateTool(input: unknown): Tool {
   if (!input || typeof input !== "object" || Array.isArray(input))
@@ -60,12 +70,52 @@ export function validateTool(input: unknown): Tool {
       !(t[key] as unknown[]).every((x) => typeof x === "string")
     )
       throw new Error(`Invalid ${key}`);
-  for (const key of ["download", "online", "github", "documentation"])
+  for (const key of [
+    "download",
+    "online",
+    "github",
+    "documentation",
+    "release",
+  ])
     if (
       t[key] !== undefined &&
       (typeof t[key] !== "string" || (t[key] !== "" && !validLink(t[key])))
     )
       throw new Error(`Invalid ${key} URL`);
+  for (const value of [t.icon, ...(t.screenshots as string[])])
+    if (value && (typeof value !== "string" || !validAsset(value)))
+      throw new Error("Invalid image path");
+  if (
+    t.web !== undefined &&
+    (typeof t.web !== "string" ||
+      !validAsset(t.web) ||
+      !t.web.endsWith(".html") ||
+      (t.web.startsWith("/") && !t.web.startsWith(`/tools/${t.id}/app/`)) ||
+      t.web.startsWith("https://") ||
+      t.type === "desktop" ||
+      t.demo)
+  )
+    throw new Error(
+      "Invalid web entry: use a local HTML build entry for an online or hybrid release",
+    );
+  if (t.zh !== undefined) {
+    const zh = t.zh as Record<string, unknown>;
+    if (
+      !zh ||
+      typeof zh !== "object" ||
+      Array.isArray(zh) ||
+      (zh.description !== undefined && typeof zh.description !== "string") ||
+      (zh.features !== undefined &&
+        (!Array.isArray(zh.features) ||
+          !zh.features.every((x) => typeof x === "string"))) ||
+      (zh.historyNotes !== undefined &&
+        (!zh.historyNotes ||
+          typeof zh.historyNotes !== "object" ||
+          Array.isArray(zh.historyNotes) ||
+          !Object.values(zh.historyNotes).every((x) => typeof x === "string")))
+    )
+      throw new Error("Invalid Chinese translation");
+  }
   for (const key of ["icon", "citation", "developer"])
     if (t[key] !== undefined && typeof t[key] !== "string")
       throw new Error(`Invalid ${key}`);
@@ -105,6 +155,18 @@ export function validateTool(input: unknown): Tool {
     citation: "",
     ...t,
   } as Tool;
+}
+export function validAsset(value: string): boolean {
+  if (!value || /[\\<>"\s?#\x00-\x1f]/.test(value)) return false;
+  if (value.startsWith("https://")) return validLink(value);
+  if (value.startsWith("//") || value.includes(":") || /%/i.test(value))
+    return false;
+  return !value
+    .split("/")
+    .some(
+      (part) =>
+        part === ".." || part === "." || (!part && value.indexOf("//") >= 0),
+    );
 }
 export function validateRegistry(inputs: unknown[]): Tool[] {
   const tools = inputs.map(validateTool);

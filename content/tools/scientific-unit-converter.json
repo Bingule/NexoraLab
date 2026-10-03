@@ -1,0 +1,52 @@
+{
+  "icon": "",
+  "download": "https://github.com/Bingule/NexoraLab/releases/download/scientific-unit-converter-v1.0.0/scientific-unit-converter-1.0.0.zip",
+  "online": "/lab/scientific-unit-converter/",
+  "github": "https://github.com/Bingule/NexoraLab",
+  "documentation": "https://github.com/Bingule/NexoraLab/releases/tag/scientific-unit-converter-v1.0.0",
+  "citation": "",
+  "id": "scientific-unit-converter",
+  "name": "Scientific Unit Converter",
+  "version": "1.0.0",
+  "category": "utilities",
+  "type": "online",
+  "description": "Convert length, energy, pressure and absolute temperature. Runs locally in your browser, with scientific notation support.",
+  "platforms": [
+    "Web",
+    "Offline HTML"
+  ],
+  "screenshots": [
+    "screenshot.png"
+  ],
+  "web": "/tools/scientific-unit-converter/app/index.html",
+  "release": "https://github.com/Bingule/NexoraLab/releases/tag/scientific-unit-converter-v1.0.0",
+  "demo": false,
+  "featured": true,
+  "updated": "2026-10-03",
+  "developer": "Bing Wu / NexoraLab",
+  "features": [
+    "Length, energy, pressure and absolute temperature conversion",
+    "Scientific notation and up to 12 significant digits in displayed results",
+    "No installation or data uploads; downloadable offline HTML package",
+    "English and Chinese interface"
+  ],
+  "history": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-03",
+      "notes": "Scientific Unit Converter is now available online and as an offline download."
+    }
+  ],
+  "zh": {
+    "description": "换算长度、能量、压力和绝对温度。计算在浏览器本地完成，支持科学计数法。",
+    "features": [
+      "长度、能量、压力和绝对温度换算",
+      "支持科学计数法，结果最多显示 12 位有效数字",
+      "无需安装或上传数据；可下载离线 HTML 包",
+      "中英文界面"
+    ],
+    "historyNotes": {
+      "1.0.0": "科学单位换算器已上线，可在线使用或下载离线版。"
+    }
+  }
+}

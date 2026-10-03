@@ -18,7 +18,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, "Microsoft YaHei", "PingFang SC", sans-serif;
   font-size: 15px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
@@ -1790,5 +1790,126 @@ select:focus-visible {
   *:after {
     transition: none !important;
     animation: none !important;
+  }
+}
+
+/* Publication assets and language controls retain the existing neutral palette. */
+.language-switch {
+  display: flex;
+  gap: 2px;
+  white-space: nowrap;
+  margin-left: 0;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 2px;
+  flex-shrink: 0;
+}
+.language-switch button {
+  background: transparent;
+  border: 0;
+  padding: 5px 8px;
+  font-size: 11px;
+  color: var(--muted);
+  min-height: 32px;
+}
+.language-switch button[aria-pressed="true"] {
+  background: var(--soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+.tool-preview {
+  aspect-ratio: 16/9;
+  border: 1px solid var(--line);
+  background: var(--soft);
+  margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--muted);
+  overflow: hidden;
+  border-radius: 3px;
+}
+.tool-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #fff;
+}
+.tool-preview span {
+  font-size: 10px;
+}
+.research-mini-grid a > div {
+  min-width: 0;
+}
+.research-mini-grid p {
+  font-size: 11px;
+  line-height: 1.65;
+  margin-top: 7px;
+}
+.research-mini-grid a {
+  align-items: flex-start;
+}
+.research-mini-grid svg {
+  margin-top: 2px;
+}
+.lab-frame {
+  display: block;
+  width: 100%;
+  height: 720px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: #fff;
+}
+.workspace-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.section-intro {
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+.card-actions .text-link {
+  font-size: 11px;
+}
+html[lang="zh-CN"] .eyebrow {
+  letter-spacing: 1px;
+}
+html[lang="zh-CN"] .hero h1 {
+  font-size: 58px;
+}
+@media (max-width: 760px) {
+  .header-inner {
+    gap: 12px;
+  }
+  .language-switch {
+    margin-left: auto;
+  }
+  .menu-toggle {
+    margin-left: 0;
+  }
+  .language-switch button {
+    padding: 5px 7px;
+  }
+  .lab-frame {
+    height: 980px;
+  }
+  .research-mini-grid p {
+    font-size: 11px;
+  }
+  .research-mini-grid a {
+    gap: 10px;
+  }
+  html[lang="zh-CN"] .hero h1 {
+    font-size: 42px;
+  }
+  .tool-preview {
+    margin-bottom: 16px;
   }
 }

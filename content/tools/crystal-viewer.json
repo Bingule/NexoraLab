@@ -4,10 +4,8 @@
   "version": "0.0.0",
   "category": "structure",
   "type": "online",
-  "description": "A sample entry for crystal-structure visualization.",
-  "platforms": [
-    "Web"
-  ],
+  "description": "Crystal-structure visualization workspace in preparation.",
+  "platforms": ["Web"],
   "icon": "",
   "screenshots": [],
   "download": "",
@@ -20,5 +18,8 @@
   "updated": "2026-10-03",
   "developer": "NexoraLab",
   "features": [],
-  "history": []
+  "history": [],
+  "zh": {
+    "description": "晶体结构可视化工作区，正在准备中。"
+  }
 }

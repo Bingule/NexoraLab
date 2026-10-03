@@ -1,10 +1,13 @@
 "use client";
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { categories, type Tool } from "@/lib/manifest";
+import { categories, isAvailable, type Tool } from "@/lib/manifest";
 import { ToolCard } from "./ToolCard";
 import { Icon } from "./Icon";
+import { useLanguage } from "./Language";
+import { categoryLabels } from "@/lib/labels";
 export function Catalog({ tools }: { tools: Tool[] }) {
+  const { text } = useLanguage();
   const params = useSearchParams();
   const requested = params.get("category") || "all";
   const [category, setCategory] = useState(
@@ -18,7 +21,7 @@ export function Catalog({ tools }: { tools: Tool[] }) {
     (t) =>
       (category === "all" || t.category === category) &&
       (platform === "all" || t.platforms.includes(platform)) &&
-      `${t.name} ${t.description} ${t.category} ${t.platforms.join(" ")}`
+      `${t.name} ${t.description} ${t.zh?.description || ""} ${t.category} ${categoryLabels[t.category]} ${t.platforms.join(" ")}`
         .toLowerCase()
         .includes(query.trim().toLowerCase()),
   );
@@ -33,20 +36,23 @@ export function Catalog({ tools }: { tools: Tool[] }) {
         <label className="search">
           <Icon name="search" />
           <input
-            aria-label="Search tools"
-            placeholder="Search tools, categories, or keywords…"
+            aria-label={text("Search tools", "搜索工具")}
+            placeholder={text(
+              "Search tools, categories, or keywords…",
+              "搜索工具、类别或关键词…",
+            )}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
         </label>
         <label className="platform-filter">
-          <span>Platform</span>
+          <span>{text("Platform", "平台")}</span>
           <select
-            aria-label="Filter by platform"
+            aria-label={text("Filter by platform", "按平台筛选")}
             value={platform}
             onChange={(e) => setPlatform(e.target.value)}
           >
-            <option value="all">All platforms</option>
+            <option value="all">{text("All platforms", "全部平台")}</option>
             {Array.from(new Set(tools.flatMap((t) => t.platforms)))
               .sort()
               .map((p) => (
@@ -55,7 +61,10 @@ export function Catalog({ tools }: { tools: Tool[] }) {
           </select>
         </label>
       </div>
-      <div className="filter-tabs" aria-label="Tool categories">
+      <div
+        className="filter-tabs"
+        aria-label={text("Tool categories", "工具类别")}
+      >
         {["all", ...categories].map((c) => (
           <button
             key={c}
@@ -63,17 +72,29 @@ export function Catalog({ tools }: { tools: Tool[] }) {
             aria-pressed={c === category}
             onClick={() => setCategory(c)}
           >
-            {c === "all" ? "All tools" : c.charAt(0).toUpperCase() + c.slice(1)}
+            {text(
+              c === "all"
+                ? "All tools"
+                : c.charAt(0).toUpperCase() + c.slice(1),
+              categoryLabels[c],
+            )}
             {c === "all" && <span>{tools.length}</span>}
           </button>
         ))}
       </div>
       <div className="results-summary" aria-live="polite">
         <span>
-          {matches.length} {matches.length === 1 ? "tool" : "tools"} in your
-          workspace
+          {text(
+            `${matches.length} tools found`,
+            `找到 ${matches.length} 个工具`,
+          )}
         </span>
-        <span>Demo catalog · Real releases coming later</span>
+        <span>
+          {text(
+            `${tools.filter(isAvailable).length} available · ${tools.filter((t) => !isAvailable(t)).length} in preparation`,
+            `${tools.filter(isAvailable).length} 个已发布 · ${tools.filter((t) => !isAvailable(t)).length} 个规划中`,
+          )}
+        </span>
       </div>
       {matches.length ? (
         <div className="tool-grid">
@@ -84,10 +105,15 @@ export function Catalog({ tools }: { tools: Tool[] }) {
       ) : (
         <div className="empty-state">
           <Icon name="search" size={34} />
-          <h2>No tools found</h2>
-          <p>Try another keyword, category or platform.</p>
+          <h2>{text("No tools found", "未找到工具")}</h2>
+          <p>
+            {text(
+              "Try another keyword, category or platform.",
+              "请尝试其他关键词、类别或平台。",
+            )}
+          </p>
           <button className="button" onClick={clear}>
-            Clear filters
+            {text("Clear filters", "清除筛选")}
           </button>
         </div>
       )}

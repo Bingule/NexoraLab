@@ -4,10 +4,8 @@
   "version": "0.0.0",
   "category": "diffraction",
   "type": "desktop",
-  "description": "A sample entry for diffraction data analysis.",
-  "platforms": [
-    "Windows"
-  ],
+  "description": "Diffraction analysis workspace in preparation.",
+  "platforms": ["Windows"],
   "icon": "",
   "screenshots": [],
   "download": "",
@@ -20,5 +18,8 @@
   "updated": "2026-10-03",
   "developer": "NexoraLab",
   "features": [],
-  "history": []
+  "history": [],
+  "zh": {
+    "description": "衍射分析工作区，正在准备中。"
+  }
 }

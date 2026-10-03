@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { asset } from "@/lib/paths";
 import { Icon } from "./Icon";
+import { T } from "./Language";
 export function Founder({ full = false }: { full?: boolean }) {
   return (
     <div className={`founder ${full ? "founder-full" : ""}`}>
@@ -12,16 +13,23 @@ export function Founder({ full = false }: { full?: boolean }) {
         />
       </div>
       <div className="founder-copy">
-        <p className="eyebrow">THE SCIENCE BEHIND THE TOOLS</p>
+        <p className="eyebrow">
+          <T zh="工具背后的科学">THE SCIENCE BEHIND THE TOOLS</T>
+        </p>
         <h2>Bing Wu, Ph.D.</h2>
-        <p className="founder-role">Founder of NexoraLab</p>
+        <p className="founder-role">
+          <T zh="NexoraLab 创始人">Founder of NexoraLab</T>
+        </p>
         <p>
-          Materials researcher working at the intersection of materials
-          chemistry, electrochemistry, crystal chemistry, computational
-          materials science and scientific software development.
+          <T zh="材料研究者，专注材料化学、电化学与计算材料科学的实用工具开发。">
+            Materials researcher developing practical tools for materials
+            chemistry, electrochemistry and computational materials science.
+          </T>
         </p>
         <p className="affiliation">
-          University of Chemistry and Technology Prague
+          <T zh="布拉格化学技术大学">
+            University of Chemistry and Technology Prague
+          </T>
         </p>
         <div className="interest-tags">
           {[
@@ -43,13 +51,16 @@ export function Founder({ full = false }: { full?: boolean }) {
             {["Google Scholar", "GitHub", "ORCID", "Email", "CV"].map((t) => (
               <span key={t}>
                 {t}
-                <small>Link to be added</small>
+                <small>
+                  <T zh="链接待补充">Link to be added</T>
+                </small>
               </span>
             ))}
           </div>
         ) : (
           <Link href="/about/" className="text-link">
-            Meet the founder <Icon name="arrow" size={17} />
+            <T zh="了解创始人">Meet the founder</T>{" "}
+            <Icon name="arrow" size={17} />
           </Link>
         )}
       </div>

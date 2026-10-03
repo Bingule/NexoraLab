@@ -11,9 +11,16 @@ export function getTools() {
       .sort()
       .map((file) => {
         try {
-          return JSON.parse(fs.readFileSync(path.join(dir, file), "utf8"));
-        } catch {
-          throw new Error(`Invalid JSON in content/tools/${file}`);
+          const tool = JSON.parse(
+            fs.readFileSync(path.join(dir, file), "utf8"),
+          );
+          if (file !== `${tool.id}.json`)
+            throw new Error("filename must match the tool id");
+          return tool;
+        } catch (error) {
+          throw new Error(
+            `Invalid content/tools/${file}: ${(error as Error).message}`,
+          );
         }
       }),
   );

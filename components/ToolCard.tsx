@@ -1,8 +1,10 @@
 import Link from "next/link";
 import type { Tool } from "@/lib/manifest";
-import { validLink } from "@/lib/manifest";
+import { validLink, isAvailable } from "@/lib/manifest";
 import { asset } from "@/lib/paths";
 import { Icon, categoryIcon } from "./Icon";
+import { T } from "./Language";
+import { categoryLabels } from "@/lib/labels";
 export function ToolActions({
   tool,
   compact = false,
@@ -14,6 +16,7 @@ export function ToolActions({
     [tool.online, "Open Online", "globe"],
     [tool.download, "Download", "download"],
     [tool.github, "GitHub", "code"],
+    [tool.release || "", "Release notes", "book"],
   ].filter(([url]) => validLink(url));
   return (
     <>
@@ -25,7 +28,18 @@ export function ToolActions({
             key={label}
           >
             <Icon name={icon} size={16} />
-            {label}
+            <T
+              zh={
+                {
+                  "Open Online": "在线使用",
+                  Download: "下载",
+                  GitHub: "GitHub",
+                  "Release notes": "发布说明",
+                }[label]
+              }
+            >
+              {label}
+            </T>
           </Link>
         ) : (
           <a
@@ -36,7 +50,18 @@ export function ToolActions({
             rel="noopener noreferrer"
           >
             <Icon name={icon} size={16} />
-            {label}
+            <T
+              zh={
+                {
+                  "Open Online": "在线使用",
+                  Download: "下载",
+                  GitHub: "GitHub",
+                  "Release notes": "发布说明",
+                }[label]
+              }
+            >
+              {label}
+            </T>
           </a>
         ),
       )}
@@ -44,6 +69,7 @@ export function ToolActions({
   );
 }
 export function ToolCard({ tool }: { tool: Tool }) {
+  const available = isAvailable(tool);
   return (
     <article className={`tool-card ${tool.category}`}>
       <div className="card-top">
@@ -63,33 +89,78 @@ export function ToolCard({ tool }: { tool: Tool }) {
             <Icon name={categoryIcon[tool.category]} size={25} />
           )}
         </div>
-        <span className="demo-label">{tool.demo ? "DEMO" : "REGISTERED"}</span>
+        <span className="demo-label">
+          <T zh={!available ? "规划中" : "已发布"}>
+            {!available ? "PLANNED" : "AVAILABLE"}
+          </T>
+        </span>
       </div>
-      <p className="eyebrow card-category">{tool.category}</p>
+      <div className="tool-preview">
+        {tool.screenshots[0] ? (
+          <img
+            src={asset(
+              tool.screenshots[0].startsWith("/") ||
+                tool.screenshots[0].startsWith("https://")
+                ? tool.screenshots[0]
+                : `/tools/${tool.id}/${tool.screenshots[0]}`,
+            )}
+            alt={`${tool.name} screenshot`}
+            loading="lazy"
+          />
+        ) : (
+          <>
+            <Icon name={categoryIcon[tool.category]} size={34} />
+            <span>
+              <T zh={!available ? "尚未发布" : "截图待补充"}>
+                {tool.demo
+                  ? "Release in preparation"
+                  : "Screenshot coming soon"}
+              </T>
+            </span>
+          </>
+        )}
+      </div>
+      <p className="eyebrow card-category">
+        <T zh={categoryLabels[tool.category]}>{tool.category}</T>
+      </p>
       <h3>
         <Link href={`/tools/${tool.id}/`}>{tool.name}</Link>
       </h3>
-      <p className="card-description">{tool.description}</p>
+      <p className="card-description">
+        <T zh={tool.zh?.description}>{tool.description}</T>
+      </p>
       <div className="tool-badges">
         <span>
           <Icon
             name={tool.type === "online" ? "globe" : "download"}
             size={12}
           />
-          {tool.type === "hybrid"
-            ? "Desktop + Web"
-            : tool.type === "online"
-              ? "Online"
-              : "Desktop"}
+          <T
+            zh={
+              tool.type === "hybrid"
+                ? "桌面 + 网页"
+                : tool.type === "online"
+                  ? "在线"
+                  : "桌面"
+            }
+          >
+            {tool.type === "hybrid"
+              ? "Desktop + Web"
+              : tool.type === "online"
+                ? "Online"
+                : "Desktop"}
+          </T>
         </span>
         {tool.platforms.map((p) => (
           <span key={p}>{p}</span>
         ))}
       </div>
       <div className="card-footer">
-        <span className="version">v{tool.version}</span>
+        <span className="version">
+          {!available ? <T zh="待发布">Unreleased</T> : `v${tool.version}`}
+        </span>
         <Link className="text-link" href={`/tools/${tool.id}/`}>
-          View details <Icon name="arrow" size={17} />
+          <T zh="查看详情">View details</T> <Icon name="arrow" size={17} />
         </Link>
       </div>
       {(validLink(tool.online) ||

@@ -1,56 +1,98 @@
 # NexoraLab 软件发布约定
 
-每个科学软件保持独立项目。在软件项目根目录维护 `nexoralab.json`；NexoraLab 只保存其发布元数据副本和展示资源，不复制源代码，不负责构建软件。
+每个科学软件保持独立项目。在软件项目根目录维护 `nexoralab.json`；NexoraLab 只保存其发布元数据副本、展示资源和静态网页构建，不迁移软件源代码，不负责构建软件。
 
 ## 文件格式
 
 从 `templates/nexoralab.json` 复制模板。UTF-8 编码，标准 JSON，不包含注释或尾随逗号。
 
-| 字段 | 含义 |
-| --- | --- |
-| `id` | 必填。唯一、小写、数字和连字符，例如 `xrd-analyzer`，发布后尽量不改动 |
-| `name` | 必填。软件显示名称 |
-| `version` | 必填。软件发布版本，建议语义版本，例如 `1.0.0` |
-| `category` | 必填。`structure` / `diffraction` / `microscopy` / `electrochemistry` / `simulation` / `utilities` |
-| `type` | 必填。`desktop` / `online` / `hybrid` |
-| `description` | 必填。简短、准确描述，避免未经验证的功能声明 |
-| `platforms` | 必填。字符串数组，如 `["Windows", "Web"]` 或 `["Python"]` |
-| `icon` | 可选。空字符串、HTTPS 地址、站内绝对路径或资源文件名 |
-| `screenshots` | 必填数组。可为空；支持 HTTPS 地址、站内绝对路径或文件名 |
-| `download` | 可选。直接下载 URL，推荐独立软件 GitHub Release 中的 `.exe` / `.zip` 资源地址 |
-| `online` | 可选。可运行应用的 HTTPS URL 或真实的 `/lab/tool-name/` 路径 |
-| `github` | 可选。独立软件仓库的 HTTPS URL |
-| `documentation` | 可选。HTTPS 文档地址或已存在的站内资源路径 |
-| `citation` | 可选。引用文本或 DOI 引用信息，以纯文本呈现 |
-| `demo` | 可选布尔值。展示用占位记录设为 `true`，真实软件设为 `false` |
-| `featured` | 可选布尔值。首页展示最多三个精选工具 |
-| `updated` | 可选。`YYYY-MM-DD`，用于最新动态排序 |
-| `developer` | 可选。开发者名称 |
-| `features` | 可选字符串数组。真实、已验证的功能 |
-| `history` | 可选数组：`[{"version":"1.0.0","date":"2026-10-03","notes":"首次发布"}]` |
+| 字段            | 含义                                                                                               |
+| --------------- | -------------------------------------------------------------------------------------------------- |
+| `id`            | 必填。唯一、小写、数字和连字符，例如 `xrd-analyzer`，发布后尽量不改动                              |
+| `name`          | 必填。软件显示名称                                                                                 |
+| `version`       | 必填。软件发布版本，建议语义版本，例如 `1.0.0`                                                     |
+| `category`      | 必填。`structure` / `diffraction` / `microscopy` / `electrochemistry` / `simulation` / `utilities` |
+| `type`          | 必填。`desktop` / `online` / `hybrid`                                                              |
+| `description`   | 必填。简短、准确描述，避免未经验证的功能声明                                                       |
+| `platforms`     | 必填。字符串数组，如 `["Windows", "Web"]` 或 `["Python"]`                                          |
+| `icon`          | 可选。空字符串、HTTPS 地址、站内绝对路径或资源文件名                                               |
+| `screenshots`   | 必填数组。可为空；支持 HTTPS 地址、站内绝对路径或文件名                                            |
+| `download`      | 可选。直接下载 URL，推荐独立软件 GitHub Release 中的 `.exe` / `.zip` 资源地址                      |
+| `online`        | 可选。可运行应用的 HTTPS URL 或真实的 `/lab/tool-name/` 路径                                       |
+| `github`        | 可选。独立软件仓库的 HTTPS URL                                                                     |
+| `documentation` | 可选。HTTPS 文档地址或已存在的站内资源路径                                                         |
+| `release`       | 可选。GitHub Release 页面 URL，用于发布说明按钮                                                    |
+| `web`           | 可选。独立项目内的网页构建入口，如 `dist/index.html`；导入后转换为站内资产路径                     |
+| `zh`            | 可选。`description`、`features`（与英文顺序一致）、`historyNotes`（版本号到中文发布说明的映射）    |
+| `citation`      | 可选。引用文本或 DOI 引用信息，以纯文本呈现                                                        |
+| `demo`          | 可选布尔值。展示用占位记录设为 `true`，真实软件设为 `false`                                        |
+| `featured`      | 可选布尔值。首页展示最多三个精选工具                                                               |
+| `updated`       | 可选。`YYYY-MM-DD`，用于最新动态排序                                                               |
+| `developer`     | 可选。开发者名称                                                                                   |
+| `features`      | 可选字符串数组。真实、已验证的功能                                                                 |
+| `history`       | 可选数组：`[{"version":"1.0.0","date":"2026-10-03","notes":"首次发布"}]`                           |
 
 链接仅接受 HTTPS 或以单个 `/` 开头的站内路径。空 URL 隐藏相应操作按钮；不要填写 `#`、虚构地址、`javascript:` 或不存在的下载。
 
 示例 `0.0.0` 是演示版本，不代表真实发布。网站不会仅凭 `type` 自动声称工具可用，也不会将演示工作区作为可运行科学软件。
 
-## 最小发布步骤
+## 完整发布路径（手动、可复用）
 
-1. 在独立软件项目内填写 `nexoralab.json`，准备真实图标、截图、文档和发布包。
-2. 发布包由软件项目自行发布。桌面程序推荐使用 GitHub Releases，设置 `download` 为对应文件的直接 URL。
-3. 把元数据复制到 NexoraLab 的 `content/tools/<id>.json`。文件名必须与 `id` 相同。
-4. 本地图标、截图复制到 `public/tools/<id>/`。例如 `icon: "icon.png"` 与 `screenshots: ["screenshot-1.png"]` 会分别解析为 `/tools/<id>/icon.png` 和 `/tools/<id>/screenshot-1.png`。嵌套资源路径可以使用 `screenshots/view.png`。
-5. 运行 `npm test`、`npm run typecheck`、`npm run build`，检查页面与链接，再提交网站仓库。
+**独立本地项目 → nexoralab.json → 注册表 → 工具详情页 → GitHub Release / 下载。**
 
-仅添加一份 JSON 就能注册工具，目录、详情页和动态在构建时自动更新；使用外部图标或截图时也无需复制资源。修改 JSON 后开发环境刷新页面，正式网站重新构建部署。
+1. 在软件项目中完成并验证可发布版本，保留原目录与原仓库。复制模板为根目录 `nexoralab.json`，准备截图。
+2. 手动在该软件仓库创建 GitHub Release，上传真实 `.exe` / `.zip` 等发布包。网站不替你编译软件。将 `release` 设置为 Release 页，`download` 设置为附件直接下载地址（不是 Release 页）：
+   - `release`: `https://github.com/<owner>/<repo>/releases/tag/v1.0.0`
+   - `download`: `https://github.com/<owner>/<repo>/releases/download/v1.0.0/<actual-filename>.zip`
+3. 填写实际 `version`、`updated`、`features`、`history`，将 `demo` 设为 `false`。`history` 按最新在前排列；发布说明描述用户能使用的新功能，例如 “Added CSV export”，不用内部任务记录。首页最新动态仅显示真实版本历史。
+4. 在 NexoraLab 目录执行：
 
-## 浏览器工具集成
+```sh
+npm run register -- "D:/projects/MyTool" --dry-run
+npm run register -- "D:/projects/MyTool"
+# 更新已有工具（明确替换）
+npm run register -- "D:/projects/MyTool/nexoralab.json" --replace
+npm test
+npm run typecheck
+npm run build
+npm run check:links
+```
 
-目前 `/lab/[id]` 为 `online`、`hybrid` 条目生成明确标注的工作区占位页面，不包含科学计算。Online Lab 页显示这些条目的工作区预览；真正可用的在线应用链接仍以 `online` 字段为准。
+导入命令校验字段、图片和网页文件后，写入 `content/tools/<id>.json`，将清单中的本地图标/截图复制到 `public/tools/<id>/`。路径相对独立项目清单目录，不允许越界或符号链接。HTTPS 图片可直接使用，无需复制。图标/截图用 PNG、JPEG、WebP、GIF 或 SVG。文件名必须与 `id` 一致。缺失的文件和错误 URL 会在写入前报错；`--dry-run` 不修改网站。`--replace` 仅替换该工具，不删除其他注册条目。
 
-最简单的实际集成是填写独立应用的 HTTPS URL。若要把独立应用部署到本站 `/lab/tool-name/`，应先提供经过验证的浏览器构建，并单独实现对应入口，再把 `online` 指向它。不要仅填写 URL 就假设科学计算已接入。
+5. 本地检查 `/tools/<id>/` 的截图、版本、在线和下载按钮，打开下载确认发布包能使用。提交推送网站 `main` 后 GitHub Actions 自动构建部署。不要发布仍然指向不存在附件的下载 URL。
 
-## 未来 `publish-to-nexoralab` 工作流
+桌面工具只需一个清单和可选图片；无需在 NexoraLab 增加新页面组件。`featured: true` 会进入首页精选（最多三个，真实版本优先）。清单更新即可改变截图、版本、按钮，无需改布局。
 
-未来 Codex 工作流可在独立软件目录内检查项目、维护 manifest、准备发布包与资源、更新注册表。此版本只定义约定，没有自动检查其他项目、编译软件、创建仓库或发布 GitHub Release。
+## 浏览器工具
 
-构建会拒绝无效字段、重复 ID 和错误 URL。新增记录若失败，先根据错误检查 JSON；不要绕过校验。部署参考 Next.js [静态导出文档](https://nextjs.org/docs/app/guides/static-exports) 和官方 [GitHub Pages 示例](https://github.com/vercel/next.js/tree/canary/examples/github-pages)。
+两种简单方式：
+
+- 独立托管：设置 `online` 为工具的 HTTPS 地址。
+- 本站托管：设置 `web: "dist/index.html"`。`dist/` 必须是独立、已经构建好的静态网页目录，包含全部运行资源，使用相对资源 URL。不要指向项目根目录，不要放开发依赖、密钥、私有数据或服务器代码。导入命令只复制这个构建目录到 `public/tools/<id>/app/`，自动设置 `online: "/lab/<id>/"`，通用工作区通过沙箱 iframe 加载应用。
+
+iframe 允许脚本，使用隔离来源，不允许访问主站存储、导航主站或弹窗。需要这些权限的应用应独立托管，使用 `online` 链接。工具可选读取 `?lang=en` / `?lang=zh` 初始化语言。网站之后切换语言时，向 iframe 发送 `{ type: "nexoralab-language", language: "zh" }`（或 `"en"）的 `postMessage`；工具仅接受 `event.source === parent` 且内容匹配的消息，更新文本即可，无需重新加载或清空输入。Scientific Unit Converter 已实现此约定；独立应用也可提供自己的语言按钮。
+
+## 已验证的首个发布
+
+[Scientific Unit Converter 1.0.0](https://bingule.github.io/NexoraLab/tools/scientific-unit-converter/) 使用此路径发布：独立本地文件夹中的 `nexoralab.json` 与 `dist/` → 导入脚本 → `content/tools/scientific-unit-converter.json` → 详情和在线工作区 → [GitHub Release](https://github.com/Bingule/NexoraLab/releases/tag/scientific-unit-converter-v1.0.0)。
+
+首个轻量工具的发布包暂放在 NexoraLab 仓库的独立命名标签 `scientific-unit-converter-v1.0.0` 下；以后已有软件直接链接各自仓库的 Release，不需迁移源代码或新建仓库。ZIP 包含 `nexoralab.json`、说明和独立 HTML/CSS/JS；解压后打开 `dist/index.html` 即可离线运行。
+
+## 中英文内容
+
+主站提供中文/英文按钮，记住手动选择。未选择时采用浏览器语言。静态 HTML 默认英文，客户端加载后应用中文；本轮无需服务器国际化或重复路由。工具名称和单位符号保持原名，中文字段缺省时回退英文。示例：
+
+```json
+"zh": {
+  "description": "面向材料研究的实用工具。",
+  "features": ["读取实际支持的文件格式"],
+  "historyNotes": { "1.0.0": "首个版本已上线，可在线使用和下载。" }
+}
+```
+
+研究分类和中英文短说明维护在 `lib/research.ts`。
+
+## 后续扩展
+
+本轮提供显式手动导入命令，没有自动扫描其他项目、编译软件、创建仓库或自动发 Release。未来 `publish-to-nexoralab` 工作流可以复用此命令。构建会拒绝无效字段、重复 ID 和错误 URL。部署参考 Next.js [静态导出文档](https://nextjs.org/docs/app/guides/static-exports)。

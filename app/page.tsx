@@ -1,3 +1,4 @@
+import { isAvailable } from "@/lib/manifest";
 import Link from "next/link";
 import { getTools } from "@/lib/registry";
 import { researchAreas } from "@/lib/research";
@@ -5,10 +6,12 @@ import { ToolCard } from "@/components/ToolCard";
 import { Icon, categoryIcon } from "@/components/Icon";
 import { Lattice } from "@/components/Lattice";
 import { Founder } from "@/components/Founder";
+import { T } from "@/components/Language";
 
 export default function Home() {
   const tools = getTools();
   const recent = [...tools]
+    .filter((t) => isAvailable(t) && t.history?.length)
     .sort((a, b) => (b.updated || "").localeCompare(a.updated || ""))
     .slice(0, 3);
   return (
@@ -17,53 +20,66 @@ export default function Home() {
         <div className="container hero-grid">
           <div className="hero-copy">
             <p className="eyebrow">
-              <span className="tiny-rule" /> YOUR ONLINE MATERIALS LABORATORY
+              <span className="tiny-rule" />{" "}
+              <T zh="你的在线材料科学实验室">
+                YOUR ONLINE MATERIALS LABORATORY
+              </T>
             </p>
             <h1>
-              Tools for
+              <T zh="实用工具">Tools for</T>
               <br />
-              materials <span>research.</span>
+              <T
+                zh={
+                  <>
+                    助力<span>材料研究。</span>
+                  </>
+                }
+              >
+                materials <span>research.</span>
+              </T>
             </h1>
             <p className="hero-description">
-              From atomic structures to experimental insight.
-              <br className="desktop-break" /> Practical scientific software for
-              exploring, analyzing
-              <br className="desktop-break" /> and understanding materials.
+              <T zh="从原子结构到实验洞察。">
+                From atomic structures to experimental insight.
+              </T>
+              <br className="desktop-break" />{" "}
+              <T zh="用实用的科学软件，探索、分析并理解材料。">
+                Practical scientific software for exploring, analyzing and
+                understanding materials.
+              </T>
             </p>
             <div className="hero-actions">
               <Link href="/tools/" className="button">
-                Explore Tools <Icon name="arrow" size={18} />
+                <T zh="探索工具">Explore Tools</T>{" "}
+                <Icon name="arrow" size={18} />
               </Link>
               <Link href="/lab/" className="button secondary">
                 <Icon name="globe" size={17} />
-                Open Online Lab
+                <T zh="打开在线实验室">Open Online Lab</T>
               </Link>
             </div>
             <div className="hero-footnote">
-              <span className="live-dot" /> Built for researchers. Open to
-              discovery.
+              <span className="live-dot" />{" "}
+              <T zh="为研究者打造，让探索更进一步。">
+                Built for researchers. Open to discovery.
+              </T>
             </div>
           </div>
           <Lattice />
         </div>
       </section>
-      <section className="founder-section">
-        <div className="container">
-          <Founder />
-        </div>
-      </section>
       <div className="discipline-strip">
         <div className="container">
           {[
-            ["box", "Crystal structures"],
-            ["chart", "Diffraction"],
-            ["microscope", "Microscopy"],
-            ["activity", "Electrochemistry"],
-            ["cpu", "Simulation"],
-          ].map(([icon, label]) => (
+            ["box", "Crystal structures", "晶体结构"],
+            ["chart", "Diffraction", "衍射"],
+            ["microscope", "Microscopy", "显微表征"],
+            ["activity", "Electrochemistry", "电化学"],
+            ["cpu", "Simulation", "模拟"],
+          ].map(([icon, label, zh]) => (
             <span key={label}>
               <Icon name={icon} size={17} />
-              {label}
+              <T zh={zh}>{label}</T>
             </span>
           ))}
         </div>
@@ -71,26 +87,38 @@ export default function Home() {
       <section className="section container">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">THE RESEARCH TOOLKIT</p>
-            <h2>Start with the right tool.</h2>
-            <p>A growing collection, built around materials science.</p>
+            <p className="eyebrow">
+              <T zh="精选工具">FEATURED TOOLS</T>
+            </p>
+            <h2>
+              <T zh="从合适的工具开始。">Start with the right tool.</T>
+            </h2>
+            <p>
+              <T zh="围绕材料科学，持续完善的工具集。">
+                A growing collection, built around materials science.
+              </T>
+            </p>
           </div>
           <Link className="text-link" href="/tools/">
-            Browse all tools <Icon name="arrow" size={18} />
+            <T zh="浏览全部工具">Browse all tools</T>{" "}
+            <Icon name="arrow" size={18} />
           </Link>
         </div>
         <div className="tool-grid featured-grid">
           {tools
             .filter((t) => t.featured)
+            .sort((a, b) => Number(!!a.demo) - Number(!!b.demo))
             .slice(0, 3)
             .map((t) => (
               <ToolCard key={t.id} tool={t} />
             ))}
         </div>
         <p className="catalog-note">
-          <span className="small-dot" /> Preview catalog — these entries
-          demonstrate the platform. Software releases will be added
-          individually.
+          <span className="small-dot" />{" "}
+          <T zh="已发布工具可直接使用；规划中的工具会在正式发布后开放。">
+            Released tools are ready to use. Planned tools become available when
+            their first release is published.
+          </T>
         </p>
       </section>
       <section className="lab-band">
@@ -99,42 +127,76 @@ export default function Home() {
             <Icon name="globe" size={33} />
           </div>
           <div>
-            <p className="eyebrow">LESS SETUP. MORE SCIENCE.</p>
-            <h2>Your next workspace is a browser tab.</h2>
-            <p>Explore the future home of browser-based scientific tools.</p>
+            <p className="eyebrow">
+              <T zh="在线实验室">ONLINE LAB</T>
+            </p>
+            <h2>
+              <T zh="浏览器，就是你的下一个工作区。">
+                Your next workspace is a browser tab.
+              </T>
+            </h2>
+            <p>
+              <T zh="打开科学单位换算器，无需安装即可开始使用。">
+                Start with Scientific Unit Converter. No installation needed.
+              </T>
+            </p>
           </div>
           <Link className="button secondary" href="/lab/">
-            Discover Online Lab <Icon name="arrow" size={17} />
+            <T zh="进入在线实验室">Discover Online Lab</T>{" "}
+            <Icon name="arrow" size={17} />
           </Link>
         </div>
       </section>
       <section className="section container">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">CONNECTED BY SCIENCE</p>
-            <h2>Research that shapes the tools.</h2>
+            <p className="eyebrow">
+              <T zh="科学连接一切">CONNECTED BY SCIENCE</T>
+            </p>
+            <h2>
+              <T zh="研究，塑造工具。">Research that shapes the tools.</T>
+            </h2>
           </div>
           <Link href="/research/" className="text-link">
-            Our research areas <Icon name="arrow" size={18} />
+            <T zh="了解研究方向">Our research areas</T>{" "}
+            <Icon name="arrow" size={18} />
           </Link>
         </div>
         <div className="research-mini-grid">
           {researchAreas.map((r, i) => (
             <Link href="/research/" key={r.title}>
               <span className="research-number">0{i + 1}</span>
-              <h3>{r.title}</h3>
+              <div>
+                <h3>
+                  <T zh={r.zh.title}>{r.title}</T>
+                </h3>
+                <p>
+                  <T zh={r.zh.description}>{r.description}</T>
+                </p>
+              </div>
               <Icon name={r.icon} size={24} />
             </Link>
           ))}
         </div>
       </section>
+      <section className="founder-section">
+        <div className="container">
+          <Founder />
+        </div>
+      </section>
       <section className="section container updates-section">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">FROM THE LAB</p>
-            <h2>Latest in the toolkit.</h2>
+            <p className="eyebrow">
+              <T zh="实验室动态">FROM THE LAB</T>
+            </p>
+            <h2>
+              <T zh="最新发布与更新。">Latest releases & updates.</T>
+            </h2>
           </div>
-          <span className="quiet-label">Registry updates</span>
+          <span className="quiet-label">
+            <T zh="软件发布">Software releases</T>
+          </span>
         </div>
         <div className="updates-list">
           {recent.map((t) => (
@@ -145,19 +207,24 @@ export default function Home() {
               <div>
                 <h3>{t.name}</h3>
                 <p>
-                  {t.demo
-                    ? "Demo catalog entry added"
-                    : `Version ${t.version} registered`}
+                  <T zh={t.zh?.historyNotes?.[t.history![0].version]}>
+                    {t.history![0].notes}
+                  </T>
                 </p>
               </div>
-              <span className="update-version">
-                {t.demo ? "Demo" : `v${t.version}`}
-              </span>
+              <span className="update-version">v{t.version}</span>
               <time dateTime={t.updated}>{t.updated}</time>
               <Icon name="arrow" size={18} />
             </Link>
           ))}
         </div>
+        {!recent.length && (
+          <p>
+            <T zh="首个软件发布后，更新会显示在这里。">
+              Software updates will appear here with the first release.
+            </T>
+          </p>
+        )}
       </section>
     </>
   );

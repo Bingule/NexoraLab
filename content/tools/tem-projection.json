@@ -4,11 +4,8 @@
   "version": "0.0.0",
   "category": "microscopy",
   "type": "hybrid",
-  "description": "A sample entry for atomic and microscopy projections.",
-  "platforms": [
-    "Windows",
-    "Web"
-  ],
+  "description": "Microscopy and atomic projection workspace in preparation.",
+  "platforms": ["Windows", "Web"],
   "icon": "",
   "screenshots": [],
   "download": "",
@@ -21,5 +18,8 @@
   "updated": "2026-10-03",
   "developer": "NexoraLab",
   "features": [],
-  "history": []
+  "history": [],
+  "zh": {
+    "description": "显微表征与原子投影工作区，正在准备中。"
+  }
 }

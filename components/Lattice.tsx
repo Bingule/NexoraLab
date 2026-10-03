@@ -1,3 +1,4 @@
+import { T } from "./Language";
 const atoms = Array.from({ length: 4 }, (_, z) =>
   Array.from({ length: 5 }, (_, x) =>
     Array.from({ length: 3 }, (_, y) => ({ x, y, z })),
@@ -12,7 +13,7 @@ export function Lattice() {
     <div className="lattice-panel">
       <div className="figure-top">
         <span>
-          <i className="live-dot" /> STRUCTURE EXPLORER
+          <i className="live-dot" /> <T zh="结构探索">STRUCTURE EXPLORER</T>
         </span>
         <span>FIG. 01</span>
       </div>
@@ -108,13 +109,15 @@ export function Lattice() {
           fontFamily="monospace"
           fontSize="10"
         >
-          UNIT CELL
+          <T zh="晶胞">UNIT CELL</T>
         </text>
       </svg>
       <div className="figure-bottom">
         <span>
-          <i className="legend-dot" /> Crystal lattice{" "}
-          <small>Illustrative model</small>
+          <i className="legend-dot" /> <T zh="晶格">Crystal lattice</T>{" "}
+          <small>
+            <T zh="示意模型">Illustrative model</T>
+          </small>
         </span>
         <span className="figure-axis">
           a · b · c <IconCube />

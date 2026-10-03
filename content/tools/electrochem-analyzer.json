@@ -4,10 +4,8 @@
   "version": "0.0.0",
   "category": "electrochemistry",
   "type": "desktop",
-  "description": "A sample entry for electrochemical data workflows.",
-  "platforms": [
-    "Windows"
-  ],
+  "description": "Electrochemical data analysis workspace in preparation.",
+  "platforms": ["Windows"],
   "icon": "",
   "screenshots": [],
   "download": "",
@@ -20,5 +18,8 @@
   "updated": "2026-10-03",
   "developer": "NexoraLab",
   "features": [],
-  "history": []
+  "history": [],
+  "zh": {
+    "description": "电化学数据分析工作区，正在准备中。"
+  }
 }

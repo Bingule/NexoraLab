@@ -4,10 +4,8 @@
   "version": "0.0.0",
   "category": "simulation",
   "type": "desktop",
-  "description": "A sample entry for computational materials utilities.",
-  "platforms": [
-    "Python"
-  ],
+  "description": "Computational materials research toolkit in preparation.",
+  "platforms": ["Python"],
   "icon": "",
   "screenshots": [],
   "download": "",
@@ -20,5 +18,8 @@
   "updated": "2026-10-03",
   "developer": "NexoraLab",
   "features": [],
-  "history": []
+  "history": [],
+  "zh": {
+    "description": "计算材料研究工具集，正在准备中。"
+  }
 }

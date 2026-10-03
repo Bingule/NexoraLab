@@ -1,90 +1,61 @@
+import { isAvailable } from "@/lib/manifest";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { getTools } from "@/lib/registry";
-import { Icon, categoryIcon } from "@/components/Icon";
+import { ToolCard } from "@/components/ToolCard";
+import { T } from "@/components/Language";
 export const metadata: Metadata = { title: "Online Lab" };
-const planned = [
-  ["CIF utilities", "Structure file conversion and preparation.", "box"],
-  [
-    "Supercell generator",
-    "A future workspace for building periodic structures.",
-    "layers",
-  ],
-  ["XRD calculators", "A future home for diffraction utilities.", "chart"],
-  [
-    "Electrochemical calculators",
-    "A future home for electrochemical utilities.",
-    "activity",
-  ],
-  [
-    "Scientific plotting",
-    "A future workspace for research data visualization.",
-    "chart",
-  ],
-  ["Unit conversion", "A future home for scientific unit utilities.", "code"],
-];
 export default function Lab() {
   const tools = getTools().filter((t) => t.type !== "desktop");
+  const available = tools.filter((t) => isAvailable(t) && t.online);
+  const planned = tools.filter((t) => !isAvailable(t));
   return (
     <div className="container page-content">
       <div className="page-heading">
-        <p className="eyebrow">NEXORALAB / ONLINE LAB</p>
-        <h1>Science, in your browser.</h1>
+        <p className="eyebrow">
+          <T zh="NEXORALAB / 在线实验室">NEXORALAB / ONLINE LAB</T>
+        </p>
+        <h1>
+          <T zh="在浏览器中，开始科学探索。">Science, in your browser.</T>
+        </h1>
         <p>
-          A dedicated workspace for online scientific tools. No installation
-          required.
+          <T zh="轻量科学工具，无需安装。选择一个工作区即可开始。">
+            Lightweight scientific tools, without installation. Choose a
+            workspace to get started.
+          </T>
         </p>
       </div>
-      <div className="notice">
-        <Icon name="globe" size={23} />
-        <div>
-          <strong>The workspace is taking shape.</strong>
-          <p>
-            This first version provides the platform structure. Demo workspaces
-            contain no scientific calculations.
-          </p>
-        </div>
-      </div>
       <div className="section-heading compact">
-        <h2>Demo workspaces</h2>
-        <span className="quiet-label">{tools.length} preview entries</span>
+        <h2>
+          <T zh="可用工作区">Available workspaces</T>
+        </h2>
+        <span className="quiet-label">
+          {available.length} <T zh="个在线工具">online tools</T>
+        </span>
       </div>
       <div className="tool-grid lab-grid">
-        {tools.map((t) => (
-          <article key={t.id} className={`tool-card ${t.category}`}>
-            <div className="card-top">
-              <div className="tool-icon">
-                <Icon name={categoryIcon[t.category]} size={25} />
-              </div>
-              <span className="demo-label">DEMO WORKSPACE</span>
-            </div>
-            <h3>{t.name}</h3>
-            <p className="card-description">{t.description}</p>
-            <div className="card-footer">
-              <span className="version">Preview only</span>
-              <Link href={`/lab/${t.id}/`} className="text-link">
-                View workspace <Icon name="arrow" size={17} />
-              </Link>
-            </div>
-          </article>
+        {available.map((t) => (
+          <ToolCard key={t.id} tool={t} />
         ))}
       </div>
       <div className="section-heading compact roadmap-heading">
         <div>
-          <p className="eyebrow">ON THE HORIZON</p>
-          <h2>Room for more discovery.</h2>
+          <p className="eyebrow">
+            <T zh="持续开发">ON THE HORIZON</T>
+          </p>
+          <h2>
+            <T zh="规划中的工具">Tools in preparation</T>
+          </h2>
         </div>
       </div>
-      <div className="planned-grid">
-        {planned.map(([name, description, icon]) => (
-          <article key={name}>
-            <Icon name={icon} size={23} />
-            <div>
-              <h3>{name}</h3>
-              <p>{description}</p>
-            </div>
-            <span className="planned-label">PLANNED</span>
-          </article>
+      <p className="section-intro">
+        <T zh="这些工作区尚未开放；正式发布后即可使用。">
+          These workspaces are not available yet. Access opens with each tool’s
+          first release.
+        </T>
+      </p>
+      <div className="tool-grid lab-grid">
+        {planned.map((t) => (
+          <ToolCard key={t.id} tool={t} />
         ))}
       </div>
     </div>

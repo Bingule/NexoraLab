@@ -1,3 +1,4 @@
+import { T } from "@/components/Language";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { researchAreas } from "@/lib/research";
@@ -7,11 +8,17 @@ export default function Research() {
   return (
     <div className="container page-content">
       <div className="page-heading">
-        <p className="eyebrow">NEXORALAB / RESEARCH</p>
-        <h1>Built on a scientific foundation.</h1>
+        <p className="eyebrow">
+          <T zh="NEXORALAB / 研究方向">NEXORALAB / RESEARCH</T>
+        </p>
+        <h1>
+          <T zh="建立在科学基础之上。">Built on a scientific foundation.</T>
+        </h1>
         <p>
-          The materials research interests that inform NexoraLab’s practical
-          tools and scientific workflows.
+          <T zh="材料研究，为 NexoraLab 的实用工具与科学工作流提供基础。">
+            The materials research interests that inform NexoraLab’s practical
+            tools and scientific workflows.
+          </T>
         </p>
       </div>
       <div className="research-grid">
@@ -21,25 +28,41 @@ export default function Research() {
               <Icon name={r.icon} size={29} />
               <span>0{i + 1}</span>
             </div>
-            <p className="eyebrow">{r.tag}</p>
-            <h2>{r.title}</h2>
-            <p>{r.description}</p>
+            <p className="eyebrow">
+              <T zh={r.zh.tag}>{r.tag}</T>
+            </p>
+            <h2>
+              <T zh={r.zh.title}>{r.title}</T>
+            </h2>
+            <p>
+              <T zh={r.zh.description}>{r.description}</T>
+            </p>
             <Link href={`/tools/?category=${r.category}`} className="text-link">
-              Explore related tools <Icon name="arrow" size={17} />
+              <T zh="探索相关工具">Explore related tools</T>
+              <Icon name="arrow" size={17} />
             </Link>
           </article>
         ))}
       </div>
       <div className="mission-note">
-        <p className="eyebrow">RESEARCH INTO PRACTICE</p>
-        <h2>Better tools begin with real research questions.</h2>
+        <p className="eyebrow">
+          <T zh="让研究走向实践">RESEARCH INTO PRACTICE</T>
+        </p>
+        <h2>
+          <T zh="更好的工具，始于真实的研究问题。">
+            Better tools begin with real research questions.
+          </T>
+        </h2>
         <p>
-          NexoraLab connects a materials-science perspective with practical
-          software development, making scientific workflows easier to access,
-          use and share.
+          <T zh="NexoraLab 将材料科学视角融入实用软件开发，让科学工作流更易获取、使用与共享。">
+            NexoraLab connects a materials-science perspective with practical
+            software development, making scientific workflows easier to access,
+            use and share.
+          </T>
         </p>
         <Link href="/about/" className="text-link">
-          About NexoraLab <Icon name="arrow" size={17} />
+          <T zh="关于 NexoraLab">About NexoraLab</T>
+          <Icon name="arrow" size={17} />
         </Link>
       </div>
     </div>

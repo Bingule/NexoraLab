@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Scientific Unit Converter | NexoraLab</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="units.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+  <main>
+    <header><p class="eyebrow">NEXORALAB · v1.0.0</p><div class="heading"><h1 data-i18n="title">Scientific Unit Converter</h1><button id="language" type="button" aria-label="Switch language / 切换语言">中文</button></div><p data-i18n="intro">Convert common materials-science units. All calculations stay in your browser.</p></header>
+    <div class="converter">
+      <label><span data-i18n="quantity">Quantity</span><select id="quantity"><option value="length" data-i18n="length">Length</option><option value="energy" data-i18n="energy">Energy</option><option value="pressure" data-i18n="pressure">Pressure</option><option value="temperature" data-i18n="temperature">Absolute temperature</option></select></label>
+      <div class="conversion-row"><label><span data-i18n="value">Value</span><input id="value" type="text" inputmode="decimal" value="1" spellcheck="false" autocomplete="off" aria-describedby="input-note"></label><label><span data-i18n="from">From</span><select id="from"></select></label><button id="swap" type="button" data-i18n="swap">Swap units</button><label><span data-i18n="to">To</span><select id="to"></select></label></div>
+      <p class="note" id="input-note" data-i18n="notation">Scientific notation is supported, for example 1.25e-3.</p>
+      <section class="result" aria-label="Conversion result"><p class="eyebrow" data-i18n="result">RESULT</p><output id="result" aria-live="polite"></output><p id="equation"></p><p id="error" role="alert"></p></section>
+    </div>
+    <footer><p data-i18n="precision">Results display up to 12 significant digits. Temperature converts absolute values, not temperature differences.</p><p data-i18n="definitions">Definitions: 1 Å = 10⁻¹⁰ m · 1 eV = 1.602176634 × 10⁻¹⁹ J · 1 bar = 10⁵ Pa · K = °C + 273.15.</p><a href="https://www.bipm.org/en/publications/si-brochure" target="_blank" rel="noopener noreferrer" data-i18n="reference">SI definitions — BIPM</a></footer>
+  </main>
+</body></html>

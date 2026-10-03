@@ -11,8 +11,9 @@ for (const name of files) {
   const html = fs.readFileSync(path.join(root, name), "utf8");
   for (const match of html.matchAll(/(?:href|src)="([^"<>]+)"/g)) {
     const value = match[1].replaceAll("&amp;", "&");
-    if (!value.startsWith("/") || value.startsWith("//")) continue;
-    const pathname = new URL(value, "http://localhost").pathname;
+    if (!value || value.startsWith("#") || /^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(value)) continue;
+    const pageUrl = `http://localhost${base}/${String(name).replaceAll(path.sep, "/")}`;
+    const pathname = new URL(value, pageUrl).pathname;
     if (base && !(pathname === base || pathname.startsWith(`${base}/`))) {
       failures.push(`${name}: missing base path ${value}`);
       continue;

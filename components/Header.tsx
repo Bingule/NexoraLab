@@ -4,14 +4,16 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { asset } from "@/lib/paths";
 import { Icon } from "./Icon";
+import { LanguageSwitch, useLanguage } from "./Language";
 const nav = [
-  ["Home", "/"],
-  ["Tools", "/tools/"],
-  ["Online Lab", "/lab/"],
-  ["Research", "/research/"],
-  ["About", "/about/"],
+  ["Home", "/", "首页"],
+  ["Tools", "/tools/", "工具"],
+  ["Online Lab", "/lab/", "在线实验室"],
+  ["Research", "/research/", "研究方向"],
+  ["About", "/about/", "关于"],
 ];
 export function Header() {
+  const { text } = useLanguage();
   const path = usePathname();
   const [open, setOpen] = useState(false);
   return (
@@ -20,7 +22,7 @@ export function Header() {
         <Link
           href="/"
           className="brand"
-          aria-label="NexoraLab home"
+          aria-label={text("NexoraLab home", "NexoraLab 首页")}
           onClick={() => setOpen(false)}
         >
           <img src={asset("/logo.svg")} width="33" height="33" alt="" />
@@ -29,9 +31,9 @@ export function Header() {
         <nav
           id="main-navigation"
           className={open ? "nav open" : "nav"}
-          aria-label="Main navigation"
+          aria-label={text("Main navigation", "主导航")}
         >
-          {nav.map(([label, href]) => (
+          {nav.map(([label, href, zh]) => (
             <Link
               key={href}
               href={href}
@@ -46,17 +48,21 @@ export function Header() {
                   : undefined
               }
             >
-              {label}
+              {text(label, zh)}
             </Link>
           ))}
         </nav>
-        <span className="header-caption">A workspace for discovery</span>
+        <LanguageSwitch />
         <button
           className="menu-toggle"
           onClick={() => setOpen(!open)}
           aria-expanded={open}
           aria-controls="main-navigation"
-          aria-label={open ? "Close navigation" : "Open navigation"}
+          aria-label={
+            open
+              ? text("Close navigation", "关闭导航")
+              : text("Open navigation", "展开导航")
+          }
         >
           <Icon name={open ? "close" : "menu"} />
         </button>
