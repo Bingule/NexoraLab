@@ -1,5 +1,7 @@
 # NexoraLab
 
+[网站](https://bingule.github.io/NexoraLab/) · [GitHub 仓库](https://github.com/Bingule/NexoraLab)
+
 Bing Wu 创立的在线材料科学实验室与科研软件平台。首版包括首页、可搜索和筛选的软件目录、Online Lab、研究方向、创始人介绍和由 JSON 自动生成的软件详情页。
 
 采用 Next.js、TypeScript 和普通 CSS，构建为静态网站；没有数据库、登录或计算后端。五个初始条目均明确标注为 Demo，Online Lab 工作区尚未集成科学计算。创始人照片来自用户提供的原始图片。
@@ -38,7 +40,7 @@ npm run preview
 
 ## GitHub Pages
 
-已包含 `.github/workflows/deploy.yml`：创建并推送本网站仓库后，在 GitHub **Settings → Pages → Source** 选择 **GitHub Actions**。推送到 `main` 触发测试、检查、构建和部署。未在此任务中创建 GitHub 仓库或远程发布。
+已包含 `.github/workflows/deploy.yml`，发布源使用 **GitHub Actions**。推送到 `main` 会自动触发测试、检查、构建和部署，网站发布到 https://bingule.github.io/NexoraLab/ 。首次部署或迁移仓库时，在 GitHub **Settings → Pages → Source** 选择 **GitHub Actions**。
 
 默认使用仓库名作为 base path，例如 `/NexoraLab`；用户名站点（`username.github.io`）自动使用根路径。自定义域名时，在仓库的 **Settings → Secrets and variables → Actions → Variables** 中设置 `PAGES_CUSTOM_DOMAIN=true`，并在 Pages 设置域名、按 GitHub 指引配置 DNS，工作流会改用根路径。
 
