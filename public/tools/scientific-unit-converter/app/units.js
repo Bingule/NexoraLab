@@ -21,5 +21,5 @@
     if (!Number.isFinite(result) || (category !== "temperature" && value !== 0 && result === 0)) throw new Error("range");
     return Object.is(result, -0) ? 0 : result;
   }
-  root.NexoraUnits = { families, convert };
+  root.AimatraUnits = { families, convert };
 })(globalThis);

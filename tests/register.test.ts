@@ -6,7 +6,7 @@ import path from "node:path";
 import { registerTool } from "../scripts/register-tool.ts";
 
 function fixture() {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), "nexoralab-register-"));
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "aimatralab-register-"));
   const project = path.join(root, "project"),
     site = path.join(root, "site");
   fs.mkdirSync(path.join(project, "dist"), { recursive: true });
@@ -36,12 +36,37 @@ function fixture() {
   };
   const write = (patch = {}) =>
     fs.writeFileSync(
-      path.join(project, "nexoralab.json"),
+      path.join(project, "aimatralab.json"),
       JSON.stringify({ ...manifest, ...patch }),
     );
   write();
   return { root, project, site, write };
 }
+test("legacy project manifests still import, with aimatralab.json taking precedence", () => {
+  const f = fixture();
+  try {
+    fs.renameSync(
+      path.join(f.project, "aimatralab.json"),
+      path.join(f.project, "nexoralab.json"),
+    );
+    assert.equal(
+      registerTool(f.project, { site: f.site, dryRun: true }).id,
+      "first-tool",
+    );
+    f.write({ version: "2.0.0" });
+    assert.equal(
+      registerTool(f.project, { site: f.site, dryRun: true }).version,
+      "2.0.0",
+    );
+    f.write({ download: "javascript:bad" });
+    assert.throws(() =>
+      registerTool(f.project, { site: f.site, dryRun: true }),
+    );
+    assert.equal(fs.existsSync(f.site), false);
+  } finally {
+    fs.rmSync(f.root, { recursive: true, force: true });
+  }
+});
 test("independent local project imports metadata and built assets without moving source", () => {
   const f = fixture();
   try {
@@ -73,7 +98,7 @@ test("independent local project imports metadata and built assets without moving
     assert.ok(fs.existsSync(path.join(f.project, "dist/index.html")));
     assert.throws(() => registerTool(f.project, { site: f.site }), /replace/);
     f.write({ version: "1.1.0" });
-    registerTool(path.join(f.project, "nexoralab.json"), {
+    registerTool(path.join(f.project, "aimatralab.json"), {
       site: f.site,
       replace: true,
     });

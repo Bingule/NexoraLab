@@ -1,4 +1,4 @@
-// NexoraLab language adapter; upstream resources and interpolation retained.
+// AimatraLab language adapter; upstream resources and interpolation retained.
 import { useCallback, type ReactNode } from "react";
 import { useLanguage } from "@/components/Language";
 import { en, type TranslationKey } from "../locales/en";

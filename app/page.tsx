@@ -21,8 +21,8 @@ export default function Home() {
           <div className="hero-copy">
             <p className="eyebrow">
               <span className="tiny-rule" />{" "}
-              <T zh="你的在线材料科学实验室">
-                Your online materials laboratory
+              <T zh="AI 辅助材料研究工具">
+                AI-assisted tools for materials research
               </T>
             </p>
             <h1>
@@ -43,9 +43,10 @@ export default function Home() {
                 From atomic structures to experimental insight.
               </T>
               <br className="desktop-break" />{" "}
-              <T zh="用实用的科学软件，探索、分析并理解材料。">
-                Practical scientific software for exploring, analyzing and
-                understanding materials.
+              <T zh="AimatraLab 开发面向材料研究、表征、模拟、数据分析与科学可视化的实用工具。">
+                AimatraLab develops practical tools for materials research,
+                characterization, simulation, data analysis and scientific
+                visualization.
               </T>
             </p>
             <div className="hero-actions">

@@ -26,7 +26,7 @@
     {
       "version": "1.0.0",
       "date": "2026-10-03",
-      "notes": "Added the TMCCDB theoretical capacity calculator to NexoraLab with its original scientific calculation."
+      "notes": "Added the TMCCDB theoretical capacity calculator to AimatraLab with its original scientific calculation."
     }
   ],
   "zh": {
@@ -38,7 +38,7 @@
       "电子转移数由用户提供，不自动推断氧化态"
     ],
     "historyNotes": {
-      "1.0.0": "将 TMCCDB 理论容量计算器接入 NexoraLab，保留原有科学计算方法。"
+      "1.0.0": "将 TMCCDB 理论容量计算器接入 AimatraLab，保留原有科学计算方法。"
     }
   }
 }

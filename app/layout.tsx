@@ -4,13 +4,15 @@ import { Footer } from "@/components/Footer";
 import { asset } from "@/lib/paths";
 import "./globals.css";
 import { LanguageProvider, T } from "@/components/Language";
+import { pageMetadata, siteDescription, siteTitle, siteUrl } from "@/lib/site";
 export const metadata: Metadata = {
+  ...pageMetadata("", siteDescription, "/"),
+  metadataBase: siteUrl,
+  applicationName: "AimatraLab",
   title: {
-    default: "NexoraLab — Tools for Materials Research",
-    template: "%s | NexoraLab",
+    default: siteTitle,
+    template: "%s | AimatraLab",
   },
-  description:
-    "Scientific software and online tools for materials characterization, electrochemistry, crystal structures and computational materials science.",
   icons: { icon: asset("/logo.svg") },
 };
 export default function RootLayout({

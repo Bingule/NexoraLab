@@ -8,11 +8,11 @@ export function Footer() {
         <div>
           <Link className="brand" href="/">
             <img src={asset("/logo.svg")} width="28" height="28" alt="" />
-            Nexora<span>Lab</span>
+            Aimatra<span>Lab</span>
           </Link>
           <p>
-            <T zh="实用工具，让材料研究更进一步。">
-              Practical tools. Better materials research.
+            <T zh="AI 辅助材料研究工具。">
+              AI-assisted tools for materials research.
             </T>
           </p>
         </div>
@@ -33,7 +33,7 @@ export function Footer() {
       </div>
       <div className="container footer-bottom">
         <span>
-          © {new Date().getUTCFullYear()} NexoraLab ·{" "}
+          © {new Date().getUTCFullYear()} AimatraLab ·{" "}
           <T zh="由 Bing Wu 创立">Founded by Bing Wu</T>
         </span>
         <span>

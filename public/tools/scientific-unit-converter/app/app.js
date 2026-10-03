@@ -13,8 +13,8 @@
     $("error").textContent = "";
     try {
       const category = $("quantity").value, from = $("from").value, to = $("to").value;
-      const value = NexoraUnits.convert($("value").value, category, from, to);
-      const source = NexoraUnits.families[category][from][2], target = NexoraUnits.families[category][to][2];
+      const value = AimatraUnits.convert($("value").value, category, from, to);
+      const source = AimatraUnits.families[category][from][2], target = AimatraUnits.families[category][to][2];
       $("result").textContent = `${format(value)} ${target}`;
       $("equation").textContent = `${$("value").value.trim()} ${source} = ${format(value)} ${target}`;
       $("value").removeAttribute("aria-invalid");
@@ -25,7 +25,7 @@
     }
   }
   function chooseQuantity() {
-    const category = $("quantity").value, units = NexoraUnits.families[category];
+    const category = $("quantity").value, units = AimatraUnits.families[category];
     ["from", "to"].forEach((id, index) => {
       $(id).replaceChildren(...Object.entries(units).map(([key, unit]) => new Option(unit[2], key)));
       $(id).value = defaults[category][index];
@@ -44,7 +44,7 @@
   $("swap").addEventListener("click", () => { const from = $("from").value; $("from").value = $("to").value; $("to").value = from; calculate(); });
   $("language").addEventListener("click", () => { language = language === "zh" ? "en" : "zh"; translate(); });
   window.addEventListener("message", event => {
-    if (event.source === parent && event.data?.type === "nexoralab-language" && ["en", "zh"].includes(event.data.language)) { language = event.data.language; translate(); }
+    if (event.source === parent && ["aimatralab-language", "nexoralab-language"].includes(event.data?.type) && ["en", "zh"].includes(event.data.language)) { language = event.data.language; translate(); }
   });
   chooseQuantity(); translate();
 })();

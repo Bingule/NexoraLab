@@ -21,9 +21,13 @@ function localFile(root: string, name: string) {
 }
 export function registerTool(input: string, options: Options = {}) {
   const source = path.resolve(input);
-  const manifest = fs.statSync(source).isDirectory()
-    ? path.join(source, "nexoralab.json")
-    : source;
+  let manifest = source;
+  if (fs.statSync(source).isDirectory()) {
+    manifest = path.join(source, "aimatralab.json");
+    // Existing independent projects may still contain the previous manifest name.
+    const legacy = path.join(source, "nexoralab.json");
+    if (!fs.existsSync(manifest) && fs.existsSync(legacy)) manifest = legacy;
+  }
   const project = path.dirname(manifest);
   const metadata = fs.readFileSync(manifest);
   assertPublicAsset(path.basename(manifest), metadata);
@@ -124,7 +128,7 @@ if (
       flags.some((arg) => !["--replace", "--dry-run"].includes(arg))
     )
       throw new Error(
-        "Usage: npm run register -- <project-folder-or-nexoralab.json> [--dry-run] [--replace]",
+        "Usage: npm run register -- <project-folder-or-aimatralab.json> [--dry-run] [--replace]",
       );
     const tool = registerTool(inputs[0], {
       replace: flags.includes("--replace"),

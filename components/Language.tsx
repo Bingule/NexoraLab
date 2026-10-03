@@ -18,7 +18,12 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     let saved: string | null = null;
     try {
-      saved = localStorage.getItem("nexoralab-language");
+      saved =
+        localStorage.getItem("aimatralab-language") ||
+        localStorage.getItem("nexoralab-language");
+      // Migrate a saved preference without changing the English first-visit default.
+      if (saved === "en" || saved === "zh")
+        localStorage.setItem("aimatralab-language", saved);
     } catch {}
     setLanguage(saved === "zh" ? "zh" : "en");
     setReady(true);
@@ -29,7 +34,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const change = (value: Language) => {
     setLanguage(value);
     try {
-      localStorage.setItem("nexoralab-language", value);
+      localStorage.setItem("aimatralab-language", value);
     } catch {}
   };
   return (

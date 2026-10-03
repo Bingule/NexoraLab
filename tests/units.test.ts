@@ -10,7 +10,7 @@ vm.runInContext(
   ),
   context,
 );
-const convert = context.NexoraUnits.convert as (
+const convert = context.AimatraUnits.convert as (
   value: string | number,
   category: string,
   from: string,

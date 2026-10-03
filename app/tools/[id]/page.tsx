@@ -9,6 +9,7 @@ import { Icon, categoryIcon } from "@/components/Icon";
 import { ToolActions } from "@/components/ToolCard";
 import { categoryLabels } from "@/lib/labels";
 import { WindowsActivation } from "@/components/WindowsActivation";
+import { pageMetadata } from "@/lib/site";
 export function generateStaticParams() {
   return getTools().map((t) => ({ id: t.id }));
 }
@@ -20,7 +21,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params;
   const t = getTools().find((t) => t.id === id);
-  return { title: t?.name || "Tool not found", description: t?.description };
+  return pageMetadata(
+    t?.name || "Tool not found",
+    t?.description || "Scientific software on AimatraLab.",
+    `/tools/${id}/`,
+  );
 }
 export default async function Detail({
   params,
@@ -38,7 +43,7 @@ export default async function Detail({
   return (
     <div className="container page-content">
       <nav className="breadcrumbs" aria-label="Breadcrumb">
-        <Link href="/">NexoraLab</Link>
+        <Link href="/">AimatraLab</Link>
         <span>/</span>
         <Link href="/tools/">
           <T zh="工具">Tools</T>

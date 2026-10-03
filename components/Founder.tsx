@@ -18,7 +18,7 @@ export function Founder({ full = false }: { full?: boolean }) {
         </p>
         <h2>Bing Wu, Ph.D.</h2>
         <p className="founder-role">
-          <T zh="NexoraLab 创始人">Founder of NexoraLab</T>
+          <T zh="AimatraLab 创始人">Founder of AimatraLab</T>
         </p>
         <p>
           <T zh="材料研究者，专注材料化学、电化学与计算材料科学的实用工具开发。">

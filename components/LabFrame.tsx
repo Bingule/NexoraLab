@@ -9,16 +9,16 @@ export function LabFrame({ src, name }: { src: string; name: string }) {
     if (ready) setInitialLanguage((value) => value ?? language);
   }, [ready, language]);
   const frame = useRef<HTMLIFrameElement>(null);
-  const syncLanguage = () =>
-    frame.current?.contentWindow?.postMessage(
-      { type: "nexoralab-language", language },
-      "*",
-    );
+  const syncLanguage = () => {
+    // Older independent web releases still consume the previous message type.
+    for (const type of ["aimatralab-language", "nexoralab-language"]) {
+      frame.current?.contentWindow?.postMessage({ type, language }, "*");
+    }
+  };
   useEffect(() => {
-    frame.current?.contentWindow?.postMessage(
-      { type: "nexoralab-language", language },
-      "*",
-    );
+    for (const type of ["aimatralab-language", "nexoralab-language"]) {
+      frame.current?.contentWindow?.postMessage({ type, language }, "*");
+    }
   }, [language]);
   return (
     <iframe

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { rateViews } from "@/lib/migrated-tools";
 import { TmccWorkspace } from "@/components/TmccWorkspace";
 import { T } from "@/components/Language";
+import { pageMetadata } from "@/lib/site";
 export const dynamicParams = false;
 export function generateStaticParams() {
   return rateViews.map((view) => ({ view }));
@@ -13,7 +14,11 @@ export async function generateMetadata({
   params: Promise<{ view: string }>;
 }) {
   const { view } = await params;
-  return { title: `${view.replaceAll("-", " ")} — Rate Performance` };
+  return pageMetadata(
+    `${view.replaceAll("-", " ")} — Rate Performance`,
+    "Rate Performance scientific analysis workspace on AimatraLab.",
+    `/lab/rate-performance/${view}/`,
+  );
 }
 export default async function RatePage({
   params,

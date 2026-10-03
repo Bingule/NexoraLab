@@ -1,4 +1,4 @@
-# NexoraLab 本轮实现
+# AimatraLab 本轮实现
 
 保留视觉、静态部署和独立软件项目模式。首页顺序为 Hero → Featured Tools → Online Lab → Research → Founder → Latest Updates。
 

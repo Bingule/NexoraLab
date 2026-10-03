@@ -61,6 +61,6 @@ const server = http.createServer((req, res) => {
 });
 server.listen(Number(process.env.PORT || 4173), "127.0.0.1", () =>
   console.log(
-    `NexoraLab preview: http://127.0.0.1:${server.address().port}${base}/`,
+    `AimatraLab preview: http://127.0.0.1:${server.address().port}${base}/`,
   ),
 );

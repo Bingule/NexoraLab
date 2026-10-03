@@ -26,7 +26,7 @@
     {
       "version": "1.0.0",
       "date": "2026-10-03",
-      "notes": "Added the TMCCDB Reviewer Two launcher to NexoraLab with its versioned source and private-runtime instructions."
+      "notes": "Added the TMCCDB Reviewer Two launcher to AimatraLab with its versioned source and private-runtime instructions."
     }
   ],
   "zh": {
@@ -38,7 +38,7 @@
       "以证据支持人工审稿，科学判断仍由审稿人负责"
     ],
     "historyNotes": {
-      "1.0.0": "将 TMCCDB 的 Reviewer Two 启动入口接入 NexoraLab，保留固定版本源码和私有环境使用说明。"
+      "1.0.0": "将 TMCCDB 的 Reviewer Two 启动入口接入 AimatraLab，保留固定版本源码和私有环境使用说明。"
     }
   }
 }

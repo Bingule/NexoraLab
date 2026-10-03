@@ -22,11 +22,11 @@ export function Header() {
         <Link
           href="/"
           className="brand"
-          aria-label={text("NexoraLab home", "NexoraLab 首页")}
+          aria-label={text("AimatraLab home", "AimatraLab 首页")}
           onClick={() => setOpen(false)}
         >
           <img src={asset("/logo.svg")} width="33" height="33" alt="" />
-          Nexora<span>Lab</span>
+          Aimatra<span>Lab</span>
         </Link>
         <nav
           id="main-navigation"

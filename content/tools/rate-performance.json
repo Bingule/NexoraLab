@@ -26,7 +26,7 @@
     {
       "version": "1.0.0",
       "date": "2026-10-03",
-      "notes": "Added the TMCCDB Rate Performance workspaces to NexoraLab with their original analysis models and scientific workflows."
+      "notes": "Added the TMCCDB Rate Performance workspaces to AimatraLab with their original analysis models and scientific workflows."
     }
   ],
   "zh": {
@@ -38,7 +38,7 @@
       "保留原有模型公式、输入校验、示例、参考文献和导出"
     ],
     "historyNotes": {
-      "1.0.0": "将 TMCCDB 倍率性能工作区接入 NexoraLab，保留原有分析模型与科学工作流。"
+      "1.0.0": "将 TMCCDB 倍率性能工作区接入 AimatraLab，保留原有分析模型与科学工作流。"
     }
   }
 }

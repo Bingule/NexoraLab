@@ -3,7 +3,12 @@ import type { Metadata } from "next";
 import { getTools } from "@/lib/registry";
 import { ToolCard } from "@/components/ToolCard";
 import { T } from "@/components/Language";
-export const metadata: Metadata = { title: "Online Lab" };
+import { pageMetadata } from "@/lib/site";
+export const metadata: Metadata = pageMetadata(
+  "Online Lab",
+  "Use AimatraLab's browser workspaces for materials calculations, structure descriptions, rate analysis and scientific review workflows.",
+  "/lab/",
+);
 export default function Lab() {
   const tools = getTools().filter((t) => t.type !== "desktop");
   const available = tools.filter((t) => isAvailable(t) && t.online);
@@ -41,7 +46,7 @@ export default function Lab() {
     <div className="container page-content">
       <div className="page-heading">
         <p className="eyebrow">
-          <T zh="NEXORALAB / 在线实验室">NexoraLab / Online Lab</T>
+          <T zh="AIMATRALAB / 在线实验室">AimatraLab / Online Lab</T>
         </p>
         <h1>
           <T zh="在浏览器中，开始科学探索。">Science, in your browser.</T>

@@ -1,2 +1,2 @@
-// NexoraLab shell supplies the breadcrumb.
+// AimatraLab shell supplies the breadcrumb.
 export function Breadcrumbs(_props: {current?: string}) { return null; }

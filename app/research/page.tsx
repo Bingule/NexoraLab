@@ -3,20 +3,25 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { researchAreas } from "@/lib/research";
 import { Icon } from "@/components/Icon";
-export const metadata: Metadata = { title: "Research" };
+import { pageMetadata } from "@/lib/site";
+export const metadata: Metadata = pageMetadata(
+  "Research",
+  "Explore the materials chemistry, electrochemistry, crystal chemistry and computational research behind AimatraLab's scientific tools.",
+  "/research/",
+);
 export default function Research() {
   return (
     <div className="container page-content">
       <div className="page-heading">
         <p className="eyebrow">
-          <T zh="NEXORALAB / 研究方向">NexoraLab / Research</T>
+          <T zh="AIMATRALAB / 研究方向">AimatraLab / Research</T>
         </p>
         <h1>
           <T zh="建立在科学基础之上。">Built on a scientific foundation.</T>
         </h1>
         <p>
-          <T zh="材料研究，为 NexoraLab 的实用工具与科学工作流提供基础。">
-            The materials research interests that inform NexoraLab’s practical
+          <T zh="材料研究，为 AimatraLab 的实用工具与科学工作流提供基础。">
+            The materials research interests that inform AimatraLab’s practical
             tools and scientific workflows.
           </T>
         </p>
@@ -54,14 +59,14 @@ export default function Research() {
           </T>
         </h2>
         <p>
-          <T zh="NexoraLab 将材料科学视角融入实用软件开发，让科学工作流更易获取、使用与共享。">
-            NexoraLab connects a materials-science perspective with practical
+          <T zh="AimatraLab 将材料科学视角融入实用软件开发，让科学工作流更易获取、使用与共享。">
+            AimatraLab connects a materials-science perspective with practical
             software development, making scientific workflows easier to access,
             use and share.
           </T>
         </p>
         <Link href="/about/" className="text-link">
-          <T zh="关于 NexoraLab">About NexoraLab</T>
+          <T zh="关于 AimatraLab">About AimatraLab</T>
           <Icon name="arrow" size={17} />
         </Link>
       </div>

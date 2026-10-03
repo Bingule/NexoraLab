@@ -7,6 +7,7 @@ import { T } from "@/components/Language";
 import { LabFrame } from "@/components/LabFrame";
 import { TmccWorkspace } from "@/components/TmccWorkspace";
 import { isMigratedTool } from "@/lib/migrated-tools";
+import { pageMetadata } from "@/lib/site";
 export function generateStaticParams() {
   return getTools()
     .filter((t) => t.type !== "desktop")
@@ -19,9 +20,12 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  return {
-    title: `${getTools().find((t) => t.id === id)?.name || "Tool"} workspace`,
-  };
+  const tool = getTools().find((t) => t.id === id);
+  return pageMetadata(
+    `${tool?.name || "Tool"} workspace`,
+    tool?.description || "An AimatraLab scientific workspace.",
+    `/lab/${id}/`,
+  );
 }
 export default async function Workspace({
   params,

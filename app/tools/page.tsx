@@ -3,13 +3,18 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getTools } from "@/lib/registry";
 import { Catalog } from "@/components/Catalog";
-export const metadata: Metadata = { title: "Tools" };
+import { pageMetadata } from "@/lib/site";
+export const metadata: Metadata = pageMetadata(
+  "Tools",
+  "Discover practical scientific software for materials research, characterization, simulation and data analysis on AimatraLab.",
+  "/tools/",
+);
 export default function Tools() {
   return (
     <div className="container page-content">
       <div className="page-heading">
         <p className="eyebrow">
-          <T zh="NEXORALAB / 工具">NexoraLab / Tools</T>
+          <T zh="AIMATRALAB / 工具">AimatraLab / Tools</T>
         </p>
         <h1>
           <T zh="为下一次发现，准备好工具。">
@@ -37,8 +42,8 @@ export default function Tools() {
           <T zh="持续成长的独立工具集。">A growing, independent collection.</T>
         </h3>
         <p>
-          <T zh="每个工具保留独立项目。NexoraLab 汇集它们的信息、发布版本与在线使用入口。">
-            Each tool remains an independent software project. NexoraLab brings
+          <T zh="每个工具保留独立项目。AimatraLab 汇集它们的信息、发布版本与在线使用入口。">
+            Each tool remains an independent software project. AimatraLab brings
             their information, releases and online experiences into one place.
           </T>
         </p>

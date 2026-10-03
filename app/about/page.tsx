@@ -2,20 +2,25 @@ import { T } from "@/components/Language";
 import type { Metadata } from "next";
 import { Founder } from "@/components/Founder";
 import { Icon } from "@/components/Icon";
-export const metadata: Metadata = { title: "About" };
+import { pageMetadata, siteDescription } from "@/lib/site";
+export const metadata: Metadata = pageMetadata(
+  "About",
+  siteDescription,
+  "/about/",
+);
 export default function About() {
   return (
     <div className="container page-content">
       <div className="page-heading">
         <p className="eyebrow">
-          <T zh="NEXORALAB / 关于">NexoraLab / About</T>
+          <T zh="AIMATRALAB / 关于">AimatraLab / About</T>
         </p>
         <h1>
           <T zh="实用工具，共享探索。">Practical tools. Shared discovery.</T>
         </h1>
         <p>
-          <T zh="由 Bing Wu 创立的在线材料科学实验室与科学软件平台。">
-            An online materials-science laboratory and scientific software
+          <T zh="由 Bing Wu 创立的 AI 辅助材料研究实验室与科学软件平台。">
+            An AI-assisted materials research laboratory and scientific software
             platform founded by Bing Wu.
           </T>
         </p>
@@ -31,11 +36,11 @@ export default function About() {
           </T>
         </h2>
         <p>
-          <T zh="NexoraLab 汇集独立科学软件与浏览器研究工具，专注材料表征、结构、数据分析、模拟与可视化。">
-            NexoraLab brings independent scientific software and browser-based
-            research tools together in a clear, accessible workspace. The focus
-            is on characterization, structures, data analysis, simulation and
-            visualization.
+          <T zh="AimatraLab 开发面向材料研究、表征、模拟、数据分析与科学可视化的实用工具，将 AI 辅助工作流与独立科学软件汇集到同一平台。">
+            AimatraLab develops practical tools for materials research,
+            characterization, simulation, data analysis and scientific
+            visualization. AI-assisted workflows and independent scientific
+            software share one accessible platform.
           </T>
         </p>
       </div>
