@@ -4,10 +4,12 @@ export const siteDescription =
   "AimatraLab develops practical tools for materials research, characterization, simulation, data analysis and scientific visualization.";
 export const siteTitle =
   "AimatraLab — AI-assisted Tools for Materials Research";
-// Preserve the live project URL until the GitHub repository is renamed.
-// The deployment workflow supplies the actual Pages URL, including custom domains.
+// Use the custom domain when configured, otherwise Vercel's production host.
+// Preserve the current site outside Vercel until cutover.
+const vercelHost =
+  process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
 export const siteUrl = new URL(
-  `${(process.env.NEXT_PUBLIC_SITE_URL || "https://bingule.github.io/NexoraLab").replace(/\/$/, "")}/`,
+  `${(process.env.NEXT_PUBLIC_SITE_URL || (vercelHost ? `https://${vercelHost}` : "https://bingule.github.io/NexoraLab")).replace(/\/$/, "")}/`,
 );
 
 export function siteHref(path: string) {

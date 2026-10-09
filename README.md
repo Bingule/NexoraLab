@@ -10,6 +10,8 @@ AI-assisted tools for materials research · Explore · Analyze · Simulate · Bu
 
 采用 Next.js、TypeScript 和普通 CSS，构建为静态网站；主站没有数据库或登录。已发布工具保留各自的运行方式，科学单位换算器在浏览器本地计算，CrystalDesk Windows 离线版需要机器码激活。规划中的工具仍明确标注为规划中。创始人照片来自用户提供的原始图片。
 
+正在迁移到私有源码仓库与 Vercel：现有 `bingule/nexora-lab` 通过 Git 部署 `main`，Vercel 使用原生 Next.js；GitHub Actions 仅执行 CI。用户已指定 Supabase 项目，登录和受保护工具/下载尚未接通，仓库尚未转私有。见 [迁移说明](docs/vercel-private-migration.md)。
+
 ## 本地运行
 
 需要 Node.js 22.18 或更新版本及 npm。
@@ -39,7 +41,7 @@ npm run preview
 1. 在独立软件目录内维护 `aimatralab.json`，填写版本、截图、GitHub Release 与直接下载地址。
 2. 在 AimatraLab 目录执行 `npm run register -- "D:/projects/MyTool" --dry-run` 预检，然后去掉 `--dry-run` 导入。更新已有工具加 `--replace`。
 3. 在线工具可声明 `web: "dist/index.html"`；导入网页构建后自动生成 `/lab/<id>/`。桌面工具只需清单与下载链接，不需要网页文件。
-4. 执行测试、类型检查、构建和链接检查，然后提交推送；GitHub Pages 会更新目录、详情页与最新发布。
+4. 执行测试、类型检查、构建和链接检查，然后提交推送；Vercel 会更新目录、详情页与最新发布。
 
 软件源代码留在各自项目。导入命令仅复制清单、声明的图片和网页发布产物，不自动编译、创建仓库或发布 Release。完整流程与示例见 [docs/aimatralab-manifest.md](docs/aimatralab-manifest.md)。
 
@@ -51,17 +53,13 @@ Windows 客户端保留现有机器码激活，在清单中设置 `windowsActiva
 
 五个既有工具接入 `/lab/`，上游科学代码固定在 `vendor/tmccdb/`，来源提交及哈希见 `vendor/tmccdb/UPSTREAM.json`。更新来源时需保留原项目，明确记录集成差异，运行 `npm run test:tmcc` 和 `npm test` 后再发布。Crystal Description 使用原 Streamlit 服务；Reviewer Two 标记为 `skill`，原 `/lab/reviewer-two/` 提供双语安装与使用指南，审阅在获授权的私有宿主执行。Skill 的版本与更新仍在注册表登记，不计入在线工具数量。无需在 AimatraLab 配置 API 密钥。详见 [迁移说明](docs/tmccdb-migration-report.md)。
 
-## GitHub Pages
+## Vercel 部署
 
-已包含 `.github/workflows/deploy.yml`，发布源使用 **GitHub Actions**。推送到 `main` 会自动触发测试、检查、构建和部署，网站发布到 https://bingule.github.io/NexoraLab/ 。首次部署或迁移仓库时，在 GitHub **Settings → Pages → Source** 选择 **GitHub Actions**。
+生产使用现有 [Vercel 项目](https://vercel.com/bingule/nexora-lab)，关联本仓库的 `main` 分支。项目根目录，Next.js preset，构建命令 `npm run build`，Output Directory 保持默认。GitHub Actions 保留测试、类型、发布材料及静态链接检查，不再部署 Pages。
 
-默认使用实际仓库名作为 base path。当前 GitHub 仓库名称仍为 `NexoraLab`，因此网站路径保持 `/NexoraLab/`；该名称仅作为部署与历史下载链接的兼容路径，不作为网站品牌。用户名站点（`username.github.io`）自动使用根路径。自定义域名时，在仓库的 **Settings → Secrets and variables → Actions → Variables** 中设置 `PAGES_CUSTOM_DOMAIN=true`，并在 Pages 设置域名、按 GitHub 指引配置 DNS，工作流会改用根路径。
+Vercel 自动提供 `VERCEL=1`，启用原生 Next.js；`NEXT_PUBLIC_BASE_PATH` 必须为空。正式域名用 `NEXT_PUBLIC_SITE_URL` 指定，否则使用 Vercel 生产 hostname。迁移前首页链接和历史下载保留旧地址，待实际生产 alias 与受保护下载验证后更新；不把示例域名当作正式地址。
 
-工作流从 `actions/configure-pages` 的 `base_url` 获取 `NEXT_PUBLIC_SITE_URL`，用于页面 canonical、Open Graph URL 和 sitemap；`NEXT_PUBLIC_BASE_PATH` 继续由实际仓库名或自定义域名配置生成。没有单独设置 `assetPrefix`，Next.js 的 basePath 与现有资产路径函数负责子路径资源。
-
-如需仓库同步改名，在 GitHub **Settings → General → Repository name** 将 `NexoraLab` 改为 `AimatraLab`，更新本地 remote，并在 Actions 手动运行部署。新网址为 `https://bingule.github.io/AimatraLab/`。详情及保留的兼容名称见 [品牌迁移说明](docs/brand-rename.md)。GitHub Pages 的旧项目网址不会自动重定向；仓库改名和重新部署应一起完成。
-
-其他静态托管直接发布 `out/`，并设置对应的 `NEXT_PUBLIC_SITE_URL`。本地测试未来的新路径：PowerShell 中设置 `$env:NEXT_PUBLIC_BASE_PATH='/AimatraLab'` 和 `$env:NEXT_PUBLIC_SITE_URL='https://bingule.github.io/AimatraLab/'`，再运行 `npm run build`、`npm run check:links`、`npm run preview` 并访问 `/AimatraLab/`。当前部署测试使用 `/NexoraLab` 与对应的实际网址。测试后用 `Remove-Item Env:NEXT_PUBLIC_BASE_PATH,Env:NEXT_PUBLIC_SITE_URL` 恢复。
+本地 `npm run build` 仍导出 `out/`，用于 CI 链接检查。生产 source map 关闭；这不能隐藏浏览器必需的前端代码。私有仓库、服务端权限、Auth 和下载迁移见 [迁移说明](docs/vercel-private-migration.md)。
 
 ## 主要文件
 
