@@ -101,16 +101,18 @@ export default function Home() {
       <div className="discipline-strip">
         <div className="container">
           {[
-            ["box", "Crystal structures", "晶体结构"],
-            ["chart", "Diffraction", "衍射"],
-            ["microscope", "Microscopy", "显微表征"],
-            ["activity", "Electrochemistry", "电化学"],
-            ["cpu", "Simulation", "模拟"],
-          ].map(([icon, label, zh]) => (
-            <span key={label}>
-              <Icon name={icon} size={17} />
-              <T zh={zh}>{label}</T>
-            </span>
+            ["box", "Crystal structures", "晶体结构", "structure"],
+            ["chart", "Diffraction", "衍射", "diffraction"],
+            ["microscope", "Microscopy", "显微表征", "microscopy"],
+            ["activity", "Electrochemistry", "电化学", "electrochemistry"],
+            ["cpu", "Simulation", "模拟", "simulation"],
+          ].map(([icon, label, zh, category]) => (
+            <Link key={label} href={`/tools/?category=${category}`}>
+              <span>
+                <Icon name={icon} size={17} />
+                <T zh={zh}>{label}</T>
+              </span>
+            </Link>
           ))}
         </div>
       </div>
