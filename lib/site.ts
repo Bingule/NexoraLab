@@ -33,8 +33,8 @@ export function pageMetadata(
       title: fullTitle,
       description,
       url,
-      locale: "en_US",
-      alternateLocale: "zh_CN",
+      locale: "zh_CN",
+      alternateLocale: "en_US",
     },
     twitter: { card: "summary", title: fullTitle, description },
   };

@@ -1,3 +1,4 @@
+import { siteDescription, siteUrl } from "@/lib/site";
 import { isAvailable } from "@/lib/manifest";
 import Link from "next/link";
 import { getTools } from "@/lib/registry";
@@ -16,6 +17,21 @@ export default function Home() {
     .slice(0, 3);
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": `${siteUrl.href}#website`,
+            name: "AimatraLab",
+            alternateName: "aimatralab.com",
+            url: siteUrl.href,
+            description: siteDescription,
+            inLanguage: ["zh-CN", "en"],
+          }).replace(/</g, "\\u003c"),
+        }}
+      />
       <section className="hero">
         <div className="container hero-grid">
           <div className="hero-copy">
