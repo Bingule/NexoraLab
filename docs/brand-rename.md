@@ -32,7 +32,7 @@ GitHub Actions 从实际仓库名生成 `NEXT_PUBLIC_BASE_PATH`，从 `actions/c
 
 - 旧仓库、Pages 路径和历史 Release 链接；历史 ZIP 原样保留，不覆盖已发布附件。
 - `nexoralab.json`：当独立项目没有 `aimatralab.json` 时作为导入回退；新清单优先。
-- `nexoralab-language`：迁移用户已保存的语言选择，并兼容旧独立 iframe 应用的消息协议；新存储键和主消息类型为 `aimatralab-language`。未保存选择时仍默认英文。
+- `nexoralab-language`：迁移用户已保存的语言选择，并兼容旧独立 iframe 应用的消息协议；新存储键和主消息类型为 `aimatralab-language`。未保存选择时默认中文。
 - 历史迁移记录中的部署路径：表示当时验证的真实路径。已发布科学文件来源和哈希记录不改写。
 
 改名检查覆盖所有页面的生产导出、图片和内部链接，以及旧/新两种 base path。科学工具沿用既有数值测试和来源哈希检查。

@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="zh-CN">
       <body>
         <LanguageProvider>
           <a href="#main" className="skip-link">

@@ -8,12 +8,12 @@ import {
 } from "react";
 type Language = "en" | "zh";
 const Context = createContext({
-  language: "en" as Language,
+  language: "zh" as Language,
   ready: false,
   setLanguage: (_: Language) => {},
 });
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguage] = useState<Language>("zh");
   const [ready, setReady] = useState(false);
   useEffect(() => {
     let saved: string | null = null;
@@ -21,11 +21,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       saved =
         localStorage.getItem("aimatralab-language") ||
         localStorage.getItem("nexoralab-language");
-      // Migrate a saved preference without changing the English first-visit default.
+      // Migrate a saved preference while keeping Chinese as the first-visit default.
       if (saved === "en" || saved === "zh")
         localStorage.setItem("aimatralab-language", saved);
     } catch {}
-    setLanguage(saved === "zh" ? "zh" : "en");
+    setLanguage(saved === "en" ? "en" : "zh");
     setReady(true);
   }, []);
   useEffect(() => {
