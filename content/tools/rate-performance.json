@@ -4,18 +4,18 @@
   "version": "1.0.0",
   "category": "electrochemistry",
   "type": "online",
-  "description": "Analyze electrochemical rate performance with the original TMCCDB browser workflows for model fitting, comparison, thickness scaling, characteristic time, transport and energy/power calculations.",
+  "description": "Analyze electrochemical rate performance in your browser with model fitting, comparison, thickness scaling, characteristic time, transport and energy/power calculations.",
   "platforms": ["Web"],
   "icon": "",
   "screenshots": ["screenshot.png"],
   "download": "",
   "online": "/lab/rate-performance/",
-  "github": "https://github.com/Bingule/tmcc-database",
-  "documentation": "https://github.com/Bingule/tmcc-database/tree/27e9767486d5dc8b81453a409d6023b458de40d7/src/tools/rate-performance",
+  "github": "",
+  "documentation": "",
   "citation": "",
   "featured": true,
   "updated": "2026-10-03",
-  "developer": "Bing Wu / TMCCDB",
+  "developer": "Dr. Wu / AimatraLab",
   "features": [
     "Browser-local rate model fitting and model comparison",
     "Thickness kinetics, characteristic time and transport limitation workspaces",
@@ -26,11 +26,11 @@
     {
       "version": "1.0.0",
       "date": "2026-10-03",
-      "notes": "Added the TMCCDB Rate Performance workspaces to AimatraLab with their original analysis models and scientific workflows."
+      "notes": "Rate performance workspaces are available on AimatraLab for electrochemical model fitting and analysis."
     }
   ],
   "zh": {
-    "description": "沿用 TMCCDB 原有的浏览器工作流，开展电化学倍率性能拟合、模型比较、厚度标度、特征时间、传输及能量/功率计算。",
+    "description": "在浏览器中开展电化学倍率性能拟合、模型比较、厚度标度、特征时间、传输及能量/功率计算。",
     "features": [
       "在浏览器本地进行倍率模型拟合与模型比较",
       "提供厚度动力学、特征时间和传输限制工作区",
@@ -38,7 +38,7 @@
       "保留原有模型公式、输入校验、示例、参考文献和导出"
     ],
     "historyNotes": {
-      "1.0.0": "将 TMCCDB 倍率性能工作区接入 AimatraLab，保留原有分析模型与科学工作流。"
+      "1.0.0": "倍率性能工作区现已上线，提供电化学模型拟合与分析工具。"
     }
   }
 }

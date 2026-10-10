@@ -9,7 +9,7 @@ export const siteTitle =
 const vercelHost =
   process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
 export const siteUrl = new URL(
-  `${(process.env.NEXT_PUBLIC_SITE_URL || (vercelHost ? `https://${vercelHost}` : "https://bingule.github.io/NexoraLab")).replace(/\/$/, "")}/`,
+  `${(process.env.NEXT_PUBLIC_SITE_URL || (vercelHost ? `https://${vercelHost}` : "https://aimatralab.com")).replace(/\/$/, "")}/`,
 );
 
 export function siteHref(path: string) {

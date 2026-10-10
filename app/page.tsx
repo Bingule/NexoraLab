@@ -109,7 +109,7 @@ export default function Home() {
           {tools
             .filter((t) => t.featured && isAvailable(t))
             .sort((a, b) => Number(!!a.demo) - Number(!!b.demo))
-            .slice(0, 3)
+            .slice(0, 4)
             .map((t) => (
               <ToolCard key={t.id} tool={t} />
             ))}

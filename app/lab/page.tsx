@@ -16,34 +16,6 @@ export default function Lab() {
   );
   const skills = tools.filter((t) => t.type === "skill" && isAvailable(t));
   const planned = tools.filter((t) => !isAvailable(t));
-  const groups = [
-    {
-      title: "Materials & Structure",
-      zh: "材料与结构",
-      ids: ["crystal-description", "molecular-weight"],
-    },
-    {
-      title: "Battery & Electrochemistry",
-      zh: "电池与电化学",
-      ids: ["theoretical-capacity", "rate-performance"],
-    },
-    {
-      title: "Scientific Utilities",
-      zh: "科学实用工具",
-      ids: available
-        .filter(
-          (t) =>
-            ![
-              "crystal-description",
-              "molecular-weight",
-              "theoretical-capacity",
-              "rate-performance",
-              "reviewer-two",
-            ].includes(t.id),
-        )
-        .map((t) => t.id),
-    },
-  ];
   return (
     <div className="container page-content">
       <div className="page-heading">
@@ -68,23 +40,11 @@ export default function Lab() {
           {available.length} <T zh="个在线工具">online tools</T>
         </span>
       </div>
-      {groups
-        .filter((group) => group.ids.length)
-        .map((group) => (
-          <section className="lab-tool-group" key={group.title}>
-            <h3>
-              <T zh={group.zh}>{group.title}</T>
-            </h3>
-            <div className="tool-grid lab-grid">
-              {group.ids
-                .map((id) => available.find((t) => t.id === id))
-                .filter((t) => !!t)
-                .map((t) => (
-                  <ToolCard key={t.id} tool={t} />
-                ))}
-            </div>
-          </section>
+      <div className="tool-grid lab-grid">
+        {available.map((t) => (
+          <ToolCard key={t.id} tool={t} />
         ))}
+      </div>
       {skills.length > 0 && (
         <section className="lab-tool-group">
           <h2>

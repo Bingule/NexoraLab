@@ -5,6 +5,8 @@ const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const files = fs
   .readdirSync(root, { recursive: true })
   .filter((f) => String(f).endsWith(".html"));
+const redirects = JSON.parse(fs.readFileSync("vercel.json", "utf8")).redirects || [];
+const redirected = (relative) => redirects.some(({ source }) => relative.startsWith(source.replace(":path*", "")));
 const failures = [];
 let count = 0;
 for (const name of files) {
@@ -23,7 +25,7 @@ for (const name of files) {
     if (fs.existsSync(target) && fs.statSync(target).isDirectory())
       target = path.join(target, "index.html");
     count++;
-    if (!fs.existsSync(target)) failures.push(`${name}: ${value}`);
+    if (!fs.existsSync(target) && !redirected(relative)) failures.push(`${name}: ${value}`);
   }
 }
 if (failures.length) {

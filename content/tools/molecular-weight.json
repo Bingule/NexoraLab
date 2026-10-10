@@ -4,18 +4,18 @@
   "version": "1.0.0",
   "category": "utilities",
   "type": "online",
-  "description": "Calculate molar mass and elemental mass contributions from chemical formulas in your browser, preserving the TMCCDB formula parser and atomic weights.",
+  "description": "Calculate molar mass and elemental mass contributions from chemical formulas in your browser.",
   "platforms": ["Web"],
   "icon": "",
   "screenshots": ["screenshot.png"],
   "download": "",
   "online": "/lab/molecular-weight/",
-  "github": "https://github.com/Bingule/tmcc-database",
-  "documentation": "https://github.com/Bingule/tmcc-database/blob/27e9767486d5dc8b81453a409d6023b458de40d7/README.md",
+  "github": "",
+  "documentation": "",
   "citation": "",
   "featured": true,
   "updated": "2026-10-03",
-  "developer": "Bing Wu / TMCCDB",
+  "developer": "Dr. Wu / AimatraLab",
   "features": [
     "Browser-local molar mass calculation",
     "Element counts, atomic weights, mass contributions and mass percentages",
@@ -26,11 +26,11 @@
     {
       "version": "1.0.0",
       "date": "2026-10-03",
-      "notes": "Added the TMCCDB molecular weight calculator to AimatraLab, preserving its formula parsing and elemental results."
+      "notes": "Molecular weight calculations are available on AimatraLab, with formula parsing and elemental mass results."
     }
   ],
   "zh": {
-    "description": "在浏览器中由化学式计算摩尔质量及各元素质量贡献，保留 TMCCDB 的化学式解析器和原子量数据。",
+    "description": "在浏览器中根据化学式计算摩尔质量、各元素质量贡献和质量百分比。",
     "features": [
       "在浏览器本地计算摩尔质量",
       "展示元素数量、原子量、质量贡献和质量百分比",
@@ -38,7 +38,7 @@
       "不支持水合物点号写法；英文句点表示小数计量数"
     ],
     "historyNotes": {
-      "1.0.0": "将 TMCCDB 分子量计算器接入 AimatraLab，保留原有化学式解析与元素结果。"
+      "1.0.0": "分子量计算器现已上线，支持化学式解析与各元素质量贡献分析。"
     }
   }
 }

@@ -34,7 +34,7 @@ export function Footer() {
       <div className="container footer-bottom">
         <span>
           © {new Date().getUTCFullYear()} AimatraLab ·{" "}
-          <T zh="由 Bing Wu 创立">Founded by Bing Wu</T>
+          <T zh="由 Dr. Wu 创立">Founded by Dr. Wu</T>
         </span>
         <span>
           <T zh="探索 · 分析 · 模拟 · 构建">

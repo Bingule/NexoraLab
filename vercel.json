@@ -1,5 +1,22 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
-  "buildCommand": "npm run build"
+  "buildCommand": "npm run build",
+  "redirects": [
+    {
+      "source": "/files/crystaldesk-windows/:path*",
+      "destination": "https://github.com/Bingule/NexoraLab/releases/download/crystaldesk-windows-v1.0.0/CrystalDesk-Windows-x64.zip",
+      "permanent": false
+    },
+    {
+      "source": "/files/scientific-unit-converter/:path*",
+      "destination": "https://github.com/Bingule/NexoraLab/releases/download/scientific-unit-converter-v1.0.1/scientific-unit-converter-1.0.1.zip",
+      "permanent": false
+    },
+    {
+      "source": "/files/reviewer-two/:path*",
+      "destination": "https://codeload.github.com/Bingule/reviewer-two/zip/9ff847d0b23a23c87b24e5340907df4c45f32ffc",
+      "permanent": false
+    }
+  ]
 }

@@ -11,7 +11,6 @@ export default function CrystalDescriptionPage() {
       <h1>{t("tools.crystal.title")}</h1>
       <p>{t("tools.crystal.description")}</p>
       <a className="secondary-button" href={TOOL_URL} target="_blank" rel="noopener noreferrer">{t("crystal.open")}</a>
-      {" "}<a className="secondary-button" href="https://github.com/Bingule/crystal-description" target="_blank" rel="noopener noreferrer">GitHub · ⭐</a>
     </header>
     <p>{t("crystal.help")}</p>
     <p role="note" style={{fontSize:"14px",color:"var(--text-muted, #59636d)"}}>{t("crystal.note")}</p>

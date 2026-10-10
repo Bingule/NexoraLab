@@ -143,7 +143,7 @@ export default async function Detail({
               </p>
             )}
           </section>
-          <section className="detail-section">
+          <section className="detail-section" id="version-history">
             <h2>
               <T zh="版本历史">Version history</T>
             </h2>

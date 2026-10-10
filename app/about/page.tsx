@@ -19,9 +19,9 @@ export default function About() {
           <T zh="实用工具，共享探索。">Practical tools. Shared discovery.</T>
         </h1>
         <p>
-          <T zh="由 Bing Wu 创立的 AI 辅助材料研究实验室与科学软件平台。">
+          <T zh="由 Dr. Wu 创立的 AI 辅助材料研究实验室与科学软件平台。">
             An AI-assisted materials research laboratory and scientific software
-            platform founded by Bing Wu.
+            platform founded by Dr. Wu.
           </T>
         </p>
       </div>

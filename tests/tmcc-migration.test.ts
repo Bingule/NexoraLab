@@ -27,7 +27,7 @@ test("TMCCDB tools retain their workspaces and Reviewer Two has a versioned skil
     } else {
       assert.equal(tool.online, `/lab/${id}/`);
     }
-    assert.ok(tool.github.startsWith("https://github.com/Bingule/"));
+    assert.equal(tool.github, "");
   }
 });
 test("TMCCDB scientific modules retain the pinned upstream bytes, apart from one obsolete TS annotation", () => {

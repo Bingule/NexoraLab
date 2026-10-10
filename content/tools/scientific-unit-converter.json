@@ -1,9 +1,9 @@
 {
   "icon": "",
-  "download": "https://github.com/Bingule/NexoraLab/releases/download/scientific-unit-converter-v1.0.1/scientific-unit-converter-1.0.1.zip",
+  "download": "/files/scientific-unit-converter/",
   "online": "/lab/scientific-unit-converter/",
-  "github": "https://github.com/Bingule/NexoraLab",
-  "documentation": "https://github.com/Bingule/NexoraLab/releases/tag/scientific-unit-converter-v1.0.1",
+  "github": "",
+  "documentation": "",
   "citation": "",
   "id": "scientific-unit-converter",
   "name": "Scientific Unit Converter",
@@ -11,19 +11,14 @@
   "category": "utilities",
   "type": "online",
   "description": "Convert length, energy, pressure and absolute temperature. Runs locally in your browser, with scientific notation support.",
-  "platforms": [
-    "Web",
-    "Offline HTML"
-  ],
-  "screenshots": [
-    "screenshot.png"
-  ],
+  "platforms": ["Web", "Offline HTML"],
+  "screenshots": ["screenshot.png"],
   "web": "/tools/scientific-unit-converter/app/index.html",
-  "release": "https://github.com/Bingule/NexoraLab/releases/tag/scientific-unit-converter-v1.0.1",
+  "release": "/tools/scientific-unit-converter/#version-history",
   "demo": false,
   "featured": false,
   "updated": "2026-10-03",
-  "developer": "Bing Wu / AimatraLab",
+  "developer": "Dr. Wu / AimatraLab",
   "features": [
     "Length, energy, pressure and absolute temperature conversion",
     "Scientific notation and up to 12 significant digits in displayed results",

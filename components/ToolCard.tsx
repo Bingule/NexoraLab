@@ -21,13 +21,12 @@ export function ToolActions({
       tool.windowsActivationRequired ? "Download Windows" : "Download",
       "download",
     ],
-    [tool.github, "GitHub", "code"],
     [tool.release || "", "Release notes", "book"],
   ].filter(([url]) => validLink(url));
   return (
     <>
       {actions.map(([url, label, icon]) =>
-        url.startsWith("/") ? (
+        url.startsWith("/") && !label.startsWith("Download") ? (
           <Link
             className={compact ? "text-link" : "button"}
             href={url}
@@ -41,7 +40,6 @@ export function ToolActions({
                   "Usage guide": "使用指南",
                   Download: "下载",
                   "Download Windows": "下载 Windows 离线版",
-                  GitHub: "GitHub",
                   "Release notes": "发布说明",
                 }[label]
               }
@@ -54,8 +52,8 @@ export function ToolActions({
             className={compact ? "text-link" : "button"}
             href={asset(url)}
             key={label}
-            target="_blank"
-            rel="noopener noreferrer"
+            target={url.startsWith("/") ? undefined : "_blank"}
+            rel={url.startsWith("/") ? undefined : "noopener noreferrer"}
           >
             <Icon name={icon} size={16} />
             <T
@@ -65,7 +63,6 @@ export function ToolActions({
                   "Usage guide": "使用指南",
                   Download: "下载",
                   "Download Windows": "下载 Windows 离线版",
-                  GitHub: "GitHub",
                   "Release notes": "发布说明",
                 }[label]
               }
@@ -196,8 +193,7 @@ export function ToolCard({ tool }: { tool: Tool }) {
       </div>
       {(validLink(tool.online) ||
         validLink(tool.download) ||
-        (tool.type === "skill" && validLink(tool.documentation)) ||
-        validLink(tool.github)) && (
+        (tool.type === "skill" && validLink(tool.documentation))) && (
         <div className="card-actions">
           <ToolActions tool={tool} compact />
         </div>
