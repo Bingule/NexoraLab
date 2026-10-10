@@ -1,3 +1,4 @@
+import { toolSeoTitle } from "@/lib/tool-seo";
 import { CvVersionNotice } from "@/components/CvVersionNotice";
 import { T } from "@/components/Language";
 import type { Metadata } from "next";
@@ -22,11 +23,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params;
   const t = getTools().find((t) => t.id === id);
-  return pageMetadata(
-    t?.name || "Tool not found",
-    t?.description || "Scientific software on AimatraLab.",
-    `/tools/${id}/`,
-  );
+  if (!t) notFound();
+  return {
+    ...pageMetadata(
+      toolSeoTitle(t),
+      t?.description || "Scientific software on AimatraLab.",
+      `/tools/${id}/`,
+    ),
+    ...(!isAvailable(t) ? { robots: { index: false, follow: true } } : {}),
+  };
 }
 export default async function Detail({
   params,

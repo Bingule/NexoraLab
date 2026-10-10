@@ -6,7 +6,7 @@ import { Catalog } from "@/components/Catalog";
 import { pageMetadata } from "@/lib/site";
 export const metadata: Metadata = pageMetadata(
   "Tools",
-  "Discover practical scientific software for materials research, characterization, simulation and data analysis on AimatraLab.",
+  "Browse AimatraLab tools for CIF crystal descriptions, scientific calculations and electrochemical data analysis, with release information and clearly marked planned projects.",
   "/tools/",
 );
 export default function Tools() {

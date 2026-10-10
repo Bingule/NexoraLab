@@ -2,10 +2,10 @@ import { T } from "@/components/Language";
 import type { Metadata } from "next";
 import { Founder } from "@/components/Founder";
 import { Icon } from "@/components/Icon";
-import { pageMetadata, siteDescription } from "@/lib/site";
+import { pageMetadata } from "@/lib/site";
 export const metadata: Metadata = pageMetadata(
   "About",
-  siteDescription,
+  "Meet AimatraLab, the materials research laboratory and scientific software platform founded by Dr. Wu, and learn about its research-led approach to building practical tools.",
   "/about/",
 );
 export default function About() {

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 
 export const siteDescription =
-  "AimatraLab develops practical tools for materials research, characterization, simulation, data analysis and scientific visualization.";
-export const siteTitle =
-  "AimatraLab — AI-assisted Tools for Materials Research";
+  "AimatraLab offers materials research software for CIF crystal descriptions, scientific calculations, electrochemical data analysis and AI-assisted manuscript review.";
+export const siteTitle = "AimatraLab | Materials Research Software & AI Tools";
 // Use the custom domain when configured, otherwise Vercel's production host.
 // Preserve the current site outside Vercel until cutover.
 const vercelHost =

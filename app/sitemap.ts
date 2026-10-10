@@ -1,11 +1,12 @@
 import type { MetadataRoute } from "next";
+import { isAvailable } from "@/lib/manifest";
 import { getTools } from "@/lib/registry";
 import { rateViews } from "@/lib/migrated-tools";
 import { siteHref } from "@/lib/site";
 
 export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
-  const tools = getTools();
+  const tools = getTools().filter(isAvailable);
   return [
     "/",
     "/tools/",

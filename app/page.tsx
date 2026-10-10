@@ -1,4 +1,4 @@
-import { siteDescription, siteUrl } from "@/lib/site";
+import { siteDescription, siteUrl, siteHref } from "@/lib/site";
 import { isAvailable } from "@/lib/manifest";
 import Link from "next/link";
 import { getTools } from "@/lib/registry";
@@ -22,13 +22,26 @@ export default function Home() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "WebSite",
-            "@id": `${siteUrl.href}#website`,
-            name: "AimatraLab",
-            alternateName: "aimatralab.com",
-            url: siteUrl.href,
-            description: siteDescription,
-            inLanguage: ["zh-CN", "en"],
+            "@graph": [
+              {
+                "@type": "WebSite",
+                "@id": `${siteUrl.href}#website`,
+                name: "AimatraLab",
+                alternateName: "aimatralab.com",
+                url: siteUrl.href,
+                description: siteDescription,
+                inLanguage: ["zh-CN", "en"],
+                publisher: { "@id": `${siteUrl.href}#organization` },
+              },
+              {
+                "@type": "Organization",
+                "@id": `${siteUrl.href}#organization`,
+                name: "AimatraLab",
+                url: siteUrl.href,
+                logo: siteHref("/logo.svg"),
+                description: siteDescription,
+              },
+            ],
           }).replace(/</g, "\\u003c"),
         }}
       />
@@ -42,7 +55,7 @@ export default function Home() {
               </T>
             </p>
             <h1>
-              <T zh="实用工具">Tools for</T>
+              AimatraLab
               <br />
               <T
                 zh={
@@ -51,7 +64,7 @@ export default function Home() {
                   </>
                 }
               >
-                materials <span>research.</span>
+                Materials research <span>tools.</span>
               </T>
             </h1>
             <p className="hero-description">
@@ -59,10 +72,10 @@ export default function Home() {
                 From atomic structures to experimental insight.
               </T>
               <br className="desktop-break" />{" "}
-              <T zh="AimatraLab 开发面向材料研究、表征、模拟、数据分析与科学可视化的实用工具。">
-                AimatraLab develops practical tools for materials research,
-                characterization, simulation, data analysis and scientific
-                visualization.
+              <T zh="使用 CIF 晶体结构描述、分子量与理论容量计算、电化学数据分析工具，探索科研论文评审 AI Skill。">
+                Explore CIF crystal descriptions, molar mass and theoretical
+                capacity calculators, electrochemical data analysis, and an AI
+                skill for scientific manuscript review.
               </T>
             </p>
             <div className="hero-actions">

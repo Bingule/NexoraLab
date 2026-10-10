@@ -14,9 +14,11 @@ export async function generateMetadata({
   params: Promise<{ view: string }>;
 }) {
   const { view } = await params;
+  if (!(rateViews as readonly string[]).includes(view)) notFound();
+  const label = view.replaceAll("-", " ");
   return pageMetadata(
-    `${view.replaceAll("-", " ")} — Rate Performance`,
-    "Rate Performance scientific analysis workspace on AimatraLab.",
+    `${label} — Rate Performance`,
+    `Explore ${label} for electrochemical rate performance in the AimatraLab online analysis workspace.`,
     `/lab/rate-performance/${view}/`,
   );
 }

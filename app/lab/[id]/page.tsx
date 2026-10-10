@@ -1,3 +1,4 @@
+import { isAvailable } from "@/lib/manifest";
 import { CvVersionNotice } from "@/components/CvVersionNotice";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -23,11 +24,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params;
   const tool = getTools().find((t) => t.id === id);
-  return pageMetadata(
-    `${tool?.name || "Tool"} ${tool?.type === "skill" ? "usage guide" : "workspace"}`,
-    tool?.description || "An AimatraLab scientific workspace.",
-    `/lab/${id}/`,
-  );
+  if (!tool) notFound();
+  return {
+    ...pageMetadata(
+      `${tool?.name || "Tool"} ${tool?.type === "skill" ? "usage guide" : "workspace"}`,
+      `${tool.type === "skill" ? "Usage guide" : "Online workspace"} for ${tool.name}. ${tool.description}`,
+      `/lab/${id}/`,
+    ),
+    ...(!isAvailable(tool) ? { robots: { index: false, follow: true } } : {}),
+  };
 }
 export default async function Workspace({
   params,
