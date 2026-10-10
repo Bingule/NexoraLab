@@ -1,3 +1,4 @@
+import { CvVersionNotice } from "@/components/CvVersionNotice";
 import { T } from "@/components/Language";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -85,6 +86,7 @@ export default async function Detail({
           </div>
         </div>
       )}
+      {t.id === "cv-kinetics" && <CvVersionNotice />}
       {t.windowsActivationRequired && (
         <WindowsActivation downloadAvailable={validLink(t.download)} />
       )}

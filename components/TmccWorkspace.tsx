@@ -9,6 +9,10 @@ const loading = () => (
   </p>
 );
 const pages: Record<string, ReturnType<typeof dynamic>> = {
+  "cv-kinetics": dynamic(
+    () => import("@/vendor/tmccdb/src/pages/CvKineticsPage"),
+    { ssr: false, loading },
+  ),
   "molecular-weight": dynamic(
     () => import("@/vendor/tmccdb/src/pages/MolecularWeightPage"),
     { ssr: false, loading },

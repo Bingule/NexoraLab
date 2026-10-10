@@ -1,3 +1,4 @@
+import { CvVersionNotice } from "@/components/CvVersionNotice";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -58,6 +59,7 @@ export default async function Workspace({
           </p>
         </div>
       )}
+      {t.id === "cv-kinetics" && <CvVersionNotice />}
       {t.id === "reviewer-two" ? (
         <ReviewerTwoGuide tool={t} />
       ) : isMigratedTool(t.id) ? (

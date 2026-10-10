@@ -39,7 +39,24 @@
     "src/tools/rate-performance/utils/rateUnits.ts": "c2c685d1394d12d71d10c294dd58bddf568b4a784fd2cf8e7861722c96edc3ee",
     "src/tools/rate-performance/utils/rateValidation.ts": "b3b4902382ede48e7349b4bde3f9c867c883cdb7d3313c9302f796f729747ca9",
     "src/tools/rate-performance/utils/thicknessExports.ts": "9450beacb98794c291c3a0775101102843c792f2283dd27cffb8876aacbc71a5",
-    "src/tools/rate-performance/utils/thicknessWorkflow.ts": "f0fa049c6ba44c7665be3020038d4bcb92526349640ee5ad60df488df37fe005"
+    "src/tools/rate-performance/utils/thicknessWorkflow.ts": "f0fa049c6ba44c7665be3020038d4bcb92526349640ee5ad60df488df37fe005",
+    "src/lib/cvTypes.ts": "75b906a326fa35578b75d2ba842421af188d79b885e8beb528b06e285171fa62",
+    "src/lib/cvImport.ts": "6e653afaa875827ebd81eac30cb361f34efbd0dbe4fd50578eaa3e62e1331d7a",
+    "src/lib/cvCycle.ts": "b1292660663528a8c07194d5307440ab3cefe0741bfeec0f4356cf6c533eb7ec",
+    "src/lib/cvParsing.ts": "4a2f842c12716839b57f62e741a7fe34cf917bbbbcd5f9d28c99299d4a122b2f",
+    "src/lib/cvDunnConfidence.ts": "b0409c3becc2e527aa4266330b5b8e19e47ccf401d4afd3f3b5957b9f7a92cf7",
+    "src/lib/cvBValueSelection.ts": "33c6a65f819d09f6fca737dfcc30837e14119d4f136404dba5f17dee5c88455e",
+    "src/lib/regression.ts": "8fe6b6b72660a6f86284ae3a90f028e4faa562f898fa6e12dae99a0b217f17d9",
+    "src/lib/cvAnalysis.ts": "ce5cd2414870968811b63110c48cc54ec5f9988ed566c50b7a8c6b03e20e5f54",
+    "src/lib/cvDunnFit.ts": "37fe9e2f89cdcaf96afdb541277a059aee9caa797d7db585dd4ef72ff2a5e0e2",
+    "src/lib/cvInterpolation.ts": "6265b3e63911fdafb5493788a4097caac8275dbc66071426410db7fc1f9e75ba",
+    "src/lib/cvDunnQuality.ts": "243d66d147047c1d54d2ab65e2f6cf086b929b78d7c31f0cd5736353a7555267",
+    "src/lib/cvDunnReconstruction.ts": "3b310e3e4c90dd4adc5408a6647e8bd750b726955c98cdffe344cd792a0f4fb9",
+    "src/lib/cvDunnStabilization.ts": "379705208aa05f9ffc67baae9402225a15b11362804d2b622c142efefbf094e9",
+    "src/lib/cvPeakAnalysis.ts": "4589f12654d6fa906ca05db4a209a9dd741508e626f2aa8d197a9151738af5d6",
+    "src/lib/cvWorkflow.ts": "2152bc7b324354338ddf1424d2668560265d21b2e9192de85aea09c469f575af",
+    "src/lib/cvPeakOverrides.ts": "ac2ca19368fe1271337a68e5567abc7694a3a48be13f91e5226ede8185bf9b89",
+    "src/lib/routes.ts": "af028d16544fb06060f25a58f684bf6853621170e2be2999a928de5b36e96862"
   },
   "integrationChanges": [
     "src/i18n/I18nProvider.tsx",
@@ -48,7 +65,8 @@
     "src/tools/rate-performance/pages/EmpiricalModelsPage.tsx",
     "src/tools/crystal-description/CrystalDescriptionPage.tsx",
     "src/locales/en.ts",
-    "src/locales/zh.ts"
+    "src/locales/zh.ts",
+    "CV Kinetics workspace added from the same pinned upstream commit; desktop application source and licensing are not imported."
   ],
   "typeOnlyCompatibility": {
     "file": "src/tools/rate-performance/analysis/fitRatePerformance.ts",

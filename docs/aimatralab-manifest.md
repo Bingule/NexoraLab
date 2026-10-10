@@ -20,6 +20,7 @@
 | `windowsActivationRequired` | 可选布尔值。现有机器码激活的 Windows 客户端填 `true`；仅用于桌面或混合工具，保留原授权机制         |
 | `icon`                      | 可选。空字符串、HTTPS 地址、站内绝对路径或资源文件名                                               |
 | `screenshots`               | 必填数组。可为空；支持 HTTPS 地址、站内绝对路径或文件名                                            |
+| `offlineDownloadUnavailable` | 可选布尔值。离线版暂不开放下载时填 `true`，此时 `download` 必须为空；在线入口和版本历史仍可保留。 |
 | `download`                  | 可选。直接下载 URL，推荐独立软件 GitHub Release 中的 `.exe` / `.zip` 资源地址                      |
 | `online`                    | 可选。可运行应用的 HTTPS URL 或真实的 `/lab/tool-name/` 路径                                       |
 | `github`                    | 可选。独立软件仓库的 HTTPS URL                                                                     |

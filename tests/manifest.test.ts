@@ -167,3 +167,21 @@ test("validates hosted app entries, release links and optional Chinese metadata"
   ])
     assert.throws(() => validateTool({ ...online, ...patch }));
 });
+
+test("offline download hold preserves online access and rejects active download URLs", () => {
+  const held = {
+    ...demo,
+    demo: false,
+    type: "hybrid",
+    online: "/lab/cv-kinetics/",
+    offlineDownloadUnavailable: true,
+  };
+  assert.equal(isAvailable(validateTool(held)), true);
+  assert.equal(validateTool(held).download, "");
+  assert.throws(() =>
+    validateTool({ ...held, download: "https://example.com/client.zip" }),
+  );
+  assert.throws(() =>
+    validateTool({ ...held, offlineDownloadUnavailable: "true" }),
+  );
+});

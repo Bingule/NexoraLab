@@ -24,6 +24,7 @@ export type Tool = {
   citation: string;
   release?: string;
   windowsActivationRequired?: boolean;
+  offlineDownloadUnavailable?: boolean;
   web?: string;
   zh?: {
     description?: string;
@@ -86,6 +87,7 @@ export function validateTool(input: unknown): Tool {
     "features",
     "history",
     "windowsActivationRequired",
+    "offlineDownloadUnavailable",
   ];
   if (Object.keys(t).some((key) => !publicFields.includes(key)))
     throw new Error(
@@ -158,9 +160,18 @@ export function validateTool(input: unknown): Tool {
   for (const key of ["icon", "citation", "developer"])
     if (t[key] !== undefined && typeof t[key] !== "string")
       throw new Error(`Invalid ${key}`);
-  for (const key of ["demo", "featured", "windowsActivationRequired"])
+  for (const key of [
+    "demo",
+    "featured",
+    "windowsActivationRequired",
+    "offlineDownloadUnavailable",
+  ])
     if (t[key] !== undefined && typeof t[key] !== "boolean")
       throw new Error(`Invalid ${key}`);
+  if (t.offlineDownloadUnavailable && t.download)
+    throw new Error(
+      "Offline download hold cannot include an active download URL",
+    );
   if (
     t.windowsActivationRequired &&
     ((t.type !== "desktop" && t.type !== "hybrid") ||

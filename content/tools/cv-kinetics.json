@@ -1,0 +1,147 @@
+{
+  "id": "cv-kinetics",
+  "name": "CV Kinetics",
+  "version": "2.1.7",
+  "category": "electrochemistry",
+  "type": "hybrid",
+  "description": "Analyze multi-scan-rate cyclic voltammetry with b-value fitting and Dunn contribution analysis. Some online features and updates are missing; the offline version is more complete. Offline downloads are temporarily unavailable.",
+  "platforms": ["Web", "Windows", "macOS (v1.0.0)"],
+  "icon": "",
+  "screenshots": ["/tools/cv-kinetics/screenshot.jpg"],
+  "download": "",
+  "online": "/lab/cv-kinetics/",
+  "github": "",
+  "documentation": "",
+  "release": "/tools/cv-kinetics/#version-history",
+  "citation": "",
+  "featured": false,
+  "updated": "2026-10-10",
+  "developer": "Dr. Wu / AimatraLab",
+  "windowsActivationRequired": true,
+  "offlineDownloadUnavailable": true,
+  "features": [
+    "Browser-based CSV, TXT and XLSX import for multi-scan-rate CV data",
+    "b-value analysis and peak selection with manual adjustment",
+    "Dunn contribution analysis, diagnostic plots and result exports",
+    "Online version: some features are missing and some updates have not yet been synchronized",
+    "Offline version: a more complete workflow; current Windows release v2.1.7, with historical macOS v1.0.0 packages",
+    "Offline version history is available for reference; downloads are temporarily unavailable"
+  ],
+  "history": [
+    {
+      "version": "2.1.7",
+      "date": "2026-09-19",
+      "notes": "Windows x64 (147.7 MiB). Downloads temporarily unavailable."
+    },
+    {
+      "version": "2.1.6",
+      "date": "2026-09-19",
+      "notes": "Windows x64 (138.5 MiB). Downloads temporarily unavailable."
+    },
+    {
+      "version": "2.1.5",
+      "date": "2026-09-19",
+      "notes": "Windows x64 (138.5 MiB). Downloads temporarily unavailable."
+    },
+    {
+      "version": "2.1.0",
+      "date": "2026-09-14",
+      "notes": "Windows x64 (142.9 MiB). Downloads temporarily unavailable."
+    },
+    {
+      "version": "1.2.19",
+      "date": "2026-09-14",
+      "notes": "Windows x64 (142.9 MiB). Downloads temporarily unavailable."
+    },
+    {
+      "version": "1.2.18",
+      "date": "2026-09-14",
+      "notes": "Windows x64 (142.9 MiB). Downloads temporarily unavailable."
+    },
+    {
+      "version": "1.2.17",
+      "date": "2026-09-14",
+      "notes": "Windows x64 (142.9 MiB). Downloads temporarily unavailable."
+    },
+    {
+      "version": "1.2.16",
+      "date": "2026-09-14",
+      "notes": "Windows x64 (142.9 MiB). Downloads temporarily unavailable."
+    },
+    {
+      "version": "1.2.15",
+      "date": "2026-09-14",
+      "notes": "Windows x64 (142.9 MiB). Downloads temporarily unavailable."
+    },
+    {
+      "version": "1.2.14",
+      "date": "2026-09-14",
+      "notes": "Windows x64 (142.9 MiB). Downloads temporarily unavailable."
+    },
+    {
+      "version": "1.2.13",
+      "date": "2026-09-14",
+      "notes": "Windows x64 (134.7 MiB). Downloads temporarily unavailable."
+    },
+    {
+      "version": "1.2.12",
+      "date": "2026-09-14",
+      "notes": "Windows x64 (134.6 MiB). Downloads temporarily unavailable."
+    },
+    {
+      "version": "1.2.11",
+      "date": "2026-09-13",
+      "notes": "Windows x64 (134.6 MiB). Downloads temporarily unavailable."
+    },
+    {
+      "version": "1.2.10",
+      "date": "2026-09-13",
+      "notes": "Windows x64 (134.6 MiB). Downloads temporarily unavailable."
+    },
+    {
+      "version": "1.2.0",
+      "date": "2026-09-13",
+      "notes": "Windows x64 (148.2 MiB). Downloads temporarily unavailable."
+    },
+    {
+      "version": "1.1.0",
+      "date": "2026-09-12",
+      "notes": "Windows x64 (148.1 MiB). Downloads temporarily unavailable."
+    },
+    {
+      "version": "1.0.0",
+      "date": "2026-09-12",
+      "notes": "macOS Apple Silicon (123.8 MiB); macOS Intel (129.6 MiB); Windows x64 (148.1 MiB). Downloads temporarily unavailable."
+    }
+  ],
+  "zh": {
+    "description": "基于多扫速循环伏安数据进行 b 值拟合与 Dunn 贡献分析。线上版部分功能缺失，部分更新尚未同步；离线版功能更完整，暂不开放下载。",
+    "features": [
+      "在浏览器中导入多扫速 CV 数据，支持 CSV、TXT 和 XLSX",
+      "b 值分析、峰位选择与手动调整",
+      "Dunn 贡献分析、诊断图表与结果导出",
+      "线上版：部分功能缺失，部分更新尚未同步",
+      "离线版：分析工作流更完整；当前 Windows 版为 v2.1.7，另保留 macOS v1.0.0 历史版本",
+      "可查看离线版本历史，暂不开放下载"
+    ],
+    "historyNotes": {
+      "2.1.7": "Windows x64 (147.7 MiB)。暂不开放下载。",
+      "2.1.6": "Windows x64 (138.5 MiB)。暂不开放下载。",
+      "2.1.5": "Windows x64 (138.5 MiB)。暂不开放下载。",
+      "2.1.0": "Windows x64 (142.9 MiB)。暂不开放下载。",
+      "1.2.19": "Windows x64 (142.9 MiB)。暂不开放下载。",
+      "1.2.18": "Windows x64 (142.9 MiB)。暂不开放下载。",
+      "1.2.17": "Windows x64 (142.9 MiB)。暂不开放下载。",
+      "1.2.16": "Windows x64 (142.9 MiB)。暂不开放下载。",
+      "1.2.15": "Windows x64 (142.9 MiB)。暂不开放下载。",
+      "1.2.14": "Windows x64 (142.9 MiB)。暂不开放下载。",
+      "1.2.13": "Windows x64 (134.7 MiB)。暂不开放下载。",
+      "1.2.12": "Windows x64 (134.6 MiB)。暂不开放下载。",
+      "1.2.11": "Windows x64 (134.6 MiB)。暂不开放下载。",
+      "1.2.10": "Windows x64 (134.6 MiB)。暂不开放下载。",
+      "1.2.0": "Windows x64 (148.2 MiB)。暂不开放下载。",
+      "1.1.0": "Windows x64 (148.1 MiB)。暂不开放下载。",
+      "1.0.0": "macOS Apple Silicon (123.8 MiB); macOS Intel (129.6 MiB); Windows x64 (148.1 MiB)。暂不开放下载。"
+    }
+  }
+}

@@ -1,4 +1,5 @@
 export const migratedToolIds = [
+  "cv-kinetics",
   "crystal-description",
   "theoretical-capacity",
   "molecular-weight",

@@ -25,6 +25,14 @@ export function ToolActions({
   ].filter(([url]) => validLink(url));
   return (
     <>
+      {tool.offlineDownloadUnavailable && (
+        <button className="button secondary" type="button" disabled>
+          <Icon name="download" size={16} />
+          <T zh="离线版暂不开放下载">
+            Offline download temporarily unavailable
+          </T>
+        </button>
+      )}
       {actions.map(([url, label, icon]) =>
         url.startsWith("/") && !label.startsWith("Download") ? (
           <Link

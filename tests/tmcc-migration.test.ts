@@ -5,6 +5,7 @@ import { createHash } from "node:crypto";
 import { validateTool, isAvailable } from "../lib/manifest.ts";
 
 const ids = [
+  "cv-kinetics",
   "crystal-description",
   "theoretical-capacity",
   "molecular-weight",
