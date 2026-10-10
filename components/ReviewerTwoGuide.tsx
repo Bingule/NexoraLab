@@ -15,10 +15,10 @@ export function ReviewerTwoGuide({ tool }: { tool: Tool }) {
           <T zh={tool.zh?.description}>{tool.description}</T>
         </p>
         <div className="hero-actions">
-          <a className="button" href="/files/reviewer-two/">
+          <button className="button secondary" type="button" disabled>
             <Icon name="download" size={17} />
-            <T zh="下载 Skill">Download skill</T>
-          </a>
+            <T zh="暂不开放下载">Download temporarily unavailable</T>
+          </button>
         </div>
       </header>
       <section className="detail-section">
@@ -28,10 +28,9 @@ export function ReviewerTwoGuide({ tool }: { tool: Tool }) {
         <ol>
           <li>
             <p>
-              <T zh="获取 Skill：下载并解压上方的技能包，在获授权的私有环境中查看 SKILL.md、共享规则及宿主适配器。">
-                Get the skill: download and extract the package above into an
-                authorized private environment. Review SKILL.md, the shared
-                rules and the adapter for your host.
+              <T zh="获取 Skill：暂不开放下载。以下使用指南供已获取 Skill 的获授权用户参考。">
+                Get the skill: downloads are temporarily unavailable. The guide
+                below is for authorized users who already have the skill.
               </T>
             </p>
           </li>
@@ -77,10 +76,10 @@ export function ReviewerTwoGuide({ tool }: { tool: Tool }) {
           <T zh="版本与更新">Versions & updates</T>
         </h2>
         <p>
-          <T zh="下方为 AimatraLab 登记的版本历史。下载包对应当前登记版本；更新 Skill 时请查看版本说明，并重新运行项目检查。">
-            Below is the version history registered on AimatraLab. The download
-            package matches the recorded release. When updating the skill,
-            review the release notes and rerun the project checks.
+          <T zh="下方为 AimatraLab 登记的版本历史。暂不开放下载；更新 Skill 时请查看版本说明，并重新运行项目检查。">
+            Below is the version history registered on AimatraLab. Downloads are
+            temporarily unavailable. When updating the skill, review the release
+            notes and rerun the project checks.
           </T>
         </p>
         <div className="history-list">
